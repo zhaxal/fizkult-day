@@ -1,7 +1,6 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode } from "swiper";
 import "swiper/css";
-
 import ScheduleCard from "./ScheduleCard";
 
 const Schedule = () => {

@@ -1,4 +1,9 @@
-import { Box } from "@chakra-ui/react";
+import {
+  Alert,
+  AlertIcon,
+  AlertTitle,
+  Box,
+} from "@chakra-ui/react";
 import Competitions from "@components/competitions-block/Competitions";
 import Cover from "@components/cover-block/Cover";
 import Description from "@components/description-block/Description";
@@ -24,6 +29,10 @@ const Home: NextPage = () => {
       <Sections />
       <Partners />
       <Footer />
+      {/* <Alert status="warning">
+        <AlertIcon />
+        <AlertTitle>Сайт в разработке</AlertTitle>
+      </Alert> */}
     </Box>
   );
 };

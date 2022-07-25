@@ -25,7 +25,7 @@ const Sections = () => {
           {array.map((i) => {
             return (
               <SwiperSlide style={{ width: "1110px" }} key={i}>
-                <SectionCard />
+                <SectionCard date={""} title={""} desc={""} image={""} />
               </SwiperSlide>
             );
           })}

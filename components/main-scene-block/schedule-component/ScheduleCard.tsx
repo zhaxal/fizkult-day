@@ -1,12 +1,7 @@
-import { Box, Heading, Stack, Text } from "@chakra-ui/react";
+import { Box, Stack, Text } from "@chakra-ui/react";
+import { Schedule } from "@mongo/models/events/schedule";
 
-interface ScheduleCardProps {
-  time: string;
-  title: string;
-  desc: string;
-}
-
-const ScheduleCard = ({ time, title, desc }: ScheduleCardProps) => {
+const ScheduleCard = ({ time, title, desc }: Schedule) => {
   return (
     <Box borderRadius="32px" bg="#00AEEF">
       <Stack

@@ -1,18 +1,13 @@
 import { Stack, Text, Box, Image } from "@chakra-ui/react";
-
-interface PerfomanceCardProps {
-  position: "left" | "right";
-  date: string;
-  title: string;
-  description: string;
-}
+import { Perfomance } from "@mongo/models/events/perfomance";
 
 const PerfomanceCard = ({
   position,
   date,
   title,
   description,
-}: PerfomanceCardProps) => {
+  image,
+}: Perfomance) => {
   return (
     <Box>
       <Stack
@@ -28,7 +23,7 @@ const PerfomanceCard = ({
               borderRadius: "0px 32px 32px 0px",
               height: "576px",
             }}
-            src="/images/velo.png"
+            src={image}
             alt="velo"
           />
         )}
@@ -49,7 +44,7 @@ const PerfomanceCard = ({
               borderRadius: "32px 0px 0px 32px",
               height: "576px",
             }}
-            src="/images/velo.png"
+            src={image}
             alt="velo"
           />
         )}

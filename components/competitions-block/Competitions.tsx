@@ -4,9 +4,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode } from "swiper";
 import "swiper/css";
 import dynamic from "next/dynamic";
-const CompetitionCard = dynamic(() => import('./CompetitionCard'), {
-  ssr: false
-})
+const CompetitionCard = dynamic(() => import("./CompetitionCard"), {
+  ssr: false,
+});
 
 const Competitions = () => {
   const array = [1, 2, 3, 5, 6];
@@ -15,7 +15,7 @@ const Competitions = () => {
       <Heading text="соревнования и конкурсы" />
       <Container mb="80px" maxW="1110px">
         <Swiper
-          style={{overflow: "visible"}}
+          style={{ overflow: "visible" }}
           modules={[FreeMode]}
           slidesPerView={"auto"}
           spaceBetween={48}
@@ -24,7 +24,12 @@ const Competitions = () => {
           {array.map((i) => {
             return (
               <SwiperSlide style={{ width: "1110px" }} key={i}>
-                <CompetitionCard />
+                <CompetitionCard
+                  date="13 АВГУСТА"
+                  title="Moscow\nFitness Cup"
+                  desc="Открытый московский турнир в абсолютных категориях номинаций:\nПляжный бодибилдинг,\nФитнес Бикини,\nФит-модель"
+                  image="/images/guy.png"
+                />
               </SwiperSlide>
             );
           })}

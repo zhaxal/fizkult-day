@@ -9,6 +9,7 @@ const Perfomances = () => {
       <Container mb="48px" maxW="1110px">
         <Stack spacing="160px">
           <PerfomanceCard
+            image="/images/velo.png"
             position="left"
             date="13 АВГУСТА"
             title="ПЛОЩАДКА московской академии велосипедного спорта"
@@ -17,6 +18,7 @@ const Perfomances = () => {
           />
 
           <PerfomanceCard
+            image="/images/velo.png"
             position="right"
             date="13 АВГУСТА"
             title="Киберспортивная площадка"
@@ -26,6 +28,7 @@ const Perfomances = () => {
           />
 
           <PerfomanceCard
+            image="/images/velo.png"
             position="left"
             date="13 АВГУСТА"
             title="Киберспортивная площадка"
