@@ -1,5 +1,5 @@
 import Heading from "@components/ui/Heading";
-import { Container } from "@chakra-ui/react";
+import { Container, useBreakpointValue } from "@chakra-ui/react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode } from "swiper";
 import "swiper/css";
@@ -10,9 +10,11 @@ const CompetitionCard = dynamic(() => import("./CompetitionCard"), {
 
 const Competitions = () => {
   const array = [1, 2, 3, 5, 6];
+  const variant = useBreakpointValue({ md: true })
+
   return (
     <>
-      <Heading text="соревнования и конкурсы" />
+      <Heading text="соревнования и конкурсы" isMobile={!variant} />
       <Container mb="80px" maxW="1110px">
         <Swiper
           style={{ overflow: "visible" }}

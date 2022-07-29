@@ -1,11 +1,13 @@
-import { Container, Stack, Box } from "@chakra-ui/react";
+import { Container, Stack, Box, useBreakpointValue } from "@chakra-ui/react";
 import Heading from "@components/ui/Heading";
 import PerfomanceCard from "./PerfomanceCard";
 
 const Perfomances = () => {
+  const variant = useBreakpointValue({ md: true });
+
   return (
     <>
-      <Heading text="ПОКАЗАТЕЛЬНЫЕ ВЫСТУПЛЕНИЯ" />
+      <Heading text="ПОКАЗАТЕЛЬНЫЕ ВЫСТУПЛЕНИЯ" isMobile={!variant} />
       <Container mb="48px" maxW="1110px">
         <Stack spacing="160px">
           <PerfomanceCard

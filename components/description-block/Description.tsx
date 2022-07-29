@@ -1,6 +1,19 @@
-import { Box, Button, Container, Image, Stack, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Container,
+  Image,
+  Stack,
+  Text,
+  useBreakpointValue,
+} from "@chakra-ui/react";
+
+import description from "./styles/Desription";
 
 const Description = () => {
+  const variant = useBreakpointValue({ md: true });
+
+  
   return (
     <Container maxW="1110px">
       <Stack spacing="118px" mt="41px" direction="row">
@@ -12,7 +25,7 @@ const Description = () => {
 
           <Stack mb="40px" alignItems="flex-start" spacing="24px">
             <Text variant="date">13 АВГУСТА</Text>
-            <Text
+            {/* <Text
               sx={{
                 textTransform: "uppercase",
                 fontFamily: "Mossport",
@@ -24,7 +37,7 @@ const Description = () => {
             >
               физкультурно-спортивный праздник, посвященный Всероссийскому Дню
               физкультурника
-            </Text>
+            </Text> */}
 
             <Text
               sx={{
@@ -40,7 +53,7 @@ const Description = () => {
             </Text>
           </Stack>
 
-          <Stack alignItems="center" spacing="20px" direction="row">
+          <Stack alignItems="center" spacing={{base: "12px", md: "20px"}} direction={{base: "column", md: "row"}}>
             <Button variant="register">Записаться бесплатно</Button>
             <Text
               sx={{
@@ -48,6 +61,7 @@ const Description = () => {
                 fontFamily: "Gotham Pro Regular",
                 fontSize: "14px",
                 lineHeight: "150%",
+                textAlign: "center"
               }}
             >
               И получить гарантированный подарок от МОСКОВСКОГО СПОРТА
@@ -55,7 +69,7 @@ const Description = () => {
           </Stack>
         </Box>
 
-        <Image src="/images/woman.png" alt="woman" />
+        {variant ? (<Image src="/images/woman.png" alt="woman" />) : ""}
       </Stack>
     </Container>
   );

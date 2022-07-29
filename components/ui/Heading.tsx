@@ -2,12 +2,13 @@ import { Stack, Text } from "@chakra-ui/react";
 
 interface HeadingProps {
   text: string;
+  isMobile: boolean | undefined;
 }
 
-const Heading = ({ text }: HeadingProps) => {
+const Heading = ({ text, isMobile }: HeadingProps) => {
   return (
     <Stack
-      maxW="800px"
+      maxW={isMobile ? "320px" : "800px"}
       mb="48px"
       bg="#E93734"
       justifyContent="center"
@@ -16,10 +17,10 @@ const Heading = ({ text }: HeadingProps) => {
       <Text
         sx={{
           color: "#FFFFFF",
-          fontSize: "64px",
           textTransform: "uppercase",
           fontFamily: "Mossport",
         }}
+        fontSize={isMobile ? "32px" : "64px"}
       >
         {text}
       </Text>

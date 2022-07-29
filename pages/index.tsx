@@ -2,6 +2,7 @@ import {
   Alert,
   AlertIcon,
   AlertTitle,
+  useBreakpointValue,
   Box,
 } from "@chakra-ui/react";
 import Competitions from "@components/competitions-block/Competitions";
@@ -14,16 +15,19 @@ import Sections from "@components/sections-block/Sections";
 import Divider from "@components/ui/Divider";
 import Footer from "@components/ui/Footer";
 import Title from "@components/ui/Title";
+import DescriptionMobile from "@components/description-block/DescriptionMobile";
 import type { NextPage } from "next";
 
 const Home: NextPage = () => {
+  const variant = useBreakpointValue({ md: true });
+
   return (
     <Box sx={{ display: "flex", flexDirection: "column", overflow: "hidden" }}>
       <Cover />
-      <Description />
+      {variant ? <Description /> : <DescriptionMobile />}
       <Divider />
-      <Title title="для вас мы подготовили" />
-      <MainScene />
+      {variant ? null : (<Title title="для вас мы подготовили" />)}
+      {/* <MainScene /> */}
       <Competitions />
       <Perfomances />
       <Sections />

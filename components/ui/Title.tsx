@@ -6,14 +6,15 @@ interface TitleProps {
 
 const Title = ({ title }: TitleProps) => {
   return (
-    <Container maxW="1110px">
-      <Stack mb="48px" bg="#00AEEF" justifyContent="center" alignItems="center">
+    <Container maxW="1110px" px={"10px"}>
+      <Stack my="32px" bg="#00AEEF" justifyContent="center" alignItems="center">
         <Text
           sx={{
             color: "#F2F2F2",
-            fontSize: "64px",
+            fontSize: "32px",
             textTransform: "uppercase",
             fontFamily: "Mossport",
+            lineHeight: "32px",
           }}
         >
           {title}
