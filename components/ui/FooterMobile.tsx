@@ -12,7 +12,7 @@ const FooterMobile = () => {
 
       <Container mt="16px" mb="25px" maxW="1110px" px={0}>
         <VStack spacing={"32px"}>
-          <Box width="100%" height="490px" bg="grey">
+          <Box width="100%" height="493px" bg="grey">
             <iframe
               id="map_942407939"
               frameBorder="0"

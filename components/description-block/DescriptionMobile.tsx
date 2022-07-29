@@ -2,10 +2,12 @@ import {
   Box,
   Button,
   Container,
+  HStack,
   Image,
   Stack,
   Text,
   useBreakpointValue,
+  VStack,
 } from "@chakra-ui/react";
 
 import description from "./styles/Desription";
@@ -14,37 +16,21 @@ const DescriptionMobile = () => {
   const variant = useBreakpointValue({ md: true });
 
   return (
-    <Container maxW="1110px" px={"10px"}>
-      <Stack spacing="118px" direction="row">
-        <Box>
+    <Box w="full" px={"10px"}>
+      <VStack w="full" align={"center"}>
+        <Box >
           <Box w="117px" h="37px">
             <Text variant="date">13 АВГУСТА</Text>
           </Box>
-          <Stack
+          <HStack
             my="37px"
             spacing="44px"
-            direction="row"
-            overflowWrap={"anywhere"}
           >
             <Image src="/images/departmentMobile.svg" alt="department" />
             <Image src="/images/mossportMobile.svg" alt="mossport" />
-          </Stack>
+          </HStack>
 
           <Stack mb="40px" alignItems="flex-start" spacing="24px">
-            {/* <Text
-                sx={{
-                  textTransform: "uppercase",
-                  fontFamily: "Mossport",
-                  color: "#2E363E",
-                  maxW: "631px",
-                  fontSize: "48px",
-                  lineHeight: "53px",
-                }}
-              >
-                физкультурно-спортивный праздник, посвященный Всероссийскому Дню
-                физкультурника
-              </Text> */}
-
             <Text
               sx={{
                 fontFamily: "Gotham Pro Regular",
@@ -82,8 +68,8 @@ const DescriptionMobile = () => {
         </Box>
 
         {variant ? <Image src="/images/woman.png" alt="woman" /> : ""}
-      </Stack>
-    </Container>
+      </VStack>
+    </Box>
   );
 };
 
