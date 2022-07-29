@@ -14,6 +14,7 @@ import Perfomances from "@components/perfomances-block/Perfomances";
 import Sections from "@components/sections-block/Sections";
 import Divider from "@components/ui/Divider";
 import Footer from "@components/ui/Footer";
+import FooterMobile from "@components/ui/FooterMobile";
 import Title from "@components/ui/Title";
 import DescriptionMobile from "@components/description-block/DescriptionMobile";
 import type { NextPage } from "next";
@@ -32,7 +33,8 @@ const Home: NextPage = () => {
       <Perfomances />
       <Sections />
       <Partners />
-      <Footer />
+      {variant ? <Footer /> : <FooterMobile />}
+
       {/* <Alert status="warning">
         <AlertIcon />
         <AlertTitle>Сайт в разработке</AlertTitle>

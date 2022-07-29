@@ -3,25 +3,50 @@ import {
   SimpleGrid,
   Stack,
   Text,
-  Box,
+  useBreakpointValue,
   Image,
 } from "@chakra-ui/react";
 
 const Partners = () => {
+
+  const variant = useBreakpointValue({ md: true });
+
+  let columns: number;
+  let width: string;
+  let spacing: string;
+  let textVariant: string;
+  let mb: string;
+
+  if (variant) {
+    columns = 3
+    width = "300px"
+    spacing = "30px"
+    textVariant = "heading.small"
+    mb = "105px"
+  }
+  else {
+    columns = 2
+    width = "200px"
+    spacing = "20px"
+    textVariant = "heading.small.mobile"
+    mb = "32px"
+  }
+
   return (
-    <Container mb="105px" maxW="1110px">
+    <Container mb={mb} maxW="1110px">
       <Stack alignItems="center" justifyContent="center">
-        <Text mb="70px" variant="heading.small">
+        <Text mb="70px" variant={textVariant}>
           партнёры праздника
         </Text>
       </Stack>
 
-      <SimpleGrid columns={3} minChildWidth="300px" spacing="30px">
+      <SimpleGrid columns={columns} minChildWidth={width} spacing={spacing}>
         <Stack
           alignItems="center"
           justifyContent="center"
           bg="#F8F8F8"
-          height="234px"
+          py={variant ? "64px" : "41px"}
+          px="17px"
         >
           <Image src="/images/partners/department.svg" alt="department" />
         </Stack>
@@ -29,7 +54,8 @@ const Partners = () => {
           alignItems="center"
           justifyContent="center"
           bg="#F8F8F8"
-          height="234px"
+          py={variant ? "70px" : "44px"}
+          px={variant ? "15px" : "17px"}
         >
           <Image src="/images/partners/mossport.svg" alt="mossport" />
         </Stack>
@@ -37,17 +63,30 @@ const Partners = () => {
           alignItems="center"
           justifyContent="center"
           bg="#F8F8F8"
-          height="234px"
+          py={variant ? "78px" : "48px"}
+          px={"15px"}
         >
           <Text
-            sx={{
-              lineHeight: "40px",
-              color: "#222220",
-              fontSize: "40px",
-              textAlign: "center",
-              textTransform: "uppercase",
-              fontFamily: "Mossport",
-            }}
+            sx={
+              variant ?
+                {
+                  lineHeight: "40px",
+                  color: "#222220",
+                  fontSize: "40px",
+                  textAlign: "center",
+                  textTransform: "uppercase",
+                  fontFamily: "Mossport",
+                }
+                :
+                {
+                  lineHeight: "20px",
+                  color: "#222220",
+                  fontSize: "20px",
+                  textAlign: "center",
+                  textTransform: "uppercase",
+                  fontFamily: "Mossport",
+                }
+            }
           >
             Московская академия велосипедного спорта
           </Text>
@@ -56,7 +95,9 @@ const Partners = () => {
           alignItems="center"
           justifyContent="center"
           bg="#F8F8F8"
-          height="234px"
+          py={variant ? "79px" : "48px"}
+          pl={variant ? "15px" : "8px"}
+          pr={variant ? "15px" : "22px"}
         >
           <Image src="/images/partners/gymnastics.png" alt="gymnastics" />
         </Stack>
@@ -64,17 +105,31 @@ const Partners = () => {
           alignItems="center"
           justifyContent="center"
           bg="#F8F8F8"
-          height="234px"
+          py={variant ? "85px" : "38px"}
+          px={"5px"}
         >
           <Text
-            sx={{
-              lineHeight: "75px",
-              color: "#222220",
-              fontSize: "75px",
-              textAlign: "center",
-              textTransform: "uppercase",
-              fontFamily: "Impact",
-            }}
+            sx={
+              variant ?
+                {
+                  lineHeight: "75px",
+                  color: "#222220",
+                  fontSize: "75px",
+                  textAlign: "center",
+                  textTransform: "uppercase",
+                  fontFamily: "Impact",
+                }
+                :
+                {
+                  lineHeight: "36px",
+                  color: "#222220",
+                  fontSize: "36px",
+                  textAlign: "center",
+                  textTransform: "uppercase",
+                  fontFamily: "Impact",
+                }
+            }
+
           >
             CARX TECH
           </Text>
@@ -83,7 +138,8 @@ const Partners = () => {
           alignItems="center"
           justifyContent="center"
           bg="#F8F8F8"
-          height="234px"
+          py={variant ? "61px" : "39px"}
+          px={variant ? "35px" : "12px"}
         >
           <Image src="/images/partners/ufc.png" alt="ufc" />
         </Stack>

@@ -53,7 +53,6 @@ export const Button: CSSObject = {
       backgroundColor: "#FFB600",
       borderRadius: "8px",
       padding: "30px 50px",
-      height: "100%",
       fontSize: "18px",
       fontFamily: "Gotham Pro Regular",
       _hover: {

@@ -9,7 +9,7 @@ const Heading = ({ text, isMobile }: HeadingProps) => {
   return (
     <Stack
       maxW={isMobile ? "320px" : "800px"}
-      mb="48px"
+      mb={isMobile ? "16px" : "48px"}
       bg="#E93734"
       justifyContent="center"
       alignItems="center"

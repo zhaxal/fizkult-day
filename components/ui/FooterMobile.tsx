@@ -1,32 +1,17 @@
-import { Box, Container, Divider, Image, Stack, Text, useBreakpointValue } from "@chakra-ui/react";
+import { Box, Container, Divider, Image, Stack, Text, useBreakpointValue, VStack } from "@chakra-ui/react";
 import Script from "next/script";
 import React from "react";
 import Heading from "./Heading";
 
-const Footer = () => {
+const FooterMobile = () => {
   const variant = useBreakpointValue({ md: true });
 
   return (
     <>
       <Heading text="где нас найти?" isMobile={!variant} />
 
-      <Container mb="25px" maxW="1110px">
-        <Stack spacing="190px" direction="row">
-          <Stack ml="70px" mt="80px" spacing="30px">
-            <Box>
-              <Text variant="body.bold">Эл. почта</Text>
-              <Text variant="body">
-                <a href="mailto:df2022@yandex.ru">df2022@yandex.ru</a>
-              </Text>
-            </Box>
-
-            <Box>
-              <Text variant="body.bold">Место проведения</Text>
-              <Text variant="body">СК “ЛУЖНИКИ”</Text>
-              <Text variant="body">Фестивальная площадь</Text>
-            </Box>
-          </Stack>
-
+      <Container mt="16px" mb="25px" maxW="1110px" px={0}>
+        <VStack spacing={"32px"}>
           <Box width="100%" height="490px" bg="grey">
             <iframe
               id="map_942407939"
@@ -52,7 +37,23 @@ const Footer = () => {
               }}
             />
           </Box>
-        </Stack>
+          <VStack spacing="30px" px="10px" align={"flex-start"} w="full" >
+            <Box>
+              <Text variant="body.bold" color={"#262626"}>Эл. почта</Text>
+              <Text variant="body" color={"#262626"} textDecoration="underline">
+                <a href="mailto:df2022@yandex.ru">df2022@yandex.ru</a>
+              </Text>
+            </Box>
+
+            <Box>
+              <Text variant="body.bold" color={"#262626"}>Место проведения</Text>
+              <Text variant="body" color={"#262626"}>СК “ЛУЖНИКИ”</Text>
+              <Text variant="body" color={"#262626"}>Фестивальная площадь</Text>
+            </Box>
+          </VStack>
+        </VStack>
+
+
       </Container>
       <Divider height="2px" orientation="horizontal" />
 
@@ -66,4 +67,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default FooterMobile;
