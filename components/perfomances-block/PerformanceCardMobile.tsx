@@ -3,7 +3,6 @@ import { Perfomance } from "@mongo/models/events/perfomance";
 import { newlineText } from "@utils/newline";
 
 const PerfomanceCardMobile = ({
-    position,
     date,
     title,
     description,

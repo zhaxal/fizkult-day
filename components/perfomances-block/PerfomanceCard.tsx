@@ -20,8 +20,8 @@ const PerfomanceCard = ({
           <Image
             sx={{
               backgroundColor: "#00AEEF",
-              borderRadius: "0px 32px 32px 0px",
-              height: "576px",
+              borderRadius: "32px",
+              boxSize: "576px",
             }}
             src={image}
             alt="velo"
@@ -41,8 +41,8 @@ const PerfomanceCard = ({
           <Image
             sx={{
               backgroundColor: "#00AEEF",
-              borderRadius: "32px 0px 0px 32px",
-              height: "576px",
+              borderRadius: "32px",
+              boxSize: "576px",
             }}
             src={image}
             alt="velo"

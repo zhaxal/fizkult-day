@@ -10,7 +10,6 @@ import {
   VStack,
 } from "@chakra-ui/react";
 
-import description from "./styles/Desription";
 
 const DescriptionMobile = () => {
   const variant = useBreakpointValue({ md: true });

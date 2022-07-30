@@ -1,4 +1,12 @@
-import { Box, Container, Divider, Image, Stack, Text, useBreakpointValue } from "@chakra-ui/react";
+import {
+  Box,
+  Container,
+  Divider,
+  Image,
+  Stack,
+  Text,
+  useBreakpointValue,
+} from "@chakra-ui/react";
 import Script from "next/script";
 import React from "react";
 import Heading from "./Heading";
@@ -10,12 +18,15 @@ const Footer = () => {
     <>
       <Heading text="где нас найти?" isMobile={!variant} />
 
-      <Container mb="25px" maxW="1110px">
-        <Stack spacing="190px" direction="row">
-          <Stack ml="70px" mt="80px" spacing="30px">
+      <Container mb="25px" maxW="1110px" px={variant ? "16px" : "0px"}>
+        <Stack
+          spacing={variant ? "190px" : "32px"}
+          direction={variant ? "row" : "column-reverse"}
+        >
+          <Stack spacing="30px" px={variant ? "0px" : "10px"}>
             <Box>
               <Text variant="body.bold">Эл. почта</Text>
-              <Text variant="body">
+              <Text variant="body" textDecoration={"underline"}>
                 <a href="mailto:df2022@yandex.ru">df2022@yandex.ru</a>
               </Text>
             </Box>

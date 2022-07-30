@@ -60,9 +60,11 @@ const Competitions = () => {
   ];
 
   const variant = useBreakpointValue({ md: true });
+  
   let width: string;
   let spaceBetween: number;
   let mb: string;
+
   if (variant) {
     width = "1100px";
     spaceBetween = 48;

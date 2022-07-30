@@ -8,7 +8,6 @@ import {
   useBreakpointValue,
 } from "@chakra-ui/react";
 
-import description from "./styles/Desription";
 
 const Description = () => {
   const variant = useBreakpointValue({ md: true });
@@ -25,20 +24,6 @@ const Description = () => {
 
           <Stack mb="40px" alignItems="flex-start" spacing="24px">
             <Text variant="date">13 АВГУСТА</Text>
-            {/* <Text
-              sx={{
-                textTransform: "uppercase",
-                fontFamily: "Mossport",
-                color: "#2E363E",
-                maxW: "631px",
-                fontSize: "48px",
-                lineHeight: "53px",
-              }}
-            >
-              физкультурно-спортивный праздник, посвященный Всероссийскому Дню
-              физкультурника
-            </Text> */}
-
             <Text
               sx={{
                 fontFamily: "Gotham Pro Regular",

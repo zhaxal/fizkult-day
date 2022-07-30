@@ -1,21 +1,35 @@
-import { Container, Image, Stack, Text } from "@chakra-ui/react";
-import Heading from "@components/ui/Heading";
+import { Container, Image, Stack, Text, Box } from "@chakra-ui/react";
 import Schedule from "./schedule-component/Schedule";
 
 const MainScene = () => {
   return (
     <>
-      <Heading text="главная сцена" />
-
-      <Container mb="90px" maxW="1110px">
-        <Image mb="48px" src="/images/main_scene.png" alt="main_scene" />
+      <Container mb="48px" maxW="1439px" px={0}>
+        <Box
+          mb="28px"
+          bgImage="/images/main_scene.png"
+          bgPosition="center"
+          bgRepeat={"no-repeat"}
+          h="692px"
+          pos="relative"
+        >
+          <Box
+            pos="absolute"
+            top={0}
+            left={0}
+            right={0}
+            bottom={0}
+            background={"radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.42) 71.87%)"}>
+          </Box>
+        </Box>
         <Stack alignItems="center" justifyContent="center">
-          <Text mb="48px" variant="heading.small">
+          <Text mb="38px" variant="heading.small">
             расписание
           </Text>
         </Stack>
-
-        <Schedule />
+        <Container maxW="1110px">
+          <Schedule  />
+        </Container>
       </Container>
     </>
   );
