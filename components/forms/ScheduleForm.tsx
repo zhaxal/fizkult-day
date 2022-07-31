@@ -4,37 +4,32 @@ import {
   Input,
   FormErrorMessage,
   Button,
-  Textarea,
 } from "@chakra-ui/react";
 import { useFormButton } from "@contexts/form-button-context";
 import { useValuesHandler } from "@hooks/handlers";
-import { Competition } from "@mongo/models/events/competition";
+import { Schedule as FormValues } from "@mongo/models/events/schedule";
 import { FieldInputProps, FormikProps, Formik, Form, Field } from "formik";
 import { EventForm } from "./models/event-form";
-
-type FormValues = Competition;
 
 interface FieldProps {
   field: FieldInputProps<string>;
   form: FormikProps<FormValues>;
 }
 
-const type = "competition";
+const type = "schedule";
 
-const CompetitionForm = ({ eventId, event }: EventForm) => {
-  const { onClose, mode } = useFormButton();
+const ScheduleForm = ({ eventId, event }: EventForm) => {
   const { handleValues } = useValuesHandler();
+  const { onClose, mode } = useFormButton();
 
   const initialValues: FormValues =
     event && event.type === type
       ? event
       : {
           type,
-          date: new Date(),
+          time: new Date(),
           title: "",
           desc: "",
-          image: "",
-          formLink: "",
         };
 
   return (
@@ -43,7 +38,6 @@ const CompetitionForm = ({ eventId, event }: EventForm) => {
         initialValues={initialValues}
         onSubmit={(values, actions) => {
           if (!mode) throw new Error("Mode is undefined");
-
           handleValues(mode, type, eventId, values);
           actions.setSubmitting(false);
           onClose();
@@ -51,47 +45,31 @@ const CompetitionForm = ({ eventId, event }: EventForm) => {
       >
         {(props) => (
           <Form>
-            <Field name="date">
+            <Field name="time">
               {({ field, form }: FieldProps) => (
                 <FormControl>
-                  <FormLabel>Дата</FormLabel>
-                  <Input {...field} type="date" placeholder="Дата" />
+                  <FormLabel>Время</FormLabel>
+                  <Input {...field} type="datetime-local" placeholder="Время" />
                 </FormControl>
               )}
             </Field>
+
             <Field name="title">
               {({ field, form }: FieldProps) => (
                 <FormControl isRequired>
                   <FormLabel>Заголовок</FormLabel>
-                  <Textarea {...field} placeholder="Заголовок" />
+                  <Input {...field} placeholder="Заголовок" />
                   <FormErrorMessage>{form.errors.title}</FormErrorMessage>
                 </FormControl>
               )}
             </Field>
+
             <Field name="desc">
               {({ field, form }: FieldProps) => (
                 <FormControl isRequired>
                   <FormLabel>Описание</FormLabel>
                   <Input {...field} placeholder="Описание" />
                   <FormErrorMessage>{form.errors.desc}</FormErrorMessage>
-                </FormControl>
-              )}
-            </Field>
-            <Field name="image">
-              {({ field, form }: FieldProps) => (
-                <FormControl isRequired>
-                  <FormLabel>Ссылка на фото</FormLabel>
-                  <Input {...field} placeholder="Ссылка на фото" />
-                  <FormErrorMessage>{form.errors.image}</FormErrorMessage>
-                </FormControl>
-              )}
-            </Field>
-            <Field name="formLink">
-              {({ field, form }: FieldProps) => (
-                <FormControl isRequired>
-                  <FormLabel>Ссылка на форму</FormLabel>
-                  <Input {...field} placeholder="Ссылка на форму" />
-                  <FormErrorMessage>{form.errors.formLink}</FormErrorMessage>
                 </FormControl>
               )}
             </Field>
@@ -112,4 +90,4 @@ const CompetitionForm = ({ eventId, event }: EventForm) => {
   );
 };
 
-export default CompetitionForm;
+export default ScheduleForm;
