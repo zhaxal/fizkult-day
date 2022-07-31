@@ -1,45 +1,9 @@
-import {
-  Box,
-  Stack,
-  Image,
-  Text,
-  Button,
-  useDisclosure,
-  ModalOverlay,
-  Modal,
-  ModalBody,
-  ModalCloseButton,
-  ModalContent,
-  ModalFooter,
-  ModalHeader,
-} from "@chakra-ui/react";
-import RegistrationForm from "@components/forms/RegistrationForm";
+import { Box, Stack, Image, Text, Button } from "@chakra-ui/react";
+
 import { Competition } from "@mongo/models/events/competition";
 import { newlineText } from "@utils/newline";
-
-const WatchButton = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-
-  return (
-    <>
-      <Button onClick={onOpen} variant="competition.watch">
-        БУДУ ЗРИТЕЛЕМ
-      </Button>
-
-      <Modal size="md" isOpen={isOpen} onClose={onClose}>
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>Форма для записи</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody>
-            <RegistrationForm event="Competition" />
-          </ModalBody>
-          <ModalFooter />
-        </ModalContent>
-      </Modal>
-    </>
-  );
-};
+import { moment } from "@utils/moment";
+import WatchButton from "./WatchButton";
 
 const CompetitionCard = ({ date, title, desc, image }: Competition) => {
   return (
@@ -48,7 +12,7 @@ const CompetitionCard = ({ date, title, desc, image }: Competition) => {
         <Image mt="60px" src={image} alt="guy" />
         <Stack alignItems="flex-start" spacing="24px">
           <Text bg="#32BBEE" variant="date">
-            {date}
+            {moment(date).tz("Europe/Moscow").format("lll")}
           </Text>
           <Box>{newlineText(title, "heading")}</Box>
           <Box>{newlineText(desc, "body.bold")}</Box>

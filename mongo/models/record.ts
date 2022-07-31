@@ -1,7 +1,7 @@
 export interface Record {
   name: string;
   email: string;
-  event: string;
+  eventId: string;
   date: Date;
   code?: number;
   arrived: boolean;

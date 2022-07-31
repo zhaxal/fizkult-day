@@ -1,5 +1,5 @@
 import { Stack, Text, Box, Image } from "@chakra-ui/react";
-import { Perfomance } from "@mongo/models/events/perfomance";
+import { Performance } from "@mongo/models/events/performance";
 
 const PerfomanceCard = ({
   position,
@@ -7,7 +7,7 @@ const PerfomanceCard = ({
   title,
   description,
   image,
-}: Perfomance) => {
+}: Performance) => {
   return (
     <Box>
       <Stack

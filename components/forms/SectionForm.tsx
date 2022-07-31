@@ -8,20 +8,20 @@ import {
 } from "@chakra-ui/react";
 import { useFormButton } from "@contexts/form-button-context";
 import { useValuesHandler } from "@hooks/handlers";
-import { Competition } from "@mongo/models/events/competition";
+import { Section } from "@mongo/models/events/section";
 import { FieldInputProps, FormikProps, Formik, Form, Field } from "formik";
 import { EventForm } from "./models/event-form";
 
-type FormValues = Competition;
+type FormValues = Section;
 
 interface FieldProps {
   field: FieldInputProps<string>;
   form: FormikProps<FormValues>;
 }
 
-const type = "competition";
+const type = "section";
 
-const CompetitionForm = ({ eventId, event }: EventForm) => {
+const SectionForm = ({ eventId, event }: EventForm) => {
   const { onClose, mode } = useFormButton();
   const { handleValues } = useValuesHandler();
 
@@ -34,7 +34,6 @@ const CompetitionForm = ({ eventId, event }: EventForm) => {
           title: "",
           desc: "",
           image: "",
-          formLink: "",
         };
 
   return (
@@ -45,6 +44,7 @@ const CompetitionForm = ({ eventId, event }: EventForm) => {
           if (!mode) throw new Error("Mode is undefined");
 
           handleValues(mode, type, eventId, values);
+
           actions.setSubmitting(false);
           onClose();
         }}
@@ -59,6 +59,7 @@ const CompetitionForm = ({ eventId, event }: EventForm) => {
                 </FormControl>
               )}
             </Field>
+
             <Field name="title">
               {({ field, form }: FieldProps) => (
                 <FormControl isRequired>
@@ -68,6 +69,7 @@ const CompetitionForm = ({ eventId, event }: EventForm) => {
                 </FormControl>
               )}
             </Field>
+
             <Field name="desc">
               {({ field, form }: FieldProps) => (
                 <FormControl isRequired>
@@ -77,21 +79,13 @@ const CompetitionForm = ({ eventId, event }: EventForm) => {
                 </FormControl>
               )}
             </Field>
+
             <Field name="image">
               {({ field, form }: FieldProps) => (
                 <FormControl isRequired>
                   <FormLabel>Ссылка на фото</FormLabel>
                   <Input {...field} placeholder="Ссылка на фото" />
                   <FormErrorMessage>{form.errors.image}</FormErrorMessage>
-                </FormControl>
-              )}
-            </Field>
-            <Field name="formLink">
-              {({ field, form }: FieldProps) => (
-                <FormControl isRequired>
-                  <FormLabel>Ссылка на форму</FormLabel>
-                  <Input {...field} placeholder="Ссылка на форму" />
-                  <FormErrorMessage>{form.errors.formLink}</FormErrorMessage>
                 </FormControl>
               )}
             </Field>
@@ -112,4 +106,4 @@ const CompetitionForm = ({ eventId, event }: EventForm) => {
   );
 };
 
-export default CompetitionForm;
+export default SectionForm;

@@ -4,37 +4,35 @@ import {
   Input,
   FormErrorMessage,
   Button,
-  Textarea,
+  Select,
 } from "@chakra-ui/react";
 import { useFormButton } from "@contexts/form-button-context";
 import { useValuesHandler } from "@hooks/handlers";
-import { Competition } from "@mongo/models/events/competition";
+import { Performance as FormValues } from "@mongo/models/events/performance";
 import { FieldInputProps, FormikProps, Formik, Form, Field } from "formik";
 import { EventForm } from "./models/event-form";
-
-type FormValues = Competition;
 
 interface FieldProps {
   field: FieldInputProps<string>;
   form: FormikProps<FormValues>;
 }
 
-const type = "competition";
+const type = "performance";
 
-const CompetitionForm = ({ eventId, event }: EventForm) => {
-  const { onClose, mode } = useFormButton();
+const PerformanceForm = ({ eventId, event }: EventForm) => {
   const { handleValues } = useValuesHandler();
+  const { onClose, mode } = useFormButton();
 
   const initialValues: FormValues =
     event && event.type === type
       ? event
       : {
           type,
+          position: "left",
           date: new Date(),
           title: "",
           desc: "",
           image: "",
-          formLink: "",
         };
 
   return (
@@ -43,7 +41,6 @@ const CompetitionForm = ({ eventId, event }: EventForm) => {
         initialValues={initialValues}
         onSubmit={(values, actions) => {
           if (!mode) throw new Error("Mode is undefined");
-
           handleValues(mode, type, eventId, values);
           actions.setSubmitting(false);
           onClose();
@@ -51,6 +48,17 @@ const CompetitionForm = ({ eventId, event }: EventForm) => {
       >
         {(props) => (
           <Form>
+            <Field name="position">
+              {({ field, form }: FieldProps) => (
+                <FormControl>
+                  <FormLabel>Позиция картинки</FormLabel>
+                  <Select {...field} placeholder="Позиция картинки">
+                    <option value="left">Слева</option>
+                    <option value="right">Справа</option>
+                  </Select>
+                </FormControl>
+              )}
+            </Field>
             <Field name="date">
               {({ field, form }: FieldProps) => (
                 <FormControl>
@@ -59,15 +67,17 @@ const CompetitionForm = ({ eventId, event }: EventForm) => {
                 </FormControl>
               )}
             </Field>
+
             <Field name="title">
               {({ field, form }: FieldProps) => (
                 <FormControl isRequired>
                   <FormLabel>Заголовок</FormLabel>
-                  <Textarea {...field} placeholder="Заголовок" />
+                  <Input {...field} placeholder="Заголовок" />
                   <FormErrorMessage>{form.errors.title}</FormErrorMessage>
                 </FormControl>
               )}
             </Field>
+
             <Field name="desc">
               {({ field, form }: FieldProps) => (
                 <FormControl isRequired>
@@ -77,21 +87,13 @@ const CompetitionForm = ({ eventId, event }: EventForm) => {
                 </FormControl>
               )}
             </Field>
+
             <Field name="image">
               {({ field, form }: FieldProps) => (
                 <FormControl isRequired>
                   <FormLabel>Ссылка на фото</FormLabel>
                   <Input {...field} placeholder="Ссылка на фото" />
                   <FormErrorMessage>{form.errors.image}</FormErrorMessage>
-                </FormControl>
-              )}
-            </Field>
-            <Field name="formLink">
-              {({ field, form }: FieldProps) => (
-                <FormControl isRequired>
-                  <FormLabel>Ссылка на форму</FormLabel>
-                  <Input {...field} placeholder="Ссылка на форму" />
-                  <FormErrorMessage>{form.errors.formLink}</FormErrorMessage>
                 </FormControl>
               )}
             </Field>
@@ -112,4 +114,4 @@ const CompetitionForm = ({ eventId, event }: EventForm) => {
   );
 };
 
-export default CompetitionForm;
+export default PerformanceForm;

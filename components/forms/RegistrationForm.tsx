@@ -5,6 +5,7 @@ import {
   FormLabel,
   Input,
 } from "@chakra-ui/react";
+import { useFormButton } from "@contexts/form-button-context";
 import { Record as FormValues } from "@mongo/models/record";
 import { Formik, Form, Field, FieldInputProps, FormikProps } from "formik";
 
@@ -14,14 +15,16 @@ interface FieldProps {
 }
 
 interface RegistrationFormProps {
-  event: string;
+  eventId: string;
 }
 
-const RegistrationForm = ({ event }: RegistrationFormProps) => {
+const RegistrationForm = ({ eventId }: RegistrationFormProps) => {
+  const { onClose } = useFormButton();
+
   const initialValues: FormValues = {
     name: "",
     email: "",
-    event,
+    eventId,
     arrived: false,
     date: new Date(),
   };
@@ -33,6 +36,7 @@ const RegistrationForm = ({ event }: RegistrationFormProps) => {
           setTimeout(() => {
             alert(JSON.stringify(values, null, 2));
             actions.setSubmitting(false);
+            onClose();
           }, 1000);
         }}
       >

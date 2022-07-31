@@ -1,19 +1,51 @@
-import CompetitionForm from "@components/forms/CompetitionForm";
-import { Competition } from "@mongo/models/events/competition";
-import { fetcher } from "@utils/fetcher";
+import {
+  Select,
+  Container,
+  Text,
+  Stack,
+} from "@chakra-ui/react";
+import CreateEventButton from "@components/admin-page-components/CreateEventButton";
+import EventTable from "@components/admin-page-components/EventTable";
+import { EventTypes } from "@mongo/functions/events-functions";
 import { NextPage } from "next";
-import useSWR from "swr";
+import { ChangeEvent, useState } from "react";
+import { isEvents } from "@utils/type-guards";
 
 const Events: NextPage = () => {
-  const { data: competitions } = useSWR<Competition[]>(
-    `/api/events/competitions`,
-    fetcher
-  );
+  const [type, setType] = useState<EventTypes>("schedule");
+
+  const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
+    const value = event.target.value;
+
+ 
+
+    if (!isEvents(value)) return;
+
+    setType(value);
+  };
 
   return (
-    <div>
-      <CompetitionForm />
-    </div>
+    <Container maxW="1110px" py={5}>
+      <Stack spacing={5}>
+        <Text variant="body.bold">Управление ивентами</Text>
+
+        <CreateEventButton type={type} />
+
+        <Select
+          value={type}
+          onChange={handleChange}
+          maxW="md"
+          placeholder="Выберите раздел"
+        >
+          <option value="schedule">Расписание</option>
+          <option value="competition">Соревнование и Конкурсы</option>
+          <option value="performance">Показательные выступления</option>
+          <option value="section">Занятия и Секций</option>
+        </Select>
+
+        <EventTable type={type} />
+      </Stack>
+    </Container>
   );
 };
 
