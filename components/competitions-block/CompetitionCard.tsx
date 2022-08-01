@@ -38,7 +38,26 @@ const CompetitionCard = ({
 
           <Stack direction="row" spacing="30px">
             <a target="_blank" href={formLink} rel="noreferrer">
-              <Button variant="competition.join">УЧАСТВОВАТЬ</Button>
+              <Button
+                variant="competition.join"
+                textAlign={"center"}
+                fontSize={"18px"}
+                _disabled={{
+                  cursor: "not-allowed",
+                  color: "#FAFAFA",
+                  background: "#5189C8",
+                }}
+                _hover={{
+                  _disabled: {
+                    bg: "",
+                  },
+                }}
+                disabled={formLink === "" ? true : false}
+                whiteSpace="normal"
+                lineHeight={"152%"}
+              >
+                {formLink === "" ? "РЕГИСТРАЦИЯ НА МЕСТЕ" : "УЧАСТВОВАТЬ"}
+              </Button>
             </a>
             <WatchButton eventId={eventId} />
           </Stack>
