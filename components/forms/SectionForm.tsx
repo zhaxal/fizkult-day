@@ -7,7 +7,7 @@ import {
   Textarea,
 } from "@chakra-ui/react";
 import { useFormButton } from "@contexts/form-button-context";
-import { useValuesHandler } from "@hooks/handlers";
+import { useEventValuesHandler } from "@hooks/handlers";
 import { Section } from "@mongo/models/events/section";
 import { FieldInputProps, FormikProps, Formik, Form, Field } from "formik";
 import { EventForm } from "./models/event-form";
@@ -23,7 +23,7 @@ const type = "section";
 
 const SectionForm = ({ eventId, event }: EventForm) => {
   const { onClose, mode } = useFormButton();
-  const { handleValues } = useValuesHandler();
+  const { handleEventValues } = useEventValuesHandler();
 
   const initialValues: FormValues =
     event && event.type === type
@@ -43,7 +43,7 @@ const SectionForm = ({ eventId, event }: EventForm) => {
         onSubmit={(values, actions) => {
           if (!mode) throw new Error("Mode is undefined");
 
-          handleValues(mode, type, eventId, values);
+          handleEventValues(mode, type, eventId, values);
 
           actions.setSubmitting(false);
           onClose();
@@ -74,7 +74,7 @@ const SectionForm = ({ eventId, event }: EventForm) => {
               {({ field, form }: FieldProps) => (
                 <FormControl isRequired>
                   <FormLabel>Описание</FormLabel>
-                  <Input {...field} placeholder="Описание" />
+                  <Textarea {...field} placeholder="Описание" />
                   <FormErrorMessage>{form.errors.desc}</FormErrorMessage>
                 </FormControl>
               )}
@@ -97,7 +97,7 @@ const SectionForm = ({ eventId, event }: EventForm) => {
               isLoading={props.isSubmitting}
               type="submit"
             >
-              Создать ивент
+              {mode === "add" ? "Создать ивент" : "Сохранить ивент"}
             </Button>
           </Form>
         )}

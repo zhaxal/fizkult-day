@@ -1,7 +1,6 @@
 import {
   Box,
   Button,
-  Container,
   HStack,
   Image,
   Stack,
@@ -10,23 +9,19 @@ import {
   VStack,
 } from "@chakra-ui/react";
 
-
 const DescriptionMobile = () => {
   const variant = useBreakpointValue({ md: true });
 
   return (
     <Box w="full" px={"10px"}>
       <VStack w="full" align={"center"}>
-        <Box >
+        <Box>
           <Box w="117px" h="37px">
             <Text variant="date">13 АВГУСТА</Text>
           </Box>
-          <HStack
-            my="37px"
-            spacing="44px"
-          >
-            <Image src="/images/departmentMobile.svg" alt="department" />
-            <Image src="/images/mossportMobile.svg" alt="mossport" />
+          <HStack maxW="320px" my="37px" spacing="44px">
+            <Image maxW="40%" src="/images/departmentMobile.svg" alt="department" />
+            <Image maxW="40%" src="/images/mossportMobile.svg" alt="mossport" />
           </HStack>
 
           <Stack mb="40px" alignItems="flex-start" spacing="24px">
@@ -34,7 +29,7 @@ const DescriptionMobile = () => {
               sx={{
                 fontFamily: "Gotham Pro Regular",
                 color: "#434B53",
-                maxW: "544px",
+                maxW: "375px",
                 fontSize: "21px",
                 lineHeight: "143%",
               }}
@@ -50,7 +45,9 @@ const DescriptionMobile = () => {
             direction={"column"}
             w="full"
           >
-            <Button variant="register" color="#1E2229" lineHeight={"152%"}>Записаться бесплатно</Button>
+            <Button variant="register" color="#1E2229" lineHeight={"152%"}>
+              Записаться бесплатно
+            </Button>
             <Text
               sx={{
                 maxW: "309px",

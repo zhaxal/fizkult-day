@@ -6,8 +6,9 @@ import {
   Button,
 } from "@chakra-ui/react";
 import { useFormButton } from "@contexts/form-button-context";
-import { useValuesHandler } from "@hooks/handlers";
+import { useEventValuesHandler } from "@hooks/handlers";
 import { Schedule as FormValues } from "@mongo/models/events/schedule";
+import { dateTimeFormatter } from "@utils/timeFormatter";
 import { FieldInputProps, FormikProps, Formik, Form, Field } from "formik";
 import { EventForm } from "./models/event-form";
 
@@ -19,7 +20,7 @@ interface FieldProps {
 const type = "schedule";
 
 const ScheduleForm = ({ eventId, event }: EventForm) => {
-  const { handleValues } = useValuesHandler();
+  const { handleEventValues } = useEventValuesHandler();
   const { onClose, mode } = useFormButton();
 
   const initialValues: FormValues =
@@ -38,7 +39,7 @@ const ScheduleForm = ({ eventId, event }: EventForm) => {
         initialValues={initialValues}
         onSubmit={(values, actions) => {
           if (!mode) throw new Error("Mode is undefined");
-          handleValues(mode, type, eventId, values);
+          handleEventValues(mode, type, eventId, values);
           actions.setSubmitting(false);
           onClose();
         }}
@@ -46,12 +47,21 @@ const ScheduleForm = ({ eventId, event }: EventForm) => {
         {(props) => (
           <Form>
             <Field name="time">
-              {({ field, form }: FieldProps) => (
-                <FormControl>
-                  <FormLabel>Время</FormLabel>
-                  <Input {...field} type="datetime-local" placeholder="Время" />
-                </FormControl>
-              )}
+              {({ field, form }: FieldProps) => {
+                const { value, ...other } = field;
+
+                return (
+                  <FormControl>
+                    <FormLabel>Время</FormLabel>
+                    <Input
+                      {...other}
+                      defaultValue={dateTimeFormatter(value)}
+                      type="datetime-local"
+                      placeholder="Время"
+                    />
+                  </FormControl>
+                );
+              }}
             </Field>
 
             <Field name="title">
@@ -81,7 +91,7 @@ const ScheduleForm = ({ eventId, event }: EventForm) => {
               isLoading={props.isSubmitting}
               type="submit"
             >
-              Создать ивент
+              {mode === "add" ? "Создать ивент" : "Сохранить ивент"}
             </Button>
           </Form>
         )}

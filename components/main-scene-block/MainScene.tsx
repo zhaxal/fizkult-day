@@ -1,10 +1,22 @@
-import { Container, Image, Stack, Text, Box } from "@chakra-ui/react";
+import {
+  Container,
+  Image,
+  Stack,
+  Text,
+  Box,
+  Button,
+  useBreakpointValue,
+  Center,
+} from "@chakra-ui/react";
+import FitnessButton from "./FitnessButton";
 import Schedule from "./schedule-component/Schedule";
 
 const MainScene = () => {
+  const variant = useBreakpointValue({ md: true });
+
   return (
     <>
-      <Container mb="48px" maxW="1439px" px={0}>
+      <Container mb={variant ? "48px" : "16px"} maxW="1439px" px={0}>
         <Box
           mb="28px"
           bgImage="/images/main_scene.png"
@@ -19,8 +31,10 @@ const MainScene = () => {
             left={0}
             right={0}
             bottom={0}
-            background={"radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.42) 71.87%)"}>
-          </Box>
+            background={
+              "radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.42) 71.87%)"
+            }
+          ></Box>
         </Box>
         <Stack alignItems="center" justifyContent="center">
           <Text mb="38px" variant="heading.small">
@@ -28,8 +42,19 @@ const MainScene = () => {
           </Text>
         </Stack>
         <Container maxW="1110px">
-          <Schedule  />
+          <Schedule />
         </Container>
+
+        <Center
+          w="full"
+          h="full"
+          px={variant ? "486px" : "7px"}
+          my={variant ? "48px" : ""}
+          pt={variant ? "" : "32px"}
+          pb={variant ? "" : "16px"}
+        >
+          <FitnessButton btnText="РЕГИСТРАЦИИ НА FITNESS NON-STOP"/>
+        </Center>
       </Container>
     </>
   );

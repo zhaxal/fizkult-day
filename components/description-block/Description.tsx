@@ -8,6 +8,7 @@ import {
   useBreakpointValue,
 } from "@chakra-ui/react";
 
+import FitnessButton from "../main-scene-block/FitnessButton";
 
 const Description = () => {
   const variant = useBreakpointValue({ md: true });
@@ -39,7 +40,7 @@ const Description = () => {
           </Stack>
 
           <Stack alignItems="center" spacing={{base: "12px", md: "20px"}} direction={{base: "column", md: "row"}}>
-            <Button variant="register">Записаться бесплатно</Button>
+            <FitnessButton btnText="Записаться бесплатно" />
             <Text
               sx={{
                 maxW: "210px",

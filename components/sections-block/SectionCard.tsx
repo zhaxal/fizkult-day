@@ -1,21 +1,41 @@
 import { Box, Stack, Image, Text, Button } from "@chakra-ui/react";
 import { Section } from "@mongo/models/events/section";
 import { newlineText } from "@utils/newline";
+import { moment } from "@utils/moment";
+import RegisterButton from "./RegisterButton";
 
-const SectionCard = ({ date, title, desc, image }: Section) => {
+interface SectionCardProps extends Section {
+  eventId: string;
+}
+
+const SectionCard = ({
+  date,
+  title,
+  desc,
+  image,
+  eventId,
+}: SectionCardProps) => {
   return (
     <Box borderRadius="32px" bg="#00AEEF">
-      <Stack mx="24px" spacing="60px" direction="row">
-        <Image width="476px" mt="60px" src={image} alt="guy" />
+      <Stack mr="24px" spacing="60px" direction="row">
+        <Image
+          borderRadius="0px 32px 0px 32px"
+          width="476px"
+          mt="60px"
+          src={image}
+          alt={`${title}_image`}
+        />
         <Stack alignItems="flex-start" spacing="24px">
           <Text bg="#32BBEE" variant="date">
-            {date}
+            {moment(date).tz("Europe/Moscow").format("D MMMM")}
           </Text>
           <Box>{newlineText(title, "heading")}</Box>
           <Box>{newlineText(desc, "body.bold")}</Box>
 
-          <Stack direction="row" spacing="30px">
-            <Button variant="section.register">Записаться бесплатно</Button>
+          <Box flexGrow={1}></Box>
+
+          <Stack pb="68px" direction="row" spacing="30px">
+            <RegisterButton eventId={eventId} />
           </Stack>
         </Stack>
       </Stack>

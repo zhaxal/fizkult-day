@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  nextjs:
+    build: ./
+    environment:
+      - DB_NAME=fd
+      - MONGO_URL=mongodb://admin:aserty1234@89.108.88.221:27017/?authMechanism=DEFAULT
+  nginx: 
+    build: ./nginx
+    ports:
+      - 80:80    

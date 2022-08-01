@@ -1,11 +1,13 @@
 import { Stack, Text, Box, Image } from "@chakra-ui/react";
 import { Performance } from "@mongo/models/events/performance";
+import { moment } from "@utils/moment";
+import { newlineText } from "@utils/newline";
 
-const PerfomanceCard = ({
+const PerformanceCard = ({
   position,
   date,
   title,
-  description,
+  desc,
   image,
 }: Performance) => {
   return (
@@ -30,12 +32,12 @@ const PerfomanceCard = ({
 
         <Box>
           <Text width="fit-content" mb="24px" variant="date">
-            {date}
+            {moment(date).tz("Europe/Moscow").format("D MMMM")}
           </Text>
-          <Text color="#00ACEF" mb="40px" variant="heading">
-            {title}
-          </Text>
-          <Text variant="body">{description}</Text>
+          <Box color="#00ACEF" mb="40px">
+            {newlineText(title, "heading.blue")}
+          </Box>
+          <Box>{newlineText(desc, "body.bold")}</Box>
         </Box>
         {position === "right" && (
           <Image
@@ -45,7 +47,7 @@ const PerfomanceCard = ({
               boxSize: "576px",
             }}
             src={image}
-            alt="velo"
+            alt={`${title}_image`}
           />
         )}
       </Stack>
@@ -53,4 +55,4 @@ const PerfomanceCard = ({
   );
 };
 
-export default PerfomanceCard;
+export default PerformanceCard;

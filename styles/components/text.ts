@@ -9,6 +9,13 @@ export const Text: CSSObject = {
       textTransform: "uppercase",
       fontFamily: "Mossport",
     },
+    ["heading.blue"]: {
+      lineHeight: "60px",
+      fontSize: "64px",
+      color: "#00ACEF",
+      textTransform: "uppercase",
+      fontFamily: "Mossport",
+    },
     ["heading.mobile"]: {
       lineHeight: "30px",
       color: "#FFFFFF",
@@ -53,9 +60,10 @@ export const Text: CSSObject = {
       color: "#434B53",
       fontSize: "16px",
       fontFamily: "Gotham Pro Medium",
-      lineHeight: '150%',
+      lineHeight: "150%",
     },
     date: {
+      textTransform: "uppercase",
       fontSize: "11px",
       fontFamily: "Gotham Pro Medium",
       color: "#2E363E",

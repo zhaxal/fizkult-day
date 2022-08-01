@@ -1,10 +1,12 @@
-import { NextPage } from "next"
+import ProtectedRoute from "@components/ui/ProtectedRoute";
+import { NextPage } from "next";
 
-
-const Stats: NextPage  = () => {
+const Stats: NextPage = () => {
   return (
-    <div>Stats</div>
-  )
-}
+    <ProtectedRoute>
+      <div>Stats</div>
+    </ProtectedRoute>
+  );
+};
 
-export default Stats
+export default Stats;

@@ -27,7 +27,7 @@ const Footer = () => {
             <Box>
               <Text variant="body.bold">Эл. почта</Text>
               <Text variant="body" textDecoration={"underline"}>
-                <a href="mailto:df2022@yandex.ru">df2022@yandex.ru</a>
+                <a href="mailto:fizkultday2022@yandex.ru"> fizkultday2022@yandex.ru</a>
               </Text>
             </Box>
 

@@ -1,71 +1,61 @@
 import {
-    Box,
-    Stack,
-    Image,
-    Text,
-    Button,
-    useDisclosure,
-    ModalOverlay,
-    Modal,
-    ModalBody,
-    ModalCloseButton,
-    ModalContent,
-    ModalFooter,
-    ModalHeader,
-    VStack,
+  Box,
+  Stack,
+  Image,
+  Text,
+  Button,
+  useDisclosure,
+  ModalOverlay,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  VStack,
 } from "@chakra-ui/react";
 import RegistrationForm from "@components/forms/RegistrationForm";
 import { Competition } from "@mongo/models/events/competition";
 import { newlineText } from "@utils/newline";
+import WatchButton from "./WatchButton";
+import { moment } from "@utils/moment";
 
-const WatchButton = () => {
-    const { isOpen, onOpen, onClose } = useDisclosure();
+interface CompetitionMobileCardProps extends Competition {
+  eventId: string;
+}
 
-    return (
-        <>
-            <Button onClick={onOpen} variant="competition.watch">
-                БУДУ ЗРИТЕЛЕМ
-            </Button>
+const CompetitionMobileCard = ({
+  eventId,
+  date,
+  title,
+  desc,
+  image,
+  formLink,
+}: CompetitionMobileCardProps) => {
+  return (
+    <Box borderRadius="32px" bg="#00AEEF">
+      <Box pos="absolute" w="full" top={0}>
+        <Text bg="#32BBEE" variant="date" mr={"87px"} ml={"116px"}>
+          {moment(date).tz("Europe/Moscow").format("D MMMM")}
+        </Text>
+      </Box>
+      <VStack w="full" h="full" spacing={"12.5px"} pb="27px">
+        <Image src={image} alt={`${title}_image`} borderRadius={"32px"} />
 
-            <Modal size="md" isOpen={isOpen} onClose={onClose}>
-                <ModalOverlay />
-                <ModalContent>
-                    <ModalHeader>Форма для записи</ModalHeader>
-                    <ModalCloseButton />
-                    <ModalBody>
-                        <RegistrationForm event="Competition" />
-                    </ModalBody>
-                    <ModalFooter />
-                </ModalContent>
-            </Modal>
-        </>
-    );
-};
+        <VStack px={"10px"} spacing={"24px"} align="flex-start">
+          <Box>{newlineText(title, "heading.mobile")}</Box>
+          <Box>{newlineText(desc, "body.bold.mobile")}</Box>
+        </VStack>
 
-const CompetitionMobileCard = ({ date, title, desc, image }: Competition) => {
-    return (
-        <Box borderRadius="32px" bg="#00AEEF">
-            <Box pos="absolute" w="full" top={0} >
-                <Text bg="#32BBEE" variant="date" mr={"87px"} ml={"116px"}>
-                    {date}
-                </Text>
-            </Box>
-            <VStack w="full" h="full" spacing={"12.5px"} pb="27px">
-                <Image src={image} alt="guys" borderRadius={"32px"} />
-
-
-                <VStack px={"10px"} spacing={"24px"} align="flex-start">
-                    <Box>{newlineText(title, "heading.mobile")}</Box>
-                    <Box>{newlineText(desc, "body.bold.mobile")}</Box>
-                </VStack>
-
-                <VStack spacing="16px">
-                    <Button variant="competition.join">УЧАСТВОВАТЬ</Button>
-                    <WatchButton />
-                </VStack>
-            </VStack>
-        </Box>
-    );
+        <VStack spacing="16px">
+          <a target="_blank" href={formLink} rel="noreferrer">
+            <Button variant="competition.join">УЧАСТВОВАТЬ</Button>
+          </a>
+          <WatchButton eventId={eventId} />
+        </VStack>
+      </VStack>
+    </Box>
+  );
 };
 
 export default CompetitionMobileCard;

@@ -6,6 +6,7 @@ import {
   Input,
 } from "@chakra-ui/react";
 import { useFormButton } from "@contexts/form-button-context";
+import { useRecord } from "@hooks/record";
 import { Record as FormValues } from "@mongo/models/record";
 import { Formik, Form, Field, FieldInputProps, FormikProps } from "formik";
 
@@ -20,6 +21,7 @@ interface RegistrationFormProps {
 
 const RegistrationForm = ({ eventId }: RegistrationFormProps) => {
   const { onClose } = useFormButton();
+  const { addRecord } = useRecord();
 
   const initialValues: FormValues = {
     name: "",
@@ -33,11 +35,9 @@ const RegistrationForm = ({ eventId }: RegistrationFormProps) => {
       <Formik
         initialValues={initialValues}
         onSubmit={(values, actions) => {
-          setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
-            actions.setSubmitting(false);
-            onClose();
-          }, 1000);
+          addRecord(values);
+          actions.setSubmitting(false);
+          onClose();
         }}
       >
         {(props) => (

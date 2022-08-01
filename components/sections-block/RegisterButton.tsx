@@ -1,29 +1,37 @@
 import {
   Button,
-  useDisclosure,
-  ModalOverlay,
   Modal,
   ModalBody,
   ModalCloseButton,
   ModalContent,
   ModalFooter,
   ModalHeader,
+  ModalOverlay,
+  useBreakpointValue,
+  useDisclosure,
 } from "@chakra-ui/react";
 import RegistrationForm from "@components/forms/RegistrationForm";
 import { FormButtonProvider } from "@contexts/form-button-context";
 
-interface WatchButtonProps {
+interface RegisterButtonProps {
   eventId: string;
 }
 
-const WatchButton = ({ eventId }: WatchButtonProps) => {
+const RegisterButton = ({ eventId }: RegisterButtonProps) => {
+  const variant = useBreakpointValue({ md: true });
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <FormButtonProvider onClose={onClose}>
-      <Button onClick={onOpen} variant="competition.watch">
-        БУДУ ЗРИТЕЛЕМ
-      </Button>
+      {variant ? (
+        <Button onClick={onOpen} h="96px" variant="section.register">
+          Записаться бесплатно
+        </Button>
+      ) : (
+        <Button variant="section.register" w="full">
+          Записаться бесплатно
+        </Button>
+      )}
 
       <Modal size="md" isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
@@ -40,4 +48,4 @@ const WatchButton = ({ eventId }: WatchButtonProps) => {
   );
 };
 
-export default WatchButton;
+export default RegisterButton;

@@ -6,25 +6,26 @@ import "swiper/css";
 
 import dynamic from "next/dynamic";
 import SectionCardMobile from "./SectionCardMobile";
-const SectionCard = dynamic(() => import('./SectionCard'), {
-  ssr: false
-})
+import { usePage } from "@contexts/page-context";
+const SectionCard = dynamic(() => import("./SectionCard"), {
+  ssr: false,
+});
 
 const Sections = () => {
   const array = [1, 2, 3, 5, 6];
+  const { sections } = usePage();
   const variant = useBreakpointValue({ md: true });
   let width: string;
   let spaceBetween: number;
   let mb: string;
   if (variant) {
-    width = "1100px"
-    spaceBetween = 48
-    mb = "80px"
-  }
-  else {
-    width = "320px"
-    spaceBetween = 16
-    mb = "32px"
+    width = "1100px";
+    spaceBetween = 48;
+    mb = "80px";
+  } else {
+    width = "320px";
+    spaceBetween = 16;
+    mb = "32px";
   }
 
   return (
@@ -38,25 +39,30 @@ const Sections = () => {
           spaceBetween={spaceBetween}
           freeMode={true}
         >
-          {array.map((i) => {
+          {sections.map((sect, i) => {
+            const id = sect._id.toString();
+
             return (
               <SwiperSlide style={{ width: width }} key={i}>
-                {variant ?
-                  (
-                    <SectionCard
-                      date={"13 Августа"}
-                      title={"Секция скейтбординга"}
-                      desc={`Описание секции в несколько строк \n Описание секции в несколько строк \n ссылка на правила`}
-                      image={"/images/skate_guy.png"} />
-                  )
-                  :
-                  (
-                    <SectionCardMobile
-                      date={"13 Августа"}
-                      title={`Секция \n скейтбординга`}
-                      desc={`Описание секции в несколько строк \n Описание секции в несколько строк \n ссылка на правила`}
-                      image={"/images/skate_guy.png"} />       
-                  )}
+                {variant ? (
+                  <SectionCard
+                    eventId={id}
+                    date={sect.date}
+                    title={sect.title}
+                    desc={sect.desc}
+                    image={sect.image}
+                    type={"section"}
+                  />
+                ) : (
+                  <SectionCardMobile
+                    eventId={id}
+                    date={sect.date}
+                    title={sect.title}
+                    desc={sect.desc}
+                    image={sect.image}
+                    type={"section"}
+                  />
+                )}
               </SwiperSlide>
             );
           })}

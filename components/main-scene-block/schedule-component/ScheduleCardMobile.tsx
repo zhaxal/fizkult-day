@@ -2,12 +2,12 @@ import { Box, Stack, Text } from "@chakra-ui/react";
 import { Schedule } from "@mongo/models/events/schedule";
 import { moment } from "@utils/moment";
 
-const ScheduleCard = ({ time, title, desc }: Schedule) => {
+const ScheduleCardMobile = ({ time, title, desc }: Schedule) => {
   return (
-    <Box borderRadius="32px" bg="#00AEEF" h="576px">
+    <Box borderRadius="32px" bg="#00AEEF" height={"320px"}>
       <Stack
-        mb="45px"
-        height="120px"
+        mb="32px"
+        height="64px"
         justifyContent="center"
         alignItems="center"
         sx={{
@@ -19,9 +19,10 @@ const ScheduleCard = ({ time, title, desc }: Schedule) => {
         <Text
           sx={{
             color: "#E93734",
-            fontSize: "64px",
+            fontSize: "32px",
             textTransform: "uppercase",
             fontFamily: "Mossport",
+            lineHeight: "152%"
           }}
         >
           {moment(time).tz("Europe/Moscow").format("LT")}
@@ -29,12 +30,12 @@ const ScheduleCard = ({ time, title, desc }: Schedule) => {
       </Stack>
 
       <Stack alignItems="center">
-        <Box width="312px">
-          <Text variant="heading" mb="24px">
+        <Box width="full" px={"32px"}>
+          <Text variant="heading.mobile" mb="10px" whiteSpace={"nowrap"}>
             {title}
           </Text>
 
-          <Text mb={24} variant="body">
+          <Text mb={24} variant="body.bold.mobile">
             {desc}
           </Text>
         </Box>
@@ -43,4 +44,4 @@ const ScheduleCard = ({ time, title, desc }: Schedule) => {
   );
 };
 
-export default ScheduleCard;
+export default ScheduleCardMobile;

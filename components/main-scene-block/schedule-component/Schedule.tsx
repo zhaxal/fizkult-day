@@ -2,26 +2,49 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode } from "swiper";
 import "swiper/css";
 import ScheduleCard from "./ScheduleCard";
+import ScheduleCardMobile from "./ScheduleCardMobile";
+import { usePage } from "@contexts/page-context";
+import { useBreakpointValue } from "@chakra-ui/react";
 
 const Schedule = () => {
-  const array = [1, 2, 3, 5, 6];
+  const { schedules } = usePage();
+  const variant = useBreakpointValue({ md: true });
 
+  let width: string;
+  let spaceBetween: number;
+  if (variant) {
+    width = "420px";
+    spaceBetween = 48;
+  } else {
+    width = "240px";
+    spaceBetween = 16;
+  }
   return (
     <Swiper
       style={{ overflow: "visible" }}
       modules={[FreeMode]}
       slidesPerView={"auto"}
-      spaceBetween={48}
+      spaceBetween={spaceBetween}
       freeMode={true}
     >
-      {array.map((i) => {
+      {schedules.map((schedule, i) => {
         return (
-          <SwiperSlide style={{ width: "420px" }} key={i}>
-            <ScheduleCard
-              time="12:00"
-              title="ФИТНЕС-АЭРОБИКА"
-              desc="тренер «Федерации фитнес-аэробики России» дисциплины «фитнес-аэробика»"
-            />
+          <SwiperSlide style={{ width: width }} key={i}>
+            {variant ? (
+              <ScheduleCard
+                type="schedule"
+                time={schedule.time}
+                title={schedule.title}
+                desc={schedule.desc}
+              />
+            ) : (
+              <ScheduleCardMobile
+                type="schedule"
+                time={schedule.time}
+                title={schedule.title}
+                desc={schedule.desc}
+              />
+            )}
           </SwiperSlide>
         );
       })}

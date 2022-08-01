@@ -5,9 +5,10 @@ import {
   FormErrorMessage,
   Button,
   Select,
+  Textarea,
 } from "@chakra-ui/react";
 import { useFormButton } from "@contexts/form-button-context";
-import { useValuesHandler } from "@hooks/handlers";
+import { useEventValuesHandler } from "@hooks/handlers";
 import { Performance as FormValues } from "@mongo/models/events/performance";
 import { FieldInputProps, FormikProps, Formik, Form, Field } from "formik";
 import { EventForm } from "./models/event-form";
@@ -20,7 +21,7 @@ interface FieldProps {
 const type = "performance";
 
 const PerformanceForm = ({ eventId, event }: EventForm) => {
-  const { handleValues } = useValuesHandler();
+  const { handleEventValues } = useEventValuesHandler();
   const { onClose, mode } = useFormButton();
 
   const initialValues: FormValues =
@@ -41,7 +42,7 @@ const PerformanceForm = ({ eventId, event }: EventForm) => {
         initialValues={initialValues}
         onSubmit={(values, actions) => {
           if (!mode) throw new Error("Mode is undefined");
-          handleValues(mode, type, eventId, values);
+          handleEventValues(mode, type, eventId, values);
           actions.setSubmitting(false);
           onClose();
         }}
@@ -72,7 +73,7 @@ const PerformanceForm = ({ eventId, event }: EventForm) => {
               {({ field, form }: FieldProps) => (
                 <FormControl isRequired>
                   <FormLabel>Заголовок</FormLabel>
-                  <Input {...field} placeholder="Заголовок" />
+                  <Textarea {...field} placeholder="Заголовок" />
                   <FormErrorMessage>{form.errors.title}</FormErrorMessage>
                 </FormControl>
               )}
@@ -82,7 +83,7 @@ const PerformanceForm = ({ eventId, event }: EventForm) => {
               {({ field, form }: FieldProps) => (
                 <FormControl isRequired>
                   <FormLabel>Описание</FormLabel>
-                  <Input {...field} placeholder="Описание" />
+                  <Textarea {...field} placeholder="Описание" />
                   <FormErrorMessage>{form.errors.desc}</FormErrorMessage>
                 </FormControl>
               )}
@@ -105,7 +106,7 @@ const PerformanceForm = ({ eventId, event }: EventForm) => {
               isLoading={props.isSubmitting}
               type="submit"
             >
-              Создать ивент
+               {mode === "add" ? "Создать ивент" : "Сохранить ивент"}
             </Button>
           </Form>
         )}

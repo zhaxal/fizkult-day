@@ -39,10 +39,10 @@ export const useAxiosHandler = () => {
   return { handleAxios };
 };
 
-export const useValuesHandler = () => {
+export const useEventValuesHandler = () => {
   const { addEvent, updateEvent } = useEvent();
 
-  const handleValues = (
+  const handleEventValues = (
     mode: Mode,
     type: EventTypes,
     eventId: string | undefined,
@@ -61,5 +61,5 @@ export const useValuesHandler = () => {
     }
   };
 
-  return { handleValues };
+  return { handleEventValues };
 };
