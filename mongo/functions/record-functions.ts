@@ -48,7 +48,7 @@ export const addFitnessRecord = async (
 
     transporter.sendMail(msg);
 
-    const result = "Вы успешно зарегестрировались";
+    const result = "Вы успешно зарегистрировались";
 
     return [result, null];
   } catch (e) {
@@ -83,7 +83,7 @@ export const addRecord = async (
 
     transporter.sendMail(msg);
 
-    const result = "Вы успешно зарегестрировались";
+    const result = "Вы успешно зарегистрировались";
 
     return [result, null];
   } catch (e) {

@@ -19,7 +19,7 @@ const Competitions = () => {
   let mb: string;
 
   if (variant) {
-    width = "1100px";
+    width = "1110px";
     spaceBetween = 48;
     mb = "80px";
   } else {

@@ -4,7 +4,7 @@ import { moment } from "@utils/moment";
 
 const ScheduleCard = ({ time, title, desc }: Schedule) => {
   return (
-    <Box borderRadius="32px" bg="#00AEEF" h="576px">
+    <Box borderRadius="32px" bg="#00AEEF" h="576px" overflowY={"auto"}>
       <Stack
         mb="45px"
         height="120px"

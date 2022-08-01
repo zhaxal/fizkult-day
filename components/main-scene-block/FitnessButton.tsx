@@ -28,6 +28,7 @@ const FitnessButton = ({btnText} : Props) => {
         onClick={onOpen}
         variant="section.register"
         w="full"
+        minW="465px"
         h="full"
         px={"50px"}
         py={variant ? "34px" : "18px"}

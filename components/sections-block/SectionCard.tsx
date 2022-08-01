@@ -19,9 +19,10 @@ const SectionCard = ({
     <Box borderRadius="32px" bg="#00AEEF">
       <Stack mr="24px" spacing="60px" direction="row">
         <Image
-          borderRadius="0px 32px 0px 32px"
-          width="476px"
-          mt="60px"
+          borderRadius="32px"
+          w="476px"
+          objectFit={"cover"} 
+          h="576px"
           src={image}
           alt={`${title}_image`}
         />

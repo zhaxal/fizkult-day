@@ -53,7 +53,7 @@ const MainScene = () => {
           pt={variant ? "" : "32px"}
           pb={variant ? "" : "16px"}
         >
-          <FitnessButton btnText="РЕГИСТРАЦИИ НА FITNESS NON-STOP"/>
+          <FitnessButton btnText="РЕГИСТРАЦИЯ НА FITNESS NON-STOP"/>
         </Center>
       </Container>
     </>

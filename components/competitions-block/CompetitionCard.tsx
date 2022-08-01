@@ -1,4 +1,4 @@
-import { Box, Stack, Image, Text, Button } from "@chakra-ui/react";
+import { Box, Stack, Image, Text, Button, VStack } from "@chakra-ui/react";
 
 import { Competition } from "@mongo/models/events/competition";
 import { newlineText } from "@utils/newline";
@@ -19,12 +19,16 @@ const CompetitionCard = ({
   return (
     <Box borderRadius="32px" bg="#00AEEF">
       <Stack mr="24px" spacing="60px" direction="row">
-        <Image
-          borderRadius="0px 32px 0px 32px"
-          mt="60px"
-          src={image}
-          alt={`${title}_image`}
-        />
+        <VStack verticalAlign={"center"} h="full">
+          <Image
+            borderRadius="0px 32px 0px 32px"
+            mt="60px"
+            src={image}
+            alt={`${title}_image`}
+            w="576px"
+          />
+        </VStack>
+
         <Stack alignItems="flex-start" spacing="24px">
           <Text bg="#32BBEE" variant="date">
             {moment(date).tz("Europe/Moscow").format("D MMMM")}
