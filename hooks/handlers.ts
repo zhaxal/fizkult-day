@@ -55,7 +55,6 @@ export const useEventValuesHandler = () => {
 
       case "edit":
         if (!eventId) throw new Error("You didn't include eventId prop");
-
         updateEvent(type, eventId, values);
         break;
     }

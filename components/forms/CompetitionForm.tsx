@@ -2,14 +2,17 @@ import {
   FormControl,
   FormLabel,
   Input,
+  Box,
   FormErrorMessage,
   Button,
   Textarea,
+  Checkbox,
 } from "@chakra-ui/react";
 import { useFormButton } from "@contexts/form-button-context";
 import { useEventValuesHandler } from "@hooks/handlers";
 import { Competition } from "@mongo/models/events/competition";
 import { FieldInputProps, FormikProps, Formik, Form, Field } from "formik";
+import { useState } from "react";
 import { EventForm } from "./models/event-form";
 
 type FormValues = Competition;
@@ -24,18 +27,22 @@ const type = "competition";
 const CompetitionForm = ({ eventId, event }: EventForm) => {
   const { onClose, mode } = useFormButton();
   const { handleEventValues } = useEventValuesHandler();
-
   const initialValues: FormValues =
     event && event.type === type
       ? event
       : {
-          type,
-          date: new Date(),
-          title: "",
-          desc: "",
-          image: "",
-          formLink: "",
-        };
+        type,
+        date: new Date(),
+        title: "",
+        desc: "",
+        image: "",
+        formLink: "",
+      };
+
+
+
+
+  const [toggleLink, setToggleLink] = useState(true);
 
   return (
     <>
@@ -86,11 +93,30 @@ const CompetitionForm = ({ eventId, event }: EventForm) => {
                 </FormControl>
               )}
             </Field>
+            {
+              toggleLink ? (
+                <Field name="formLink">
+                  {({ field, form }: FieldProps) => (
+                    <FormControl isRequired>
+                      <FormLabel>Ссылка на форму</FormLabel>
+                      {
+                        toggleLink ? (<Input {...field} placeholder="Ссылка на форму" />
+                        ) : (<Input {...field} placeholder="Ссылка на форму" />)
+                      }
+                      <FormErrorMessage>{form.errors.formLink}</FormErrorMessage>
+                    </FormControl>
+                  )}
+                </Field>
+              ) : null
+            }
+
+
             <Field name="formLink">
               {({ field, form }: FieldProps) => (
-                <FormControl isRequired>
-                  <FormLabel>Ссылка на форму</FormLabel>
-                  <Input {...field} placeholder="Ссылка на форму" />
+                <FormControl>
+                  <Checkbox {...field} onChange={() => { setToggleLink(!toggleLink), props.setFieldValue("formLink", "")}}>
+                    Регистрация на месте
+                  </Checkbox>
                   <FormErrorMessage>{form.errors.formLink}</FormErrorMessage>
                 </FormControl>
               )}

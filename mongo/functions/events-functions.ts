@@ -130,7 +130,7 @@ export const deleteEvent = async (
 
 export const updateEvent = async (
   eventId: string,
-  event: Event
+  event: Event,
 ): Promise<BackendFunction<string>> => {
   try {
     const filter = { _id: new ObjectId(eventId) };
@@ -147,6 +147,7 @@ export const updateEvent = async (
         break;
 
       case "competition":
+
         event.date = new Date(event.date);
         await competitionCol.updateOne(filter, { $set: event });
         break;
