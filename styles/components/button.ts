@@ -36,7 +36,7 @@ export const Button: CSSObject = {
       width: "255px",
       backgroundColor: "#FFFFFF",
       borderRadius: "8px",
-      padding: "30px 50px",
+      padding: "34px 47px",
       height: "100%",
       color: "#E93734",
       fontSize: "18px",

@@ -33,21 +33,21 @@ const CompetitionMobileCard = ({
   formLink,
 }: CompetitionMobileCardProps) => {
   return (
-    <Box borderRadius="32px" bg="#00AEEF">
+    <Box borderRadius="32px" bg="#00AEEF" w="full" h="100%">
       <Box pos="absolute" w="full" top={0}>
         <Text bg="#32BBEE" variant="date" mr={"87px"} ml={"116px"}>
           {moment(date).tz("Europe/Moscow").format("D MMMM")}
         </Text>
       </Box>
-      <VStack w="full" h="full" spacing={"12.5px"} pb="27px">
-        <Image src={image} alt={`${title}_image`} borderRadius={"32px"} />
+      <VStack w="full" h="full" spacing={"12.5px"}>
+        <Image src={image} alt={`${title}_image`} borderRadius={"32px"} boxSize={"320px"} />
 
-        <VStack px={"10px"} spacing={"24px"} align="flex-start">
-          <Box>{newlineText(title, "heading.mobile")}</Box>
-          <Box>{newlineText(desc, "body.bold.mobile")}</Box>
+        <VStack px={"10px"} align="flex-start" w="full">
+          <Box h="59px" >{newlineText(title, "heading.mobile")}</Box>
+          <Box h="120px" overflowY={"auto"}>{newlineText(desc, "body.bold.mobile")}</Box>
         </VStack>
 
-        <VStack spacing="16px">
+        <VStack spacing="16px" pb={"27px"}>
           <a target="_blank" href={formLink} rel="noreferrer">
             <Button
               variant="competition.join"
@@ -63,6 +63,7 @@ const CompetitionMobileCard = ({
                   bg: "",
                 },
               }}
+              maxH={"64px"}
               disabled={formLink === "" ? true : false}
               whiteSpace="normal"
               lineHeight={"152%"}
@@ -70,7 +71,9 @@ const CompetitionMobileCard = ({
               {formLink === "" ? "РЕГИСТРАЦИЯ НА МЕСТЕ" : "УЧАСТВОВАТЬ"}
             </Button>
           </a>
-          <WatchButton eventId={eventId} />
+          <Box h="64px">
+            <WatchButton eventId={eventId} />
+          </Box>
         </VStack>
       </VStack>
     </Box>
