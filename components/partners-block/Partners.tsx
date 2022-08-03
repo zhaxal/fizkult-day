@@ -8,7 +8,6 @@ import {
 } from "@chakra-ui/react";
 
 const Partners = () => {
-
   const variant = useBreakpointValue({ md: true });
 
   let columns: number;
@@ -18,18 +17,17 @@ const Partners = () => {
   let mb: string;
 
   if (variant) {
-    columns = 3
-    width = "300px"
-    spacing = "30px"
-    textVariant = "heading.small"
-    mb = "105px"
-  }
-  else {
-    columns = 2
-    width = "200px"
-    spacing = "20px"
-    textVariant = "heading.small.mobile"
-    mb = "32px"
+    columns = 3;
+    width = "300px";
+    spacing = "30px";
+    textVariant = "heading.small";
+    mb = "105px";
+  } else {
+    columns = 2;
+    width = "200px";
+    spacing = "20px";
+    textVariant = "heading.small.mobile";
+    mb = "32px";
   }
 
   return (
@@ -68,24 +66,23 @@ const Partners = () => {
         >
           <Text
             sx={
-              variant ?
-                {
-                  lineHeight: "40px",
-                  color: "#222220",
-                  fontSize: "40px",
-                  textAlign: "center",
-                  textTransform: "uppercase",
-                  fontFamily: "Mossport",
-                }
-                :
-                {
-                  lineHeight: "20px",
-                  color: "#222220",
-                  fontSize: "20px",
-                  textAlign: "center",
-                  textTransform: "uppercase",
-                  fontFamily: "Mossport",
-                }
+              variant
+                ? {
+                    lineHeight: "40px",
+                    color: "#222220",
+                    fontSize: "40px",
+                    textAlign: "center",
+                    textTransform: "uppercase",
+                    fontFamily: "Mossport",
+                  }
+                : {
+                    lineHeight: "20px",
+                    color: "#222220",
+                    fontSize: "20px",
+                    textAlign: "center",
+                    textTransform: "uppercase",
+                    fontFamily: "Mossport",
+                  }
             }
           >
             Московская академия велосипедного спорта
@@ -110,26 +107,24 @@ const Partners = () => {
         >
           <Text
             sx={
-              variant ?
-                {
-                  lineHeight: "75px",
-                  color: "#222220",
-                  fontSize: "75px",
-                  textAlign: "center",
-                  textTransform: "uppercase",
-                  fontFamily: "Impact",
-                }
-                :
-                {
-                  lineHeight: "36px",
-                  color: "#222220",
-                  fontSize: "36px",
-                  textAlign: "center",
-                  textTransform: "uppercase",
-                  fontFamily: "Impact",
-                }
+              variant
+                ? {
+                    lineHeight: "75px",
+                    color: "#222220",
+                    fontSize: "75px",
+                    textAlign: "center",
+                    textTransform: "uppercase",
+                    fontFamily: "Impact",
+                  }
+                : {
+                    lineHeight: "36px",
+                    color: "#222220",
+                    fontSize: "36px",
+                    textAlign: "center",
+                    textTransform: "uppercase",
+                    fontFamily: "Impact",
+                  }
             }
-
           >
             CARX TECH
           </Text>
@@ -142,6 +137,9 @@ const Partners = () => {
           px={variant ? "35px" : "12px"}
         >
           <Image src="/images/partners/ufc.png" alt="ufc" />
+        </Stack>
+        <Stack alignItems="center" justifyContent="center">
+          <Image src="/images/partners/fitness_aerobika.svg" alt="ufc" />
         </Stack>
       </SimpleGrid>
     </Container>
