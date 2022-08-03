@@ -4,7 +4,7 @@ import {
   Stack,
   Text,
   Box,
-  Button,
+  VStack,
   useBreakpointValue,
   Center,
 } from "@chakra-ui/react";
@@ -32,13 +32,36 @@ const MainScene = () => {
             right={0}
             bottom={0}
             background={
-              "radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.42) 71.87%)"
+              "radial-gradient(113.08% 250.8% at 12.08% 118.21%, #222220 0%, rgba(255, 255, 255, 0.42) 84.52%)"
             }
-          ></Box>
+          >
+          </Box>
+          <Box
+            pos="absolute"
+            top={0}
+            left={0}
+            right={0}
+            bottom={0}
+            px={"64px"}
+          >
+            <VStack h="full" align={"flex-start"} justifyContent="center">
+              <Text
+                textTransform="uppercase"
+                fontFamily="Mossport"
+                fontSize={"128px"}
+                color="white">13 августа</Text>
+              <Text
+                textTransform="uppercase"
+                fontFamily="Mossport"
+                fontSize={"128px"}
+                color="white">СК “лужники”</Text>
+            </VStack>
+
+          </Box>
         </Box>
         <Stack alignItems="center" justifyContent="center">
           <Text mb="38px" variant="heading.small">
-            расписание
+            расписание главной сцены
           </Text>
         </Stack>
         <Container maxW="1110px">
@@ -53,7 +76,7 @@ const MainScene = () => {
           pt={variant ? "" : "32px"}
           pb={variant ? "" : "16px"}
         >
-          <FitnessButton btnText="РЕГИСТРАЦИЯ НА FITNESS NON-STOP"/>
+          <FitnessButton btnText="РЕГИСТРАЦИЯ НА FITNESS NON-STOP" minW={"465px"} />
         </Center>
       </Container>
     </>

@@ -6,7 +6,7 @@ const ScheduleCardMobile = ({ time, title, desc }: Schedule) => {
   return (
     <Box borderRadius="32px" bg="#00AEEF" height={"320px"}>
       <Stack
-        mb="32px"
+        mb="18px"
         height="64px"
         justifyContent="center"
         alignItems="center"
@@ -35,9 +35,11 @@ const ScheduleCardMobile = ({ time, title, desc }: Schedule) => {
             {title}
           </Text>
 
-          <Text mb={24} variant="body.bold.mobile">
-            {desc}
-          </Text>
+          <Box mb={"17px"} overflowY={"auto"} h="177px">
+            <Text variant="body.mobile" >
+              {desc}
+            </Text>
+          </Box>
         </Box>
       </Stack>
     </Box>

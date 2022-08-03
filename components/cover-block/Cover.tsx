@@ -5,7 +5,10 @@ const Cover = () => {
 
   return (
     <Container maxW={"1110px"} px={variant ? ("16px") : ("0px")}>
-      <Image src={"/images/cover.svg"} alt="cover"/>
+      {
+        variant ? (<Image src={"/images/cover.svg"} alt="cover" />) : (<Image src={"/images/coverMobile.svg"} alt="cover" />)
+      }
+
     </Container>
   );
 };

@@ -13,7 +13,7 @@ import FitnessButton from "../main-scene-block/FitnessButton";
 const Description = () => {
   const variant = useBreakpointValue({ md: true });
 
-  
+
   return (
     <Container maxW="1110px">
       <Stack spacing="118px" mt="41px" direction="row">
@@ -30,29 +30,19 @@ const Description = () => {
                 fontFamily: "Gotham Pro Regular",
                 color: "#434B53",
                 maxW: "544px",
-                fontSize: "21px",
-                lineHeight: "143%",
+                fontSize: "64px",
+                lineHeight: "100%",
               }}
             >
-              Это праздник всех, кто, например, бегает по утрам, танцует зумбу,
-              или любит велопрогулки
+              Праздник для всех, кто любит спорт
             </Text>
+            <Box px="117.5px" pt={"16px"}>
+              <FitnessButton btnText="ПОЛУЧИТЬ ПОДАРОК" minW="309px" />
+            </Box>
+
           </Stack>
 
-          <Stack alignItems="center" spacing={{base: "12px", md: "20px"}} direction={{base: "column", md: "row"}}>
-            <FitnessButton btnText="Записаться бесплатно" />
-            <Text
-              sx={{
-                maxW: "210px",
-                fontFamily: "Gotham Pro Regular",
-                fontSize: "14px",
-                lineHeight: "150%",
-                textAlign: "center"
-              }}
-            >
-              И получить гарантированный подарок от МОСКОВСКОГО СПОРТА
-            </Text>
-          </Stack>
+
         </Box>
 
         {variant ? (<Image src="/images/woman.png" alt="woman" />) : ""}

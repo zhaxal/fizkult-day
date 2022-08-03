@@ -50,6 +50,12 @@ export const Text: CSSObject = {
       fontFamily: "Gotham Pro Regular",
       lineHeight: "140%",
     },
+    ["body.mobile"]: {
+      color: "#434B53",
+      fontSize: "16px",
+      fontFamily: "Gotham Pro Regular",
+      lineHeight: "150%",
+    },
     ["body.bold"]: {
       color: "#434B53",
       fontSize: "24px",

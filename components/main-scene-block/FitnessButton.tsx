@@ -16,10 +16,11 @@ import { FormButtonProvider } from "@contexts/form-button-context";
 
 interface Props{
   btnText: string;
+  minW: string;
 }
 
 
-const FitnessButton = ({btnText} : Props) => {
+const FitnessButton = ({btnText, minW} : Props) => {
   const variant = useBreakpointValue({ md: true });
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
@@ -28,7 +29,7 @@ const FitnessButton = ({btnText} : Props) => {
         onClick={onOpen}
         variant="section.register"
         w="full"
-        minW="465px"
+        minW={minW}
         h="full"
         px={"50px"}
         py={variant ? "34px" : "18px"}

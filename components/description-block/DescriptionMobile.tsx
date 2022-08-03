@@ -29,38 +29,28 @@ const DescriptionMobile = () => {
               sx={{
                 fontFamily: "Gotham Pro Regular",
                 color: "#434B53",
-                maxW: "375px",
-                fontSize: "21px",
+                maxW: "460PX",
+                fontSize: "32px",
                 lineHeight: "143%",
+                textAlign: "center",
+                letterSpacing: "-0.2px",
+                fontWeight: 400,
               }}
             >
-              Это праздник всех, кто, например, бегает по утрам, танцует зумбу,
-              или любит велопрогулки
+              Праздник для всех, кто любит спорт
             </Text>
           </Stack>
 
-          <Stack
-            alignItems="center"
-            spacing={"12px"}
+          <VStack
+            justifyContent="center"
             direction={"column"}
             w="full"
+            mb={"53px"}
           >
             <Button variant="register" color="#1E2229" lineHeight={"152%"}>
-              Записаться бесплатно
+              Получить подарок
             </Button>
-            <Text
-              sx={{
-                maxW: "309px",
-                h: "51px",
-                fontFamily: "Gotham Pro Regular",
-                fontSize: "14px",
-                lineHeight: "150%",
-                textAlign: "center",
-              }}
-            >
-              И получить гарантированный подарок от МОСКОВСКОГО СПОРТА
-            </Text>
-          </Stack>
+          </VStack>
         </Box>
 
         {variant ? <Image src="/images/woman.png" alt="woman" /> : ""}
