@@ -56,7 +56,6 @@ const MainScene = () => {
                 fontSize={"128px"}
                 color="white">СК “лужники”</Text>
             </VStack>
-
           </Box>
         </Box>
         <Stack alignItems="center" justifyContent="center">
