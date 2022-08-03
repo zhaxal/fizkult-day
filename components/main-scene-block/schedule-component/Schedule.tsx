@@ -4,7 +4,7 @@ import "swiper/css";
 import ScheduleCard from "./ScheduleCard";
 import ScheduleCardMobile from "./ScheduleCardMobile";
 import { usePage } from "@contexts/page-context";
-import { useBreakpointValue } from "@chakra-ui/react";
+import { Box, useBreakpointValue } from "@chakra-ui/react";
 
 const Schedule = () => {
   const { schedules } = usePage();
