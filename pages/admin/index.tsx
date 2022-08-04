@@ -30,6 +30,8 @@ const Admin: NextPage = () => {
       onClose();
     }
   }, [onClose, onOpen, status]);
+
+  
   const handleRedirect = (path: string) => {
     return () => router.push(path);
   };

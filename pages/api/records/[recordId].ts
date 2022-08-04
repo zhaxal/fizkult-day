@@ -1,4 +1,4 @@
-import { deleteRecord } from "@mongo/functions/record-functions";
+import { deleteRecord } from "@mongo/functions/records-functions";
 import { NextApiRequest, NextApiResponse } from "next";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse<string>) => {

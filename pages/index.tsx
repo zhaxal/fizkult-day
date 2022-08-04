@@ -14,7 +14,6 @@ import Performances from "@components/perfomances-block/Performances";
 import Sections from "@components/sections-block/Sections";
 import Divider from "@components/ui/Divider";
 import Footer from "@components/ui/Footer";
-import Title from "@components/ui/Title";
 import DescriptionMobile from "@components/description-block/DescriptionMobile";
 import type { NextPage } from "next";
 import { PageProvider } from "@contexts/page-context";
@@ -29,22 +28,22 @@ import { Section } from "@mongo/models/events/section";
 const Home: NextPage = () => {
   const variant = useBreakpointValue({ md: true });
   const { data: schedules } = useSWR<WithId<Schedule>[]>(
-    `/api/events/schedule`,
+    `/api/events?type=schedule`,
     fetcher
   );
 
   const { data: competitions } = useSWR<WithId<Competition>[]>(
-    `/api/events/competition`,
+    `/api/events?type=competition`,
     fetcher
   );
 
   const { data: performances } = useSWR<WithId<Performance>[]>(
-    `/api/events/performance`,
+    `/api/events?type=performance`,
     fetcher
   );
 
   const { data: sections } = useSWR<WithId<Section>[]>(
-    `/api/events/section`,
+    `/api/events?type=section`,
     fetcher
   );
 

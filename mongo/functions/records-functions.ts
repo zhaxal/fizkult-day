@@ -1,7 +1,7 @@
 import { BackendFunction } from "@mongo/models/backend-function";
 import { FitnessRecord } from "@mongo/models/fitness-record";
 import { Record } from "@mongo/models/record";
-import { db, recordsCol } from "@mongo/mongo";
+import { fitnessRecordsCol, recordsCol } from "@mongo/mongo";
 import { transporter } from "@utils/transporter";
 import { randomInt } from "crypto";
 import { ObjectId, WithId } from "mongodb";
@@ -22,43 +22,11 @@ export const getRecords = async (): Promise<
   }
 };
 
-export const addFitnessRecord = async (
-  record: FitnessRecord
-): Promise<BackendFunction<string>> => {
-  const cursor = recordsCol.find({
-    email: record.email,
-    eventId: record.eventId,
-  });
-  if ((await cursor.toArray()).length !== 0) {
-    let err = new Error("Этот email уже использован");
-    return [null, err];
-  }
 
-  try {
-    record.date = new Date(record.date);
-    record.code = randomInt(100000, 999999);
-    await db.collection("records").insertOne(record);
 
-    let msg = {
-      from: process.env.EMAIL_FROM,
-      to: record.email,
-      subject: "День Физкультурника: запись подтверждена",
-      html: recordHTML(record.code),
-    };
-
-    transporter.sendMail(msg);
-
-    const result = "Вы успешно зарегистрировались";
-
-    return [result, null];
-  } catch (e) {
-    const err = e as Error;
-    return [null, err];
-  }
-};
 
 export const addRecord = async (
-  record: Record
+  record: Record | FitnessRecord
 ): Promise<BackendFunction<string>> => {
   const cursor = recordsCol.find({
     email: record.email,
@@ -69,10 +37,24 @@ export const addRecord = async (
     return [null, err];
   }
 
+  record.date = new Date(record.date);
+  record.code = randomInt(100000, 999999);
+
+  record.name = record.name.trim();
+
   try {
-    record.date = new Date(record.date);
-    record.code = randomInt(100000, 999999);
-    await recordsCol.insertOne(record);
+    switch (record.type) {
+      case "fitness":
+        record.phoneNumber = record.phoneNumber.trim();
+        record.currentClub = record.currentClub.trim();
+        record.recognition = record.recognition.trim();
+        await fitnessRecordsCol.insertOne(record);
+        break;
+
+      case "normal":
+        await recordsCol.insertOne(record);
+        break;
+    }
 
     let msg = {
       from: process.env.EMAIL_FROM,

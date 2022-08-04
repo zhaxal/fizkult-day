@@ -1,4 +1,4 @@
-import { addRecord, getRecords } from "@mongo/functions/record-functions";
+import { addRecord, getRecords } from "@mongo/functions/records-functions";
 import { Record } from "@mongo/models/record";
 import { NextApiRequest, NextApiResponse } from "next";
 

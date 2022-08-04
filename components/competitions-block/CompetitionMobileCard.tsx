@@ -1,20 +1,10 @@
 import {
   Box,
-  Stack,
   Image,
   Text,
   Button,
-  useDisclosure,
-  ModalOverlay,
-  Modal,
-  ModalBody,
-  ModalCloseButton,
-  ModalContent,
-  ModalFooter,
-  ModalHeader,
   VStack,
 } from "@chakra-ui/react";
-import RegistrationForm from "@components/forms/RegistrationForm";
 import { Competition } from "@mongo/models/events/competition";
 import { newlineText } from "@utils/newline";
 import WatchButton from "./WatchButton";

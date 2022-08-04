@@ -8,7 +8,6 @@ interface SectionCardMobileProps extends Section {
 }
 
 const SectionCardMobile = ({
-  date,
   title,
   desc,
   image,

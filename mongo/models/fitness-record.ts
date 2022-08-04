@@ -1,6 +1,6 @@
 import { Record } from "./record";
 
-export interface FitnessRecord extends Record {
+export interface FitnessRecord extends Omit<Record, 'type'> {
   type: "fitness";
   phoneNumber: string;
   currentClub: string;
