@@ -50,12 +50,12 @@ export const useEventValuesHandler = () => {
   ) => {
     switch (mode) {
       case "add":
-        addEvent(values);
+        addEvent(type, values);
         break;
 
       case "edit":
         if (!eventId) throw new Error("You didn't include eventId prop");
-        updateEvent(eventId, values);
+        updateEvent(type, eventId, values);
         break;
     }
   };

@@ -7,9 +7,9 @@ export const useEvent = () => {
   const { mutate } = useSWRConfig();
   const { handleAxios } = useAxiosHandler();
 
-  const addEvent = (event: Event) => {
+  const addEvent = (type: EventTypes, event: Event) => {
     handleAxios(axios.post(`/api/events`, event)).then(() => {
-      mutate(`/api/events`);
+      mutate(`/api/events?type=${type}`);
     });
   };
 
@@ -21,16 +21,14 @@ export const useEvent = () => {
         },
       })
     ).then(() => {
-      mutate(`/api/events`);
+      mutate(`/api/events?type=${type}`);
     });
   };
 
-  const updateEvent = (eventId: string, event: Event) => {
-    handleAxios(axios.patch(`/api/events/${eventId}`, event)).then(
-      () => {
-        mutate(`/api/events`);
-      }
-    );
+  const updateEvent = (type: EventTypes, eventId: string, event: Event) => {
+    handleAxios(axios.patch(`/api/events/${eventId}`, event)).then(() => {
+      mutate(`/api/events?type=${type}`);
+    });
   };
 
   return { addEvent, deleteEvent, updateEvent };
