@@ -3,9 +3,13 @@ import { Competition } from "@mongo/models/events/competition";
 import { Performance } from "@mongo/models/events/performance";
 import { Schedule } from "@mongo/models/events/schedule";
 import { Section } from "@mongo/models/events/section";
+import { FitnessRecord } from "@mongo/models/fitness-record";
+import { Record } from "@mongo/models/record";
+import { Stats } from "@mongo/models/stats";
 import {
   competitionCol,
   perfomanceCol,
+  recordsCol,
   scheduleCol,
   sectionCol,
 } from "@mongo/mongo";
@@ -130,7 +134,7 @@ export const deleteEvent = async (
 
 export const updateEvent = async (
   eventId: string,
-  event: Event,
+  event: Event
 ): Promise<BackendFunction<string>> => {
   try {
     const filter = { _id: new ObjectId(eventId) };
@@ -147,7 +151,6 @@ export const updateEvent = async (
         break;
 
       case "competition":
-
         event.date = new Date(event.date);
         await competitionCol.updateOne(filter, { $set: event });
         break;
@@ -159,6 +162,22 @@ export const updateEvent = async (
     }
 
     const result = "Обновлен ивент";
+
+    return [result, null];
+  } catch (e) {
+    const err = e as Error;
+    return [null, err];
+  }
+};
+
+export const getParticipantsByEvent = async (
+  eventId: string
+): Promise<BackendFunction<WithId<Record | FitnessRecord>[]>> => {
+  try {
+    const cursor = recordsCol.find({ eventId });
+    const participants = await cursor.toArray();
+
+    const result = participants;
 
     return [result, null];
   } catch (e) {

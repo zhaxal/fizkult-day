@@ -16,10 +16,32 @@ import { Event, EventTypes } from "@mongo/functions/events-functions";
 import { useEvent } from "@hooks/event";
 import EditEventButton from "./EditEventButton";
 import { WithId } from "mongodb";
+import ParticipantsButton from "./ParticipantsButton";
 
 interface EventTableProps {
   type: EventTypes;
 }
+
+interface RenderParticipantsButtonProps {
+  type: EventTypes;
+  eventId: string;
+}
+
+const RenderParticipantsButton = ({
+  type,
+  eventId,
+}: RenderParticipantsButtonProps) => {
+  switch (type) {
+    case "section":
+      return <ParticipantsButton eventId={eventId} />;
+
+    case "competition":
+      return <ParticipantsButton eventId={eventId} />;
+
+    default:
+      return null;
+  }
+};
 
 const EventTable = ({ type }: EventTableProps) => {
   const { data } = useSWR<WithId<Event>[]>(`/api/events?type=${type}`, fetcher);
@@ -52,6 +74,7 @@ const EventTable = ({ type }: EventTableProps) => {
                 <Td>{event.title}</Td>
                 <Td>
                   <Stack direction="row">
+                    <RenderParticipantsButton type={event.type} eventId={id} />
                     <EditEventButton
                       eventId={id}
                       type={event.type}

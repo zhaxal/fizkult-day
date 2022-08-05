@@ -2,6 +2,10 @@ import { Event, EventTypes } from "@mongo/functions/events-functions";
 import axios from "axios";
 import { useAxiosHandler } from "./handlers";
 import { useSWRConfig } from "swr";
+import { Stats } from "@mongo/models/stats";
+import { Record } from "@mongo/models/record";
+import { FitnessRecord } from "@mongo/models/fitness-record";
+import { WithId } from "mongodb";
 
 export const useEvent = () => {
   const { mutate } = useSWRConfig();
@@ -31,5 +35,36 @@ export const useEvent = () => {
     });
   };
 
-  return { addEvent, deleteEvent, updateEvent };
+  const getParticipantsByEvent = async (eventId: string) => {
+    let data: WithId<Record | FitnessRecord>[];
+
+    switch (eventId) {
+      case "fitness":
+        {
+          const res = await axios.get<WithId<FitnessRecord>[]>(
+            `/api/events/${eventId}/participants`
+          );
+          data = res.data;
+        }
+        break;
+
+      default:
+        {
+          const res = await axios.get<WithId<Record>[]>(
+            `/api/events/${eventId}/participants`
+          );
+          data = res.data;
+        }
+        break;
+    }
+
+    return data;
+  };
+
+  return {
+    addEvent,
+    deleteEvent,
+    updateEvent,
+    getParticipantsByEvent,
+  };
 };
