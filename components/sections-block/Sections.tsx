@@ -30,7 +30,7 @@ const Sections = () => {
 
   return (
     <>
-      <Heading text="занятия и секции" isMobile={!variant} />
+      <Heading text="МОСГОРСПОРТ" isMobile={!variant} />
       <Container mb="80px" maxW="1110px">
         <Swiper
           style={{ overflow: "visible" }}

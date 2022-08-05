@@ -22,7 +22,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           />
           <meta property="og:url" content="https://Деньфизкультурника2022.рф" />
           <meta property="og:type" content="website" />
-          <meta property="og:image" content="туткартинка" />
+          <meta property="og:image" content="/images/DF2.jpg" />
 
           <title>День физкультурника 2022</title>
         </Head>

@@ -35,7 +35,7 @@ const Events: NextPage = () => {
             <option value="schedule">Расписание</option>
             <option value="competition">Соревнование и Конкурсы</option>
             <option value="performance">Показательные выступления</option>
-            <option value="section">Занятия и Секций</option>
+            <option value="section">МОСГОРСПОРТ</option>
           </Select>
 
           <EventTable type={type} />
