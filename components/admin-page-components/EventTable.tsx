@@ -22,7 +22,7 @@ interface EventTableProps {
 }
 
 const EventTable = ({ type }: EventTableProps) => {
-  const { data } = useSWR<WithId<Event>[]>(`/api/events/${type}`, fetcher);
+  const { data } = useSWR<WithId<Event>[]>(`/api/events?type=${type}`, fetcher);
 
   const { deleteEvent } = useEvent();
 

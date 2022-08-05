@@ -2,6 +2,7 @@ import {
   FormControl,
   FormLabel,
   Input,
+  Textarea,
   FormErrorMessage,
   Button,
 } from "@chakra-ui/react";
@@ -78,7 +79,7 @@ const ScheduleForm = ({ eventId, event }: EventForm) => {
               {({ field, form }: FieldProps) => (
                 <FormControl isRequired>
                   <FormLabel>Описание</FormLabel>
-                  <Input {...field} placeholder="Описание" />
+                  <Textarea {...field} placeholder="Описание" />
                   <FormErrorMessage>{form.errors.desc}</FormErrorMessage>
                 </FormControl>
               )}

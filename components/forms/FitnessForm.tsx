@@ -19,7 +19,7 @@ interface FieldProps {
 
 const FitnessForm = () => {
   const { onClose } = useFormButton();
-  const { addFitnessRecord } = useRecord();
+  const { addRecord } = useRecord();
 
   const initialValues: FormValues = {
     name: "",
@@ -38,7 +38,7 @@ const FitnessForm = () => {
       <Formik
         initialValues={initialValues}
         onSubmit={(values, actions) => {
-          addFitnessRecord(values);
+          addRecord(values);
           actions.setSubmitting(false);
           onClose();
         }}

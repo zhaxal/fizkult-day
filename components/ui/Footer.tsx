@@ -23,20 +23,55 @@ const Footer = () => {
           spacing={variant ? "190px" : "32px"}
           direction={variant ? "row" : "column-reverse"}
         >
-          <Stack spacing="30px" px={variant ? "0px" : "10px"}>
-            <Box>
-              <Text variant="body.bold">Эл. почта</Text>
-              <Text variant="body" textDecoration={"underline"}>
-                <a href="mailto:fizkultday2022@yandex.ru"> fizkultday2022@yandex.ru</a>
-              </Text>
-            </Box>
+          {variant ? (
+            <Stack spacing="30px" px={"0px"}>
+              <Box>
+                <Text variant="body.bold">Эл. почта</Text>
+                <Text variant="body" textDecoration={"underline"}>
+                  <a href="mailto:fizkultday2022@yandex.ru">
+                    {" "}
+                    fizkultday2022@yandex.ru
+                  </a>
+                </Text>
+              </Box>
 
-            <Box>
-              <Text variant="body.bold">Место проведения</Text>
-              <Text variant="body">СК “ЛУЖНИКИ”</Text>
-              <Text variant="body">Фестивальная площадь</Text>
-            </Box>
-          </Stack>
+              <Box>
+                <Text variant="body.bold">Место проведения</Text>
+                <Text variant="body">СК “ЛУЖНИКИ”</Text>
+                <Text variant="body">Фестивальная площадь</Text>
+              </Box>
+            </Stack>
+          ) : (
+            <Stack spacing="30px" px={"10px"}>
+              <Box>
+                <Text variant="body.bold.mobile" color={"#202020"}>
+                  Эл. почта
+                </Text>
+                <Text
+                  variant="body.mobile"
+                  textDecoration={"underline"}
+                  color={" #262626"}
+                >
+                  <a href="mailto:fizkultday2022@yandex.ru">
+                    {" "}
+                    fizkultday2022@yandex.ru
+                  </a>
+                </Text>
+              </Box>
+
+              <Box>
+                <Text variant="body.bold.mobile" color={"#202020"}>
+                  Место проведения
+                </Text>
+                <Text variant="body.mobile" color={" #262626"}>
+                  СК “ЛУЖНИКИ”
+                </Text>
+                <Text variant="body.mobile" color={" #262626"}>
+                  Фестивальная площадь
+                </Text>
+              </Box>
+            </Stack>
+          )}
 
           <Box width="100%" height="490px" bg="grey">
             <iframe

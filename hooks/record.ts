@@ -9,13 +9,10 @@ export const useRecord = () => {
   const { handleAxios } = useAxiosHandler();
   const toast = useToast();
 
-  const addRecord = (record: Record) => {
+  const addRecord = (record: Record | FitnessRecord) => {
     handleAxios(axios.post(`/api/records`, record));
   };
 
-  const addFitnessRecord = (record: FitnessRecord) => {
-    handleAxios(axios.post(`/api/records`, record));
-  };
 
   const getRecordByData = async (code: string) => {
     const res = await axios.get<WithId<Record>>(`/api/records/validation`, {
@@ -43,6 +40,5 @@ export const useRecord = () => {
     addRecord,
     getRecordByData,
     validateRecord,
-    addFitnessRecord,
   };
 };

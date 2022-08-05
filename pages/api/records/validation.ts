@@ -1,7 +1,7 @@
 import {
   getRecordByData,
   validateRecord,
-} from "@mongo/functions/record-functions";
+} from "@mongo/functions/records-functions";
 import { NextApiRequest, NextApiResponse } from "next";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {

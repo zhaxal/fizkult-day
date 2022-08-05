@@ -8,24 +8,27 @@ export const useEvent = () => {
   const { handleAxios } = useAxiosHandler();
 
   const addEvent = (type: EventTypes, event: Event) => {
-    handleAxios(axios.post(`/api/events/${type}`, event)).then(() => {
-      mutate(`/api/events/${type}`);
+    handleAxios(axios.post(`/api/events`, event)).then(() => {
+      mutate(`/api/events?type=${type}`);
     });
   };
 
   const deleteEvent = (type: EventTypes, eventId: string) => {
-    handleAxios(axios.delete(`/api/events/${type}/${eventId}`)).then(() => {
-      mutate(`/api/events/${type}`);
+    handleAxios(
+      axios.delete(`/api/events/${eventId}`, {
+        params: {
+          type,
+        },
+      })
+    ).then(() => {
+      mutate(`/api/events?type=${type}`);
     });
   };
 
   const updateEvent = (type: EventTypes, eventId: string, event: Event) => {
-    
-    handleAxios(axios.patch(`/api/events/${type}/${eventId}`, event)).then(
-      () => {
-        mutate(`/api/events/${type}`);
-      }
-    );
+    handleAxios(axios.patch(`/api/events/${eventId}`, event)).then(() => {
+      mutate(`/api/events?type=${type}`);
+    });
   };
 
   return { addEvent, deleteEvent, updateEvent };

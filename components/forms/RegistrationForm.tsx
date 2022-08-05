@@ -29,6 +29,7 @@ const RegistrationForm = ({ eventId }: RegistrationFormProps) => {
     eventId,
     arrived: false,
     date: new Date(),
+    type: "normal"
   };
   return (
     <>

@@ -1,10 +1,10 @@
-import { Box, Stack, Text } from "@chakra-ui/react";
+import { Box, Stack, Text, VStack } from "@chakra-ui/react";
 import { Schedule } from "@mongo/models/events/schedule";
 import { moment } from "@utils/moment";
 
 const ScheduleCard = ({ time, title, desc }: Schedule) => {
   return (
-    <Box borderRadius="32px" bg="#00AEEF" h="576px">
+    <Box borderRadius="32px" bg="#00AEEF" w="full" h="576px">
       <Stack
         mb="45px"
         height="120px"
@@ -29,12 +29,12 @@ const ScheduleCard = ({ time, title, desc }: Schedule) => {
       </Stack>
 
       <Stack alignItems="center">
-        <Box width="312px">
-          <Text variant="heading" mb="24px">
+        <Box width="full" px={"53.59px"}>
+          <Text variant="heading" mb="10px">
             {title}
           </Text>
 
-          <Box mb={24} overflowY={"auto"} h="265px">
+          <Box mb={"68px"} overflowY={"auto"}>
             <Text variant="body" >
               {desc}
             </Text>
