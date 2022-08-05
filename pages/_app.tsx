@@ -18,9 +18,9 @@ function MyApp({ Component, pageProps }: AppProps) {
           <meta property="og:title" content="День физкультурника 2022" />
           <meta
             property="og:description"
-            content="Настоящий праздник спорта состоится 13 августа на фестивальной площади СК «Лужники"
+            content="Настоящий праздник спорта состоится 13 августа на фестивальной площади СК «Лужники»"
           />
-          <meta property="og:url" content="https://Деньфизкультурника2022.рф" />
+          <meta property="og:url" content="https://деньфизкультурника2022.рф" />
           <meta property="og:type" content="website" />
           <meta property="og:image" content="/images/DF2.jpg" />
 
@@ -33,16 +33,16 @@ function MyApp({ Component, pageProps }: AppProps) {
           dangerouslySetInnerHTML={{
             __html: `
             (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+            m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+            (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-   ym(89793100, "init", {
-        clickmap:true,
-        trackLinks:true,
-        accurateTrackBounce:true,
-        webvisor:true
-   });
-  `,
+            ym(89793100, "init", {
+                  clickmap:true,
+                  trackLinks:true,
+                  accurateTrackBounce:true,
+                  webvisor:true
+            });
+            `,
           }}
         />
 
