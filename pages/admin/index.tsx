@@ -19,7 +19,7 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 
 const Admin: NextPage = () => {
-  const { status, signOut } = useAdmin();
+  const { status, signOut, role } = useAdmin();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const router = useRouter();
 
@@ -31,7 +31,6 @@ const Admin: NextPage = () => {
     }
   }, [onClose, onOpen, status]);
 
-  
   const handleRedirect = (path: string) => {
     return () => router.push(path);
   };
@@ -42,13 +41,17 @@ const Admin: NextPage = () => {
         <Text variant="body.bold">Панель админа</Text>
 
         <SimpleGrid minChildWidth="120px" spacing="40px">
-          <FindRecordButton />
-          <Button onClick={handleRedirect("/admin/events")} variant="register">
-            Ивенты
-          </Button>
-          <Button onClick={handleRedirect("/admin/stats")} variant="register">
-            Статистика
-          </Button>
+          {(role === "staff" || role === "admin") && <FindRecordButton />}
+
+          {role === "admin" && (
+            <Button
+              onClick={handleRedirect("/admin/events")}
+              variant="register"
+            >
+              Ивенты
+            </Button>
+          )}
+
           <Button onClick={signOut} variant="register">
             Выйти
           </Button>

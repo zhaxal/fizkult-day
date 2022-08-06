@@ -29,11 +29,8 @@ const SecretForm = () => {
       <Formik
         initialValues={initialValues}
         onSubmit={(values, actions) => {
-          const success = signIn(values.secret);
+          signIn(values.secret);
 
-          if (!success) {
-            actions.setStatus("error");
-          }
           actions.setSubmitting(false);
         }}
       >

@@ -7,9 +7,11 @@ import {
   useState,
 } from "react";
 
-const key = process.env.NEXT_PUBLIC_SECRET;
+const admin = process.env.NEXT_PUBLIC_SECRET;
+const staff = process.env.NEXT_PUBLIC_STAFF_SECRET;
 
 type Status = "authenticated" | "unauthenticated" | "loading";
+type Role = "admin" | "staff";
 
 interface AdminProviderProps {
   children: ReactNode;
@@ -18,7 +20,8 @@ interface AdminProviderProps {
 interface AdminContextProps {
   secret: string;
   status: Status;
-  signIn: (pass: string) => boolean;
+  role: Role | null;
+  signIn: (pass: string) => void;
   signOut: () => void;
 }
 
@@ -34,20 +37,29 @@ export const useAdmin = () => {
 export const AdminProvider = ({ children }: AdminProviderProps) => {
   const [secret, setSecret] = useLocalStorage("secret", "");
   const [status, setStatus] = useState<Status>("loading");
-
-
+  const [role, setRole] = useState<Role | null>(null);
 
   useEffect(() => {
-    if (secret === key) {
-      setStatus("authenticated");
-    } else {
-      setStatus("unauthenticated");
+    switch (secret) {
+      case staff:
+        setStatus("authenticated");
+        setRole("staff");
+        break;
+
+      case admin:
+        setStatus("authenticated");
+        setRole("admin");
+        break;
+
+      default:
+        setStatus("unauthenticated");
+        setRole(null);
+        break;
     }
   }, [secret]);
 
   const signIn = (pass: string) => {
     setSecret(pass);
-    return key === pass;
   };
 
   const signOut = () => {
@@ -55,6 +67,7 @@ export const AdminProvider = ({ children }: AdminProviderProps) => {
   };
 
   const value = {
+    role,
     secret,
     status,
     signIn,
