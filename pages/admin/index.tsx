@@ -58,6 +58,7 @@ const Admin: NextPage = () => {
         </SimpleGrid>
       </Container>
       <Modal
+        closeOnEsc={false}
         closeOnOverlayClick={false}
         size="md"
         isOpen={isOpen}
