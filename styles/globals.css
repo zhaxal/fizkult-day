@@ -43,6 +43,6 @@ a {
 
 @font-face {
   font-family: Cover; /* Гарнитура шрифта */
-  src: url(../public/fonts/16088.otf); /* Путь к файлу со шрифтом */
+  src: url(../public/fonts/Cover.otf); /* Путь к файлу со шрифтом */
 }
 
