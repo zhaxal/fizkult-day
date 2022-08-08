@@ -39,3 +39,10 @@ a {
   font-family: Gotham Pro Regular; /* Гарнитура шрифта */
   src: url(../public/fonts/GothaProReg.otf); /* Путь к файлу со шрифтом */
 }
+
+
+@font-face {
+  font-family: Cover; /* Гарнитура шрифта */
+  src: url(../public/fonts/16088.otf); /* Путь к файлу со шрифтом */
+}
+
