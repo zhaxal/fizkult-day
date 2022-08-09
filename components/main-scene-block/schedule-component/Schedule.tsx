@@ -5,6 +5,7 @@ import ScheduleCard from "./ScheduleCard";
 import ScheduleCardMobile from "./ScheduleCardMobile";
 import { usePage } from "@contexts/page-context";
 import { Box, useBreakpointValue } from "@chakra-ui/react";
+import Spinner from "@components/ui/Spinner";
 
 const Schedule = () => {
   const { schedules } = usePage();
@@ -27,27 +28,31 @@ const Schedule = () => {
       spaceBetween={spaceBetween}
       freeMode={true}
     >
-      {schedules.map((schedule, i) => {
-        return (
-          <SwiperSlide style={{ width: width }} key={i}>
-            {variant ? (
-              <ScheduleCard
-                type="schedule"
-                time={schedule.time}
-                title={schedule.title}
-                desc={schedule.desc}
-              />
-            ) : (
-              <ScheduleCardMobile
-                type="schedule"
-                time={schedule.time}
-                title={schedule.title}
-                desc={schedule.desc}
-              />
-            )}
-          </SwiperSlide>
-        );
-      })}
+      {schedules ? (
+        schedules.map((schedule, i) => {
+          return (
+            <SwiperSlide style={{ width: width }} key={i}>
+              {variant ? (
+                <ScheduleCard
+                  type="schedule"
+                  time={schedule.time}
+                  title={schedule.title}
+                  desc={schedule.desc}
+                />
+              ) : (
+                <ScheduleCardMobile
+                  type="schedule"
+                  time={schedule.time}
+                  title={schedule.title}
+                  desc={schedule.desc}
+                />
+              )}
+            </SwiperSlide>
+          );
+        })
+      ) : (
+        <Spinner />
+      )}
     </Swiper>
   );
 };

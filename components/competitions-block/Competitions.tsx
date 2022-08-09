@@ -6,6 +6,7 @@ import "swiper/css";
 import dynamic from "next/dynamic";
 import CompetitionMobileCard from "./CompetitionMobileCard";
 import { usePage } from "@contexts/page-context";
+import Spinner from "@components/ui/Spinner";
 const CompetitionCard = dynamic(() => import("./CompetitionCard"), {
   ssr: false,
 });
@@ -39,35 +40,39 @@ const Competitions = () => {
           spaceBetween={spaceBetween}
           freeMode={true}
         >
-          {competitions.map((comp, i) => {
-            const id = comp._id.toString();
+          {competitions ? (
+            competitions.map((comp, i) => {
+              const id = comp._id.toString();
 
-            return (
-              <SwiperSlide style={{ width: width }} key={i}>
-                {variant ? (
-                  <CompetitionCard
-                    eventId={id}
-                    type="competition"
-                    formLink={comp.formLink}
-                    date={comp.date}
-                    title={comp.title}
-                    desc={comp.desc}
-                    image={comp.image}
-                  />
-                ) : (
-                  <CompetitionMobileCard
-                    eventId={id}
-                    type="competition"
-                    formLink={comp.formLink}
-                    date={comp.date}
-                    title={comp.title}
-                    desc={comp.desc}
-                    image={comp.image}
-                  />
-                )}
-              </SwiperSlide>
-            );
-          })}
+              return (
+                <SwiperSlide style={{ width: width }} key={i}>
+                  {variant ? (
+                    <CompetitionCard
+                      eventId={id}
+                      type="competition"
+                      formLink={comp.formLink}
+                      date={comp.date}
+                      title={comp.title}
+                      desc={comp.desc}
+                      image={comp.image}
+                    />
+                  ) : (
+                    <CompetitionMobileCard
+                      eventId={id}
+                      type="competition"
+                      formLink={comp.formLink}
+                      date={comp.date}
+                      title={comp.title}
+                      desc={comp.desc}
+                      image={comp.image}
+                    />
+                  )}
+                </SwiperSlide>
+              );
+            })
+          ) : (
+            <Spinner />
+          )}
         </Swiper>
       </Container>
     </>
