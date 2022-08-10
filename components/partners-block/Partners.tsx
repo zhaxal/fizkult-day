@@ -68,21 +68,21 @@ const Partners = () => {
             sx={
               variant
                 ? {
-                    lineHeight: "40px",
-                    color: "#222220",
-                    fontSize: "40px",
-                    textAlign: "center",
-                    textTransform: "uppercase",
-                    fontFamily: "Mossport",
-                  }
+                  lineHeight: "40px",
+                  color: "#222220",
+                  fontSize: "40px",
+                  textAlign: "center",
+                  textTransform: "uppercase",
+                  fontFamily: "Mossport",
+                }
                 : {
-                    lineHeight: "20px",
-                    color: "#222220",
-                    fontSize: "20px",
-                    textAlign: "center",
-                    textTransform: "uppercase",
-                    fontFamily: "Mossport",
-                  }
+                  lineHeight: "20px",
+                  color: "#222220",
+                  fontSize: "20px",
+                  textAlign: "center",
+                  textTransform: "uppercase",
+                  fontFamily: "Mossport",
+                }
             }
           >
             Московская академия велосипедного спорта
@@ -109,21 +109,21 @@ const Partners = () => {
             sx={
               variant
                 ? {
-                    lineHeight: "75px",
-                    color: "#222220",
-                    fontSize: "75px",
-                    textAlign: "center",
-                    textTransform: "uppercase",
-                    fontFamily: "Impact",
-                  }
+                  lineHeight: "75px",
+                  color: "#222220",
+                  fontSize: "75px",
+                  textAlign: "center",
+                  textTransform: "uppercase",
+                  fontFamily: "Impact",
+                }
                 : {
-                    lineHeight: "36px",
-                    color: "#222220",
-                    fontSize: "36px",
-                    textAlign: "center",
-                    textTransform: "uppercase",
-                    fontFamily: "Impact",
-                  }
+                  lineHeight: "36px",
+                  color: "#222220",
+                  fontSize: "36px",
+                  textAlign: "center",
+                  textTransform: "uppercase",
+                  fontFamily: "Impact",
+                }
             }
           >
             CARX TECH
@@ -139,7 +139,13 @@ const Partners = () => {
           <Image src="/images/partners/ufc.png" alt="ufc" />
         </Stack>
         <Stack alignItems="center" justifyContent="center">
-          <Image src="/images/partners/fitness_aerobika.svg" alt="ufc" />
+          <Image src="/images/partners/fitness_aerobika.svg" alt="fitness_aerobika" />
+        </Stack>
+        <Stack alignItems={"center"} justifyContent="center">
+          <Image
+            src="/images/partners/oviCyberCup.png"
+            alt="cyber_cup"
+            maxH={"154px"} />
         </Stack>
       </SimpleGrid>
     </Container>
