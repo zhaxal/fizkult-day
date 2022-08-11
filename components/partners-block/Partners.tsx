@@ -98,36 +98,10 @@ const Partners = () => {
         >
           <Image src="/images/partners/gymnastics.png" alt="gymnastics" />
         </Stack>
-        <Stack
-          alignItems="center"
-          justifyContent="center"
-          bg="#F8F8F8"
-          py={variant ? "85px" : "38px"}
-          px={"5px"}
-        >
-          <Text
-            sx={
-              variant
-                ? {
-                  lineHeight: "75px",
-                  color: "#222220",
-                  fontSize: "75px",
-                  textAlign: "center",
-                  textTransform: "uppercase",
-                  fontFamily: "Impact",
-                }
-                : {
-                  lineHeight: "36px",
-                  color: "#222220",
-                  fontSize: "36px",
-                  textAlign: "center",
-                  textTransform: "uppercase",
-                  fontFamily: "Impact",
-                }
-            }
-          >
-            CARX TECH
-          </Text>
+        <Stack alignItems={"center"} justifyContent="center" px="17px" bg="#F8F8F8">
+          <Image
+            src="/images/partners/carx.svg"
+            alt="carx" />
         </Stack>
         <Stack
           alignItems="center"
@@ -141,7 +115,7 @@ const Partners = () => {
         <Stack alignItems="center" justifyContent="center">
           <Image src="/images/partners/fitness_aerobika.svg" alt="fitness_aerobika" />
         </Stack>
-        <Stack alignItems={"center"} justifyContent="center">
+        <Stack alignItems={"center"} justifyContent="center" bg="#F8F8F8">
           <Image
             src="/images/partners/oviCyberCup.png"
             alt="cyber_cup"
