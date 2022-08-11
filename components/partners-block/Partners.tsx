@@ -98,10 +98,15 @@ const Partners = () => {
         >
           <Image src="/images/partners/gymnastics.png" alt="gymnastics" />
         </Stack>
-        <Stack alignItems={"center"} justifyContent="center" px="17px" bg="#F8F8F8">
+        <Stack alignItems={"center"}
+          justifyContent="center"
+          py={variant ? "70px" : "44px"}
+          px={variant ? "15px" : "17px"}
+          bg="#F8F8F8">
           <Image
             src="/images/partners/carx.svg"
-            alt="carx" />
+            alt="carx" 
+            maxW="300px"/>
         </Stack>
         <Stack
           alignItems="center"
@@ -119,7 +124,7 @@ const Partners = () => {
           <Image
             src="/images/partners/oviCyberCup.png"
             alt="cyber_cup"
-            maxH={"154px"} />
+            maxH={"200px"} />
         </Stack>
       </SimpleGrid>
     </Container>
