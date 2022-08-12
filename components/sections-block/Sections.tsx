@@ -1,6 +1,6 @@
 import Heading from "@components/ui/Heading";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { FreeMode } from "swiper";
+import { FreeMode, Navigation } from "swiper";
 import { Container, useBreakpointValue } from "@chakra-ui/react";
 import "swiper/css";
 
@@ -35,10 +35,10 @@ const Sections = () => {
       <Container mb="80px" maxW="1110px">
         <Swiper
           style={{ overflow: "visible" }}
-          modules={[FreeMode]}
-          slidesPerView={"auto"}
+          modules={[Navigation]}
+          slidesPerView={1}
           spaceBetween={spaceBetween}
-          freeMode={true}
+          navigation={true}
         >
           {sections ? (
             sections.map((sect, i) => {

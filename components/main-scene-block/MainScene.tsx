@@ -151,6 +151,7 @@ const MainScene = () => {
           <FitnessButton
             btnText="РЕГИСТРАЦИЯ НА FITNESS NON-STOP"
             minW={"465px"}
+            isDesc={false}
           />
         </Center>
       </Container>

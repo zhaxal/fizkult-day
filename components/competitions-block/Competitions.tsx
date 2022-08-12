@@ -1,7 +1,7 @@
 import Heading from "@components/ui/Heading";
 import { Container, useBreakpointValue } from "@chakra-ui/react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { FreeMode } from "swiper";
+import { FreeMode, Navigation } from "swiper";
 import "swiper/css";
 import dynamic from "next/dynamic";
 import CompetitionMobileCard from "./CompetitionMobileCard";
@@ -35,10 +35,10 @@ const Competitions = () => {
       <Container mb={mb} maxW="1110px">
         <Swiper
           style={{ overflow: "visible" }}
-          modules={[FreeMode]}
-          slidesPerView={"auto"}
+          modules={[Navigation]}
+          navigation={true}
+          slidesPerView={1}
           spaceBetween={spaceBetween}
-          freeMode={true}
         >
           {competitions ? (
             competitions.map((comp, i) => {

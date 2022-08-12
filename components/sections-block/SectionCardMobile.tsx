@@ -16,7 +16,7 @@ const SectionCardMobile = ({
   return (
     <Box borderRadius="32px" bg="#00AEEF" w="full" h="100%">
       <VStack w="full" h="full" spacing={"14.5px"} align="">
-        <Image src={image} alt={`${title}_image`} borderRadius={"32px"} />
+        <Image src={image} alt={`${title}_image`} borderRadius={"32px"}/>
 
         <VStack px={"10px"} spacing={"16px"} align="flex-start" w="full">
           <Box>{newlineText(title, "heading.mobile")}</Box>

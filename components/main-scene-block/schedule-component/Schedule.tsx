@@ -1,6 +1,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { FreeMode } from "swiper";
+import { FreeMode, Navigation } from "swiper";
 import "swiper/css";
+import "swiper/css/navigation";
 import ScheduleCard from "./ScheduleCard";
 import ScheduleCardMobile from "./ScheduleCardMobile";
 import { usePage } from "@contexts/page-context";
@@ -20,11 +21,14 @@ const Schedule = () => {
     width = "240px";
     spaceBetween = 16;
   }
+
   return (
     <Swiper
       style={{ overflow: "visible" }}
-      modules={[FreeMode]}
+      modules={[Navigation]}
+      navigation={true}
       slidesPerView={"auto"}
+      slidesPerGroup={2}
       spaceBetween={spaceBetween}
       freeMode={true}
     >
