@@ -37,7 +37,7 @@ const Competitions = () => {
           style={{ overflow: "visible" }}
           modules={[Navigation]}
           navigation={true}
-          slidesPerView={1}
+          slidesPerView={variant ? 1 : "auto"}
           spaceBetween={spaceBetween}
         >
           {competitions ? (

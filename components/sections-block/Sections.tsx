@@ -36,7 +36,7 @@ const Sections = () => {
         <Swiper
           style={{ overflow: "visible" }}
           modules={[Navigation]}
-          slidesPerView={1}
+          slidesPerView={variant ? 1 : "auto"}
           spaceBetween={spaceBetween}
           navigation={true}
         >
