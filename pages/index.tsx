@@ -1,10 +1,4 @@
-import {
-  Alert,
-  AlertIcon,
-  AlertTitle,
-  useBreakpointValue,
-  Box,
-} from "@chakra-ui/react";
+import { useBreakpointValue, Box } from "@chakra-ui/react";
 import Competitions from "@components/competitions-block/Competitions";
 import Cover from "@components/cover-block/Cover";
 import Description from "@components/description-block/Description";
@@ -47,10 +41,6 @@ const Home: NextPage = () => {
     `/api/events?type=section`,
     fetcher
   );
-
-  if (!schedules || !competitions || !performances || !sections) {
-    return <>loading</>;
-  }
 
   return (
     <PageProvider

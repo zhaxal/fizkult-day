@@ -6,10 +6,10 @@ import { WithId } from "mongodb";
 import { createContext, ReactNode, useContext } from "react";
 
 interface PageContextProps {
-  schedules: WithId<Schedule>[];
-  competitions: WithId<Competition>[];
-  performances: WithId<Performance>[];
-  sections: WithId<Section>[];
+  schedules?: WithId<Schedule>[];
+  competitions?: WithId<Competition>[];
+  performances?: WithId<Performance>[];
+  sections?: WithId<Section>[];
 }
 
 interface PageProviderProps extends PageContextProps {

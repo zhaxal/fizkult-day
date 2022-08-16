@@ -140,7 +140,7 @@ const MainScene = () => {
           <Schedule />
         </Container>
 
-        <Center
+        {/* <Center
           w="full"
           h="full"
           px={variant ? "486px" : "7px"}
@@ -151,8 +151,9 @@ const MainScene = () => {
           <FitnessButton
             btnText="РЕГИСТРАЦИЯ НА FITNESS NON-STOP"
             minW={"465px"}
+            isDesc={false}
           />
-        </Center>
+        </Center> */}
       </Container>
     </>
   );

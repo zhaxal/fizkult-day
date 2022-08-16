@@ -9,6 +9,8 @@ import {
   VStack,
 } from "@chakra-ui/react";
 
+import FitnessButton from "../main-scene-block/FitnessButton";
+
 const DescriptionMobile = () => {
   const variant = useBreakpointValue({ md: true });
 
@@ -41,16 +43,14 @@ const DescriptionMobile = () => {
             </Text>
           </Stack>
 
-          <VStack
+          {/* <VStack
             justifyContent="center"
             direction={"column"}
             w="full"
             mb={"53px"}
           >
-            <Button variant="register" color="#1E2229" lineHeight={"152%"}>
-              Получить подарок
-            </Button>
-          </VStack>
+            <FitnessButton btnText="ПОЛУЧИТЬ ПОДАРОК" minW="309px" isDesc={true} />
+          </VStack> */}
         </Box>
 
         {variant ? <Image src="/images/woman.png" alt="woman" /> : ""}

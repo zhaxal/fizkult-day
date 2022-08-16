@@ -18,6 +18,7 @@ import {
   Tr,
   useDisclosure,
 } from "@chakra-ui/react";
+import Spinner from "@components/ui/Spinner";
 import { useEvent } from "@hooks/event";
 import { FitnessRecord } from "@mongo/models/fitness-record";
 import { Record } from "@mongo/models/record";
@@ -25,6 +26,11 @@ import { WithId } from "mongodb";
 import { useEffect, useState } from "react";
 
 interface ParticipantsButtonProps {
+  eventId: string;
+}
+
+interface RenderTableProps {
+  participants: WithId<Record | FitnessRecord>[];
   eventId: string;
 }
 
@@ -70,6 +76,72 @@ const useParticipants = (isOpen: boolean, eventId: string) => {
   return { participants, stats };
 };
 
+const RenderTable = ({ participants, eventId }: RenderTableProps) => {
+  switch (eventId) {
+    case "fitness":
+      return (
+        <TableContainer>
+          <Table variant="simple">
+            <Thead>
+              <Tr>
+                <Th>Имя</Th>
+                <Th>Почта</Th>
+                <Th>Номер телефона</Th>
+                <Th>Нынешний клуб</Th>
+                <Th>Откуда узнал о мероприятии</Th>
+                <Th>Выбранный мастеркласс</Th>
+                <Th>Прибыл</Th>
+              </Tr>
+            </Thead>
+            <Tbody>
+              {participants.map((event, i) => {
+                if (event.type !== "fitness") return;
+
+                return (
+                  <Tr key={i}>
+                    <Td>{event.name}</Td>
+                    <Td>{event.email}</Td>
+                    <Td>{event.phoneNumber}</Td>
+                    <Td>{event.currentClub}</Td>
+                    <Td>{event.recognition}</Td>
+                    <Td>{event.class}</Td>
+                    <Td>{event.arrived ? "Да" : "Нет"}</Td>
+                  </Tr>
+                );
+              })}
+            </Tbody>
+          </Table>
+        </TableContainer>
+      );
+
+    default:
+      return (
+        <TableContainer>
+          <Table variant="simple">
+            <Thead>
+              <Tr>
+                <Th>Имя</Th>
+                <Th>Почта</Th>
+                <Th>Прибыл</Th>
+              </Tr>
+            </Thead>
+            <Tbody>
+              {participants.map((event, i) => {
+                return (
+                  <Tr key={i}>
+                    <Td>{event.name}</Td>
+                    <Td>{event.email}</Td>
+                    <Td>{event.arrived ? "Да" : "Нет"}</Td>
+                  </Tr>
+                );
+              })}
+            </Tbody>
+          </Table>
+        </TableContainer>
+      );
+  }
+};
+
 const ParticipantsButton = ({ eventId }: ParticipantsButtonProps) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { participants, stats } = useParticipants(isOpen, eventId);
@@ -92,31 +164,12 @@ const ParticipantsButton = ({ eventId }: ParticipantsButtonProps) => {
                     <Text>Прибыло: {stats?.arrived}</Text>
                   </Stack>
 
-                  <TableContainer>
-                    <Table variant="simple">
-                      <Thead>
-                        <Tr>
-                          <Th>Имя</Th>
-                          <Th>Почта</Th>
-                          <Th>Прибыл</Th>
-                        </Tr>
-                      </Thead>
-                      <Tbody>
-                        {participants.map((event, i) => {
-                          return (
-                            <Tr key={i}>
-                              <Td>{event.name}</Td>
-                              <Td>{event.email}</Td>
-                              <Td>{event.arrived ? "Да" : "Нет"}</Td>
-                            </Tr>
-                          );
-                        })}
-                      </Tbody>
-                    </Table>
-                  </TableContainer>
+                  <RenderTable participants={participants} eventId={eventId} />
                 </Stack>
               </>
-            ) : null}
+            ) : (
+              <Spinner />
+            )}
           </ModalBody>
           <ModalFooter />
         </ModalContent>

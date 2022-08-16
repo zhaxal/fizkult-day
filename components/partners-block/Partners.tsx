@@ -68,21 +68,21 @@ const Partners = () => {
             sx={
               variant
                 ? {
-                    lineHeight: "40px",
-                    color: "#222220",
-                    fontSize: "40px",
-                    textAlign: "center",
-                    textTransform: "uppercase",
-                    fontFamily: "Mossport",
-                  }
+                  lineHeight: "40px",
+                  color: "#222220",
+                  fontSize: "40px",
+                  textAlign: "center",
+                  textTransform: "uppercase",
+                  fontFamily: "Mossport",
+                }
                 : {
-                    lineHeight: "20px",
-                    color: "#222220",
-                    fontSize: "20px",
-                    textAlign: "center",
-                    textTransform: "uppercase",
-                    fontFamily: "Mossport",
-                  }
+                  lineHeight: "20px",
+                  color: "#222220",
+                  fontSize: "20px",
+                  textAlign: "center",
+                  textTransform: "uppercase",
+                  fontFamily: "Mossport",
+                }
             }
           >
             Московская академия велосипедного спорта
@@ -98,36 +98,15 @@ const Partners = () => {
         >
           <Image src="/images/partners/gymnastics.png" alt="gymnastics" />
         </Stack>
-        <Stack
-          alignItems="center"
+        <Stack alignItems={"center"}
           justifyContent="center"
-          bg="#F8F8F8"
-          py={variant ? "85px" : "38px"}
-          px={"5px"}
-        >
-          <Text
-            sx={
-              variant
-                ? {
-                    lineHeight: "75px",
-                    color: "#222220",
-                    fontSize: "75px",
-                    textAlign: "center",
-                    textTransform: "uppercase",
-                    fontFamily: "Impact",
-                  }
-                : {
-                    lineHeight: "36px",
-                    color: "#222220",
-                    fontSize: "36px",
-                    textAlign: "center",
-                    textTransform: "uppercase",
-                    fontFamily: "Impact",
-                  }
-            }
-          >
-            CARX TECH
-          </Text>
+          py={variant ? "70px" : "44px"}
+          px={variant ? "15px" : "17px"}
+          bg="#F8F8F8">
+          <Image
+            src="/images/partners/carx.svg"
+            alt="carx" 
+            maxW="300px"/>
         </Stack>
         <Stack
           alignItems="center"
@@ -139,7 +118,13 @@ const Partners = () => {
           <Image src="/images/partners/ufc.png" alt="ufc" />
         </Stack>
         <Stack alignItems="center" justifyContent="center">
-          <Image src="/images/partners/fitness_aerobika.svg" alt="ufc" />
+          <Image src="/images/partners/fitness_aerobika.svg" alt="fitness_aerobika" />
+        </Stack>
+        <Stack alignItems={"center"} justifyContent="center" bg="#F8F8F8">
+          <Image
+            src="/images/partners/oviCyberCup.png"
+            alt="cyber_cup"
+            maxH={"200px"} />
         </Stack>
       </SimpleGrid>
     </Container>

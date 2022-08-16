@@ -24,11 +24,11 @@ const RegisterButton = ({ eventId }: RegisterButtonProps) => {
   return (
     <FormButtonProvider onClose={onClose}>
       {variant ? (
-        <Button onClick={onOpen} h="96px" variant="section.register">
+        <Button onClick={onOpen} h="96px" disabled variant="section.register">
           Записаться бесплатно
         </Button>
       ) : (
-        <Button variant="section.register" w="full">
+        <Button variant="section.register" disabled w="full">
           Записаться бесплатно
         </Button>
       )}

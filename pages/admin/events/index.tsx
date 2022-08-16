@@ -8,6 +8,7 @@ import { isEvents } from "@utils/type-guards";
 import ProtectedRoute from "@components/ui/ProtectedRoute";
 import { useAdmin } from "@contexts/admin-context";
 import { useRouter } from "next/router";
+import ParticipantsButton from "@components/admin-page-components/ParticipantsButton";
 
 const Events: NextPage = () => {
   const { role } = useAdmin();
@@ -51,6 +52,10 @@ const Events: NextPage = () => {
           </Select>
 
           <EventTable type={type} />
+
+          <Text variant="body.bold">Fitness Non-Stop</Text>
+
+          <ParticipantsButton eventId="fitness" />
         </Stack>
       </Container>
     </ProtectedRoute>

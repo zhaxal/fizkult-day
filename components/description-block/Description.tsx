@@ -36,9 +36,9 @@ const Description = () => {
             >
               Праздник для всех, кто любит спорт
             </Text>
-            <Box px="117.5px" pt={"16px"}>
-              <FitnessButton btnText="ПОЛУЧИТЬ ПОДАРОК" minW="309px" />
-            </Box>
+            {/* <Box px="117.5px" pt={"16px"}>
+              <FitnessButton btnText="ПОЛУЧИТЬ ПОДАРОК" minW="309px" isDesc={true} />
+            </Box> */}
 
           </Stack>
 

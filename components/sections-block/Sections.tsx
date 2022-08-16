@@ -1,12 +1,13 @@
 import Heading from "@components/ui/Heading";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { FreeMode } from "swiper";
+import { FreeMode, Navigation } from "swiper";
 import { Container, useBreakpointValue } from "@chakra-ui/react";
 import "swiper/css";
 
 import dynamic from "next/dynamic";
 import SectionCardMobile from "./SectionCardMobile";
 import { usePage } from "@contexts/page-context";
+import Spinner from "@components/ui/Spinner";
 const SectionCard = dynamic(() => import("./SectionCard"), {
   ssr: false,
 });
@@ -34,38 +35,42 @@ const Sections = () => {
       <Container mb="80px" maxW="1110px">
         <Swiper
           style={{ overflow: "visible" }}
-          modules={[FreeMode]}
-          slidesPerView={"auto"}
+          modules={[Navigation]}
+          slidesPerView={variant ? 1 : "auto"}
           spaceBetween={spaceBetween}
-          freeMode={true}
+          navigation={true}
         >
-          {sections.map((sect, i) => {
-            const id = sect._id.toString();
+          {sections ? (
+            sections.map((sect, i) => {
+              const id = sect._id.toString();
 
-            return (
-              <SwiperSlide style={{ width: width }} key={i}>
-                {variant ? (
-                  <SectionCard
-                    eventId={id}
-                    date={sect.date}
-                    title={sect.title}
-                    desc={sect.desc}
-                    image={sect.image}
-                    type={"section"}
-                  />
-                ) : (
-                  <SectionCardMobile
-                    eventId={id}
-                    date={sect.date}
-                    title={sect.title}
-                    desc={sect.desc}
-                    image={sect.image}
-                    type={"section"}
-                  />
-                )}
-              </SwiperSlide>
-            );
-          })}
+              return (
+                <SwiperSlide style={{ width: width }} key={i}>
+                  {variant ? (
+                    <SectionCard
+                      eventId={id}
+                      date={sect.date}
+                      title={sect.title}
+                      desc={sect.desc}
+                      image={sect.image}
+                      type={"section"}
+                    />
+                  ) : (
+                    <SectionCardMobile
+                      eventId={id}
+                      date={sect.date}
+                      title={sect.title}
+                      desc={sect.desc}
+                      image={sect.image}
+                      type={"section"}
+                    />
+                  )}
+                </SwiperSlide>
+              );
+            })
+          ) : (
+            <Spinner />
+          )}
         </Swiper>
       </Container>
     </>
