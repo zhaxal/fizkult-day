@@ -24,6 +24,7 @@ import useSWR from "swr";
 import { Competition } from "@mongo/models/events/competition";
 import { Performance } from "@mongo/models/events/performance";
 import { Section } from "@mongo/models/events/section";
+import Gallery from "@components/gallery-block/Gallery";
 
 const Home: NextPage = () => {
   const variant = useBreakpointValue({ md: true });
@@ -65,6 +66,7 @@ const Home: NextPage = () => {
 
         {variant ? <Description /> : <DescriptionMobile />}
         <Divider />
+        <Gallery />
         <MainScene />
         <Competitions />
         <Performances />
