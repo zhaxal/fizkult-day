@@ -140,7 +140,7 @@ const MainScene = () => {
           <Schedule />
         </Container>
 
-        <Center
+        {/* <Center
           w="full"
           h="full"
           px={variant ? "486px" : "7px"}
@@ -153,7 +153,7 @@ const MainScene = () => {
             minW={"465px"}
             isDesc={false}
           />
-        </Center>
+        </Center> */}
       </Container>
     </>
   );

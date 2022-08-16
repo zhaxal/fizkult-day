@@ -43,14 +43,14 @@ const DescriptionMobile = () => {
             </Text>
           </Stack>
 
-          <VStack
+          {/* <VStack
             justifyContent="center"
             direction={"column"}
             w="full"
             mb={"53px"}
           >
             <FitnessButton btnText="ПОЛУЧИТЬ ПОДАРОК" minW="309px" isDesc={true} />
-          </VStack>
+          </VStack> */}
         </Box>
 
         {variant ? <Image src="/images/woman.png" alt="woman" /> : ""}
