@@ -56,11 +56,11 @@ const Home: NextPage = () => {
 
         {variant ? <Description /> : <DescriptionMobile />}
         <Divider />
-        <Gallery />
         <MainScene />
         <Competitions />
         <Performances />
         <Sections />
+        <Gallery />
         <Partners />
         <Footer />
 
