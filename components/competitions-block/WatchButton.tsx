@@ -21,7 +21,7 @@ const WatchButton = ({ eventId }: WatchButtonProps) => {
 
   return (
     <FormButtonProvider onClose={onClose}>
-      <Button onClick={onOpen} variant="competition.watch">
+      <Button onClick={onOpen} variant="competition.watch" disabled>
         БУДУ ЗРИТЕЛЕМ
       </Button>
 
