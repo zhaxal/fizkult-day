@@ -84,6 +84,7 @@ const Gallery = () => {
                       src={`/images/gallery/${item}`}
                       alt={"item-" + i}
                       w="full"
+                      objectFit={"cover"}
                       h="300px"
                       onClick={() => handleUrl(item)}
                     />
@@ -102,6 +103,7 @@ const Gallery = () => {
                       src={`/images/gallery/${item}`}
                       alt={"item-" + i}
                       w="full"
+                      objectFit={"cover"}
                       h="200px"
                       onClick={() => handleUrl(item)}
                     />
