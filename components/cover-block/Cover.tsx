@@ -4,9 +4,9 @@ const Cover = () => {
   const variant = useBreakpointValue({ md: true })
   const [desktopFont] = useMediaQuery('(min-width: 1080px)')
   const [mobileFont] = useMediaQuery('(min-width: 443px)')
-  
+
   return (
-    <Container maxW={"1110px"} px={variant ? ("16px") : ("0px")}>
+    <Container maxW={"1110px"} px={variant ? ("16px") : ("0px")} centerContent>
       {
         variant ? (
           <Box w="full" pos="relative" h="auto">

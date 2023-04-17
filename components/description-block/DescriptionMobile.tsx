@@ -8,6 +8,7 @@ import {
   useBreakpointValue,
   VStack,
 } from "@chakra-ui/react";
+import MainRegisterForm from "@components/forms/MainRegisterForm";
 
 import FitnessButton from "../main-scene-block/FitnessButton";
 
@@ -26,21 +27,29 @@ const DescriptionMobile = () => {
             <Image maxW="40%" src="/images/mossportMobile.svg" alt="mossport" />
           </HStack>
 
-          <Stack mb="40px" alignItems="flex-start" spacing="24px">
+          <Stack mb="40px" alignItems="flex-start" spacing="40px">
             <Text
               sx={{
                 fontFamily: "Gotham Pro Regular",
                 color: "#434B53",
                 maxW: "460PX",
                 fontSize: "32px",
-                lineHeight: "143%",
+                lineHeight: "100%",
                 textAlign: "center",
                 letterSpacing: "-0.2px",
                 fontWeight: 400,
+                whiteSpace: "pre-line",
               }}
             >
-              Праздник для всех, кто любит спорт
+              {`12 августа 2023 года состоится традиционный праздник любителей спорта.
+                Наша команда готовит много интересного в этом году!
+                Оставь свою почту и мы отправим тебе приглашение в числе первых! `}
             </Text>
+
+            <Box px="17px" sx={{ width: "100%" }}>
+              <MainRegisterForm />
+            </Box>
+
           </Stack>
 
           {/* <VStack
