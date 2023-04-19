@@ -1,4 +1,12 @@
-import { useBreakpointValue, Box, Stack, Container, Image } from "@chakra-ui/react";
+
+
+import {
+  useBreakpointValue,
+  Box,
+  Stack,
+  Container,
+  Image,
+} from "@chakra-ui/react";
 import Competitions from "@components/competitions-block/Competitions";
 import Cover from "@components/cover-block/Cover";
 import Description from "@components/description-block/Description";
@@ -63,11 +71,29 @@ const Home: NextPage = () => {
         <Gallery />
         <Partners />
         <Footer /> */}
-        <Image sx={{ height: "90px" }} src={variant ? "/images/Bottom.png" : "/images/BottomMobile.png"} />
+        <Image
+          sx={{ height: "90px" }}
+          src={variant ? "/images/Bottom.png" : "/images/BottomMobile.png"}
+        />
         <Container maxW="1110px">
-          <Stack spacing="40px" height="100px" alignItems="center" direction="row">
-            <Image height="50px" sx={{ maxW: variant ? "100%" : "35%" }} src="/images/department.svg" alt="department" />
-            <Image height="50px" sx={{ maxW: variant ? "100%" : "40%" }} src="/images/mossport.svg" alt="mossport" />
+          <Stack
+            spacing="40px"
+            height="100px"
+            alignItems="center"
+            direction="row"
+          >
+            <Image
+              height="50px"
+              sx={{ maxW: variant ? "100%" : "35%" }}
+              src="/images/department.svg"
+              alt="department"
+            />
+            <Image
+              height="50px"
+              sx={{ maxW: variant ? "100%" : "40%" }}
+              src="/images/mossport.svg"
+              alt="mossport"
+            />
           </Stack>
         </Container>
 
