@@ -13,18 +13,18 @@ function MyApp({ Component, pageProps }: AppProps) {
         <Head>
           <meta
             name="description"
-            content="День физкультурника 2022 в Лужниках"
+            content="День физкультурника 2023 в Лужниках"
           />
-          <meta property="og:title" content="День физкультурника 2022" />
+          <meta property="og:title" content="День физкультурника 2023" />
           <meta
             property="og:description"
-            content="Настоящий праздник спорта состоится 13 августа на фестивальной площади СК «Лужники»"
+            content="Настоящий праздник спорта состоится 12 августа на фестивальной площади СК «Лужники»"
           />
           <meta property="og:url" content="https://деньфизкультурника2022.рф" />
           <meta property="og:type" content="website" />
           <meta property="og:image" content="/images/DF2.jpg" />
 
-          <title>День физкультурника 2022</title>
+          <title>День физкультурника 2023</title>
         </Head>
 
         <Script
@@ -51,7 +51,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           itemScope
           itemType="https://schema.org/Organization"
         >
-          <span itemProp="name">День Физкультурника 2022</span>
+          <span itemProp="name">День Физкультурника 2023</span>
           <div
             itemProp="address"
             itemScope

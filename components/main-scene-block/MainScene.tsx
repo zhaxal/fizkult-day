@@ -52,7 +52,7 @@ const MainScene = () => {
                   fontSize={"128px"}
                   color="white"
                 >
-                  13 августа
+                  12 августа
                 </Text>
                 <Text
                   textTransform="uppercase"
@@ -108,7 +108,7 @@ const MainScene = () => {
                   fontSize={"48px"}
                   color="white"
                 >
-                  13 августа
+                  12 августа
                 </Text>
                 <Text
                   textTransform="uppercase"

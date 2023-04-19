@@ -20,7 +20,7 @@ const DescriptionMobile = () => {
       <VStack w="full" align={"center"}>
         <Box>
           <Box w="117px" h="37px">
-            <Text variant="date">13 АВГУСТА</Text>
+            <Text variant="date">12 АВГУСТА</Text>
           </Box>
           <HStack maxW="320px" my="37px" spacing="44px">
             <Image maxW="40%" src="/images/departmentMobile.svg" alt="department" />
