@@ -20,9 +20,9 @@ const Description = () => {
       <Stack spacing="118px" mt="41px" direction="row">
         <Box>
           <Stack mb="37px" spacing="19px" direction="row">
-            <Image src="/images/department.svg" sx={{ maxWidth: "213px" }} alt="department" />
-            <Image src="/images/mossport.svg" sx={{ maxWidth: "229px" }} alt="mossport" />
-            <Image src="/images/100years.svg" sx={{ minWidth: "204px" }} alt="100years" />
+            <Image src="/images/department.svg" sx={{ maxWidth: "213px" }} onClick={() => window.open("https://www.mos.ru/moskomsport/")} cursor={"pointer"} alt="department" />
+            <Image src="/images/mossport.svg" sx={{ maxWidth: "229px" }} onClick={() => window.open("https://moscow.sport")} cursor={"pointer"} alt="mossport" />
+            <Image src="/images/100years.svg" sx={{ minWidth: "204px" }} onClick={() => window.open("https://100.moscow.sport")} cursor={"pointer"} alt="100years" />
           </Stack>
 
           <Stack mb="40px" alignItems="flex-start" spacing="40px" sx={{

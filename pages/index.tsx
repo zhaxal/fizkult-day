@@ -86,18 +86,24 @@ const Home: NextPage = () => {
               height="50px"
               sx={{ maxW: variant ? "100%" : "30%" }}
               src="/images/department.svg"
+              onClick={() => window.open("https://www.mos.ru/moskomsport/")} 
+              cursor={"pointer"}
               alt="department"
             />
             <Image
               height="50px"
               sx={{ maxW: variant ? "100%" : "30%" }}
               src="/images/mossport.svg"
+              onClick={() => window.open("https://moscow.sport")} 
+              cursor={"pointer"}
               alt="mossport"
             />
             <Image
               height="50px"
               sx={{ maxW: variant ? "100%" : "30%" }}
               src="/images/100years.svg"
+              onClick={() => window.open("https://100.moscow.sport")} 
+              cursor={"pointer"}
               alt="100years"
             />
 

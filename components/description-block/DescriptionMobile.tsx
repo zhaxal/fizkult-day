@@ -24,9 +24,9 @@ const DescriptionMobile = () => {
           </HStack>
 
           <HStack w="100%" my="37px" px={"20px"}>
-            <Image sx={{ width: "33%" }} src="/images/departmentMobile.svg" alt="department" />
-            <Image sx={{ width: "33%" }} src="/images/mossportMobile.svg" alt="mossport" />
-            <Image sx={{ width: "33%" }} src="/images/100years.svg" alt="100years" />
+            <Image sx={{ width: "33%" }} onClick={() => window.open("https://www.mos.ru/moskomsport/")} cursor={"pointer"} src="/images/departmentMobile.svg" alt="department" />
+            <Image sx={{ width: "33%" }} onClick={() => window.open("https://moscow.sport")} cursor={"pointer"} src="/images/mossportMobile.svg" alt="mossport" />
+            <Image sx={{ width: "33%" }} onClick={() => window.open("https://100.moscow.sport")} cursor={"pointer"} src="/images/100years.svg" alt="100years" />
           </HStack>
 
           <Stack mb="40px" alignItems="center" spacing="40px">
