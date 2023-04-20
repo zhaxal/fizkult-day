@@ -77,23 +77,30 @@ const Home: NextPage = () => {
         />
         <Container maxW="1110px">
           <Stack
-            spacing="40px"
+            spacing="16px"
             height="100px"
             alignItems="center"
             direction="row"
           >
             <Image
               height="50px"
-              sx={{ maxW: variant ? "100%" : "35%" }}
+              sx={{ maxW: variant ? "100%" : "30%" }}
               src="/images/department.svg"
               alt="department"
             />
             <Image
               height="50px"
-              sx={{ maxW: variant ? "100%" : "40%" }}
+              sx={{ maxW: variant ? "100%" : "30%" }}
               src="/images/mossport.svg"
               alt="mossport"
             />
+            <Image
+              height="50px"
+              sx={{ maxW: variant ? "100%" : "30%" }}
+              src="/images/100years.svg"
+              alt="100years"
+            />
+
           </Stack>
         </Container>
 

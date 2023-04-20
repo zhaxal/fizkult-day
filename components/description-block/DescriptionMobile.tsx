@@ -19,15 +19,17 @@ const DescriptionMobile = () => {
     <Box w="full" px={"10px"}>
       <VStack w="full" align={"center"}>
         <Box>
-          <Box w="117px" h="37px">
-            <Text variant="date">12 АВГУСТА</Text>
-          </Box>
-          <HStack maxW="320px" my="37px" spacing="44px">
-            <Image maxW="40%" src="/images/departmentMobile.svg" alt="department" />
-            <Image maxW="40%" src="/images/mossportMobile.svg" alt="mossport" />
+          <HStack justifyContent={"center"}>
+            <Text variant="date" sx={{ fontSize: "16px", lineHeight: "150%", letterSpacing: "0.1em", fontFamily: "Gotham Pro Bold", fontWeight: 700 }}>12 АВГУСТА</Text>
           </HStack>
 
-          <Stack mb="40px" alignItems="flex-start" spacing="40px">
+          <HStack w="100%" my="37px" px={"20px"}>
+            <Image sx={{ width: "33%" }} src="/images/departmentMobile.svg" alt="department" />
+            <Image sx={{ width: "33%" }} src="/images/mossportMobile.svg" alt="mossport" />
+            <Image sx={{ width: "33%" }} src="/images/100years.svg" alt="100years" />
+          </HStack>
+
+          <Stack mb="40px" alignItems="center" spacing="40px">
             <Text
               sx={{
                 fontFamily: "Gotham Pro Regular",

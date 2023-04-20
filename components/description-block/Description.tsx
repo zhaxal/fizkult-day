@@ -19,9 +19,10 @@ const Description = () => {
     <Container maxW="1110px">
       <Stack spacing="118px" mt="41px" direction="row">
         <Box>
-          <Stack mb="37px" spacing="21px" direction="row">
-            <Image src="/images/department.svg" alt="department" />
-            <Image src="/images/mossport.svg" alt="mossport" />
+          <Stack mb="37px" spacing="19px" direction="row">
+            <Image src="/images/department.svg" sx={{ maxWidth: "213px" }} alt="department" />
+            <Image src="/images/mossport.svg" sx={{ maxWidth: "229px" }} alt="mossport" />
+            <Image src="/images/100years.svg" sx={{ minWidth: "204px" }} alt="100years" />
           </Stack>
 
           <Stack mb="40px" alignItems="flex-start" spacing="40px" sx={{
@@ -57,7 +58,7 @@ const Description = () => {
 
         </Box>
 
-        {variant ? (<Image src="/images/woman.png" sx={{maxHeight: "758px"}} alt="woman" />) : ""}
+        {variant ? (<Image src="/images/woman.png" sx={{ maxHeight: "758px" }} alt="woman" />) : ""}
       </Stack>
     </Container>
   );

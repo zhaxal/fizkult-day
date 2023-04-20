@@ -43,6 +43,8 @@ const MainRegisterForm = () => {
             });
           });
 
+          actions.resetForm()
+
           onClose();
         }}
       >
