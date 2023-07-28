@@ -2,6 +2,7 @@ import { MongoClient } from "mongodb";
 import { Competition } from "./models/events/competition";
 import { Performance } from "./models/events/performance";
 import { Schedule } from "./models/events/schedule";
+import { SchoolEvent } from "./models/events/schoolevent";
 import { Section } from "./models/events/section";
 import { FitnessRecord } from "./models/fitness-record";
 import { Form } from "./models/form";
@@ -18,6 +19,7 @@ export const competitionCol = db.collection<Competition>("competitions");
 export const perfomanceCol = db.collection<Performance>("perfomances");
 export const scheduleCol = db.collection<Schedule>("schedules");
 export const sectionCol = db.collection<Section>("sections");
+export const schoolEventCol = db.collection<SchoolEvent>("schoolEvent");
 
 export const formsCol = db.collection<Form>("forms");
 

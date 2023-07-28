@@ -23,7 +23,7 @@ const Partners = () => {
     textVariant = "heading.small";
     mb = "105px";
   } else {
-    columns = 2;
+    columns = 1;
     width = "200px";
     spacing = "20px";
     textVariant = "heading.small.mobile";
@@ -58,6 +58,33 @@ const Partners = () => {
           <Image src="/images/partners/mossport.svg" alt="mossport" />
         </Stack>
         <Stack
+          alignItems="center"
+          justifyContent="center"
+          bg="#F8F8F8"
+          py={variant ? "70px" : "44px"}
+          px={variant ? "15px" : "17px"}
+        >
+          <Image src="/images/partners/vospitatel.svg" alt="mossport" />
+        </Stack>
+        {variant ? (
+          <Stack
+            alignItems="center"
+            justifyContent="center"
+            bg="#F8F8F8"
+            py={variant ? "70px" : "44px"}
+            px={variant ? "15px" : "17px"}
+          />
+        ) : (<></>)}
+        <Stack
+          alignItems="center"
+          justifyContent="center"
+          bg="#F8F8F8"
+          py={variant ? "70px" : "44px"}
+          px={variant ? "15px" : "17px"}
+        >
+          <Image src="/images/partners/muf.svg" alt="mossport" />
+        </Stack>
+        {/* <Stack
           alignItems="center"
           justifyContent="center"
           bg="#F8F8F8"
@@ -125,9 +152,9 @@ const Partners = () => {
             src="/images/partners/oviCyberCup.png"
             alt="cyber_cup"
             maxH={"200px"} />
-        </Stack>
+        </Stack> */}
       </SimpleGrid>
-    </Container>
+    </Container >
   );
 };
 

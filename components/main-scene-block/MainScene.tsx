@@ -122,24 +122,6 @@ const MainScene = () => {
             </Box>
           </Box>
         )}
-        {variant ? (
-          <Stack alignItems="center" justifyContent="center">
-            <Text mb="38px" variant="heading.small">
-              расписание главной сцены
-            </Text>
-          </Stack>
-        ) : (
-          <Stack alignItems="center" justifyContent="center">
-            <Text mb="16px" variant="heading.small.mobile" lineHeight={"60px"}>
-              расписание главной сцены
-            </Text>
-          </Stack>
-        )}
-
-        <Container maxW="1110px">
-          <Schedule />
-        </Container>
-
         {/* <Center
           w="full"
           h="full"

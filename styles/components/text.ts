@@ -73,7 +73,6 @@ export const Text: CSSObject = {
       fontSize: "11px",
       fontFamily: "Gotham Pro Medium",
       color: "#2E363E",
-      backgroundColor: "#F2F6FA",
       borderRadius: 5,
       py: "10px",
       px: "18px",

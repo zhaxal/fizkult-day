@@ -26,8 +26,8 @@ const Footer = () => {
           {variant ? (
             <Stack spacing="30px" px={"0px"}>
               <Box>
-                <Text variant="body.bold">Эл. почта</Text>
-                <Text variant="body" textDecoration={"underline"}>
+                <Text variant="body.bold" color="#202020">Эл. почта</Text>
+                <Text variant="body" textDecoration={"underline"} color="#202020">
                   <a href="mailto:fizkultday2022@yandex.ru">
                     {" "}
                     fizkultday2022@yandex.ru
@@ -36,9 +36,9 @@ const Footer = () => {
               </Box>
 
               <Box>
-                <Text variant="body.bold">Место проведения</Text>
-                <Text variant="body">СК “ЛУЖНИКИ”</Text>
-                <Text variant="body">Фестивальная площадь</Text>
+                <Text variant="body.bold" color="#202020">Место проведения</Text>
+                <Text variant="body" color="#202020">ОК “ЛУЖНИКИ”</Text>
+                <Text variant="body" color="#202020">Южный спортивный центр</Text>
               </Box>
             </Stack>
           ) : (
@@ -50,7 +50,7 @@ const Footer = () => {
                 <Text
                   variant="body.mobile"
                   textDecoration={"underline"}
-                  color={" #262626"}
+                  color={"#262626"}
                 >
                   <a href="mailto:fizkultday2022@yandex.ru">
                     {" "}
@@ -63,11 +63,11 @@ const Footer = () => {
                 <Text variant="body.bold.mobile" color={"#202020"}>
                   Место проведения
                 </Text>
-                <Text variant="body.mobile" color={" #262626"}>
-                  СК “ЛУЖНИКИ”
+                <Text variant="body.mobile" color={"#262626"}>
+                  ОК “ЛУЖНИКИ”
                 </Text>
-                <Text variant="body.mobile" color={" #262626"}>
-                  Фестивальная площадь
+                <Text variant="body.mobile" color={"#262626"}>
+                  Южный спортивный центр
                 </Text>
               </Box>
             </Stack>

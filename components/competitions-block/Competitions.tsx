@@ -13,7 +13,7 @@ const CompetitionCard = dynamic(() => import("./CompetitionCard"), {
 
 const Competitions = () => {
   const variant = useBreakpointValue({ md: true });
-  const { competitions } = usePage();
+  const { schoolEvents } = usePage();
 
   let width: string;
   let spaceBetween: number;
@@ -40,31 +40,29 @@ const Competitions = () => {
           slidesPerView={variant ? 1 : "auto"}
           spaceBetween={spaceBetween}
         >
-          {competitions ? (
-            competitions.map((comp, i) => {
-              const id = comp._id.toString();
+          {schoolEvents ? (
+            schoolEvents.map((events, i) => {
+              const id = events._id.toString();
 
               return (
                 <SwiperSlide style={{ width: width }} key={i}>
                   {variant ? (
                     <CompetitionCard
                       eventId={id}
-                      type="competition"
-                      formLink={comp.formLink}
-                      date={comp.date}
-                      title={comp.title}
-                      desc={comp.desc}
-                      image={comp.image}
+                      type="schoolEvent"
+                      date={events.date}
+                      title={events.title}
+                      description={events.description}
+                      image={events.image}
                     />
                   ) : (
                     <CompetitionMobileCard
                       eventId={id}
-                      type="competition"
-                      formLink={comp.formLink}
-                      date={comp.date}
-                      title={comp.title}
-                      desc={comp.desc}
-                      image={comp.image}
+                      type="schoolEvent"
+                      date={events.date}
+                      title={events.title}
+                      description={events.description}
+                      image={events.image}
                     />
                   )}
                 </SwiperSlide>

@@ -6,6 +6,7 @@ export const isEvents = (type: string): type is EventTypes => {
     (type as EventTypes) === "competition" ||
     (type as EventTypes) === "section" ||
     (type as EventTypes) === "performance" ||
-    (type as EventTypes) === "schedule"
+    (type as EventTypes) === "schedule" ||
+    (type as EventTypes) === "schoolEvent"
   );
 };

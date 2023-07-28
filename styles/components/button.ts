@@ -62,5 +62,17 @@ export const Button: CSSObject = {
         opacity: 1,
       },
     },
+
+    ["festivale.register"]: {
+      backgroundColor: "#0087BE",
+      borderRadius: "8px",
+      padding: "30px 50px",
+      _hover: {
+        opacity: 0.8,
+      },
+      _active: {
+        opacity: 1,
+      },
+    },
   },
 };
