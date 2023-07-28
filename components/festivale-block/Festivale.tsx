@@ -10,11 +10,12 @@ const Festivale = () => {
         <>
             <Heading text="ФЕСТИВАЛЬ" isMobile={!variant} />
             <Container mb={"96px"} maxW="1110px">
-                <Stack direction={"row"} spacing="30px">
-                    <Stack direction={"column"} spacing="40px">
+                <Stack direction={variant ? "row" : "column"} spacing="30px">
+                    <Stack direction={"column"} spacing={"40px"}>
                         <Text variant="date">12 АВГУСТА</Text>
-                        {newlineText("папа, мама, я - спортивная семья!", "heading.blue")}
-                        <Text variant={"body.bold"} dangerouslySetInnerHTML={{
+                        {variant ? newlineText("папа, мама, я - спортивная семья!", "heading.blue")
+                            : newlineText("папа, мама, я - спортивная семья!", "heading.blue.mobile")}
+                        <Text variant={variant ? "body.bold" : "body.bold.mobile"} dangerouslySetInnerHTML={{
                             __html: `
                                 <div>
                                     <p>Бесплатный фестиваль, где вас ждут:</p>
@@ -27,7 +28,7 @@ const Festivale = () => {
                                 </div>
                             `,
                         }} />
-                        <Button variant={"festivale.register"} maxW={"342px"} minH={"100px"}>
+                        {variant ? <Button variant={"festivale.register"} maxW={"342px"} minH={"100px"}>
                             <Text sx={{
                                 fontSize: "24px",
                                 color: "white",
@@ -35,9 +36,22 @@ const Festivale = () => {
                             }}>
                                 ПЕРЕЙТИ НА САЙТ
                             </Text>
-                        </Button>
+                        </Button> : <></>}
                     </Stack>
-                    <Image maxH="540px" src="/images/festivale/1.png" />
+                    <Image maxH={variant ? "540px" : "480px"} src={variant ? "/images/festivale/1.png" : "/images/festivale/1-mobile.png"} />
+                    {variant ? <></> :
+                        <Stack w="full" alignItems={"center"}>
+                            <Button variant={"festivale.register"} maxW={"256px"} minH={"64px"}>
+                                <Text sx={{
+                                    fontSize: "16px",
+                                    color: "white",
+                                    fontFamily: "Gotham Pro Light",
+                                }}>
+                                    ПЕРЕЙТИ НА САЙТ
+                                </Text>
+                            </Button>
+                        </Stack>
+                    }
                 </Stack>
             </Container>
         </>

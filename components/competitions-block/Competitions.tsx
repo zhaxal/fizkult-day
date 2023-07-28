@@ -31,7 +31,7 @@ const Competitions = () => {
 
   return (
     <>
-      <Heading text="соревнования и конкурсы" isMobile={!variant} />
+      <Heading text="школьный спорт" isMobile={!variant} />
       <Container mb={mb} maxW="1110px">
         <Swiper
           style={{ overflow: "visible" }}

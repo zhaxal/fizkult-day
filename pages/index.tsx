@@ -29,6 +29,7 @@ import { Section } from "@mongo/models/events/section";
 import Gallery from "@components/gallery-block/Gallery";
 import { SchoolEvent } from "@mongo/models/events/schoolevent";
 import Festivale from "@components/festivale-block/Festivale";
+import Street from "@components/street-block/Street";
 
 const Home: NextPage = () => {
   const variant = useBreakpointValue({ md: true });
@@ -50,11 +51,7 @@ const Home: NextPage = () => {
         <MainScene />
         <Festivale />
         <Competitions />
-        {/* <Competitions />
-      <Performances />
-      <Sections />
-      <Gallery />
-      */}
+        <Street />
         <Partners />
         <Footer />
         {/* <Image
