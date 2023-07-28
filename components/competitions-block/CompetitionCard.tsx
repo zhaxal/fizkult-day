@@ -17,15 +17,15 @@ const CompetitionCard = ({
   image,
 }: CompetitionCardProps) => {
   return (
-    <Box borderRadius="32px" maxH="576px" bg="#00AEEF" h="100%" p={0}>
+    <Box borderRadius="32px" height={"576px"} bg="#00AEEF" p={0}>
       <Stack mr="24px" spacing="45px" direction="row" h="full">
         <Image
           borderRadius="32px"
           src={image}
           alt={`${title}_image`}
-          h="full"
-          maxH="576px"
-          objectFit={"cover"}
+          objectFit="contain"
+          objectPosition={"left bottom"}
+          w={"440px"}
         />
 
         <Stack alignItems="flex-start" spacing="24px">

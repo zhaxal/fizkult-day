@@ -5,6 +5,15 @@ import React from 'react'
 
 const Festivale = () => {
     const variant = useBreakpointValue({ md: true });
+    let htmlContent = `<div>
+        <p>Бесплатный фестиваль, где вас ждут:</p>
+        <ul style='list-style-position: inside; padding-left: 20px'>
+            <li>испытания на силу, скорость и выносливость</li>
+            <li>конкурсы, на которых вы сможете побороться за призы</li>
+            <li>открытые тренировки на свежем воздухе</li>
+            <li>мастер-классы и выступления от ведущих тренеров</li>
+        </ul>
+    </div>`;
 
     return (
         <>
@@ -15,18 +24,8 @@ const Festivale = () => {
                         <Text variant="date">12 АВГУСТА</Text>
                         {variant ? newlineText("папа, мама, я - спортивная семья!", "heading.blue")
                             : newlineText("папа, мама, я - спортивная семья!", "heading.blue.mobile")}
-                        <Text variant={variant ? "body.bold" : "body.bold.mobile"} dangerouslySetInnerHTML={{
-                            __html: `
-                                <div>
-                                    <p>Бесплатный фестиваль, где вас ждут:</p>
-                                    <ul style='list-style-position: inside; padding-left: 20px'>
-                                        <li>испытания на силу, скорость и выносливость</li>
-                                        <li>конкурсы, на которых вы сможете побороться за призы</li>
-                                        <li>открытые тренировки на свежем воздухе</li>
-                                        <li>мастер-классы и выступления от ведущих тренеров</li>
-                                    </ul>
-                                </div>
-                            `,
+                        <Text variant={variant ? "body.bold" : "body.bold.mobile"} suppressHydrationWarning dangerouslySetInnerHTML={{
+                            __html: htmlContent,
                         }} />
                         {variant ? <Button variant={"festivale.register"} maxW={"342px"} minH={"100px"}>
                             <Text sx={{

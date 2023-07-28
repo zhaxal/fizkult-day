@@ -74,7 +74,7 @@ const MainScene = () => {
             bgPos={"center center"}
             bgSize={"cover"}
             object-fit="fill"
-            maxW="100%"            
+            maxW="100%"
             pos="relative"
 
           >

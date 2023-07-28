@@ -25,12 +25,13 @@ const Street = () => {
                         <Button variant={"register"} maxW={"340px"}>ПЕРЕЙТИ НА САЙТ</Button>
                     </Stack>
                 </Box> :
-                    <Stack >
+                    <Stack w="full">
                         <Box
                             bgImage="/images/street/street-mobile.png"
                             bgSize={"contain"}
+                            bgPosition={"center"}
                             bgRepeat={"no-repeat"}
-                            minH="391px"
+                            minH="300px"
                             w="full"
                         >
                         </Box>
