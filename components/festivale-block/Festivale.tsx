@@ -17,9 +17,9 @@ const Festivale = () => {
 
     return (
         <>
-            <Heading text="ФЕСТИВАЛЬ" isMobile={!variant} />
-            <Container mb={"96px"} maxW="1110px">
-                <Stack direction={variant ? "row" : "column"} spacing="30px">
+            <Container mb={"96px"} maxW="1440px" px={0}>
+                <Heading text="ФЕСТИВАЛЬ" isMobile={!variant} />
+                <Stack direction={variant ? "row" : "column"} mx={variant ? "140px" : "0px"} spacing="30px">
                     <Stack direction={"column"} spacing={"40px"}>
                         <Text variant="date">12 АВГУСТА</Text>
                         {variant ? newlineText("папа, мама, я - спортивная семья!", "heading.blue")
@@ -27,7 +27,9 @@ const Festivale = () => {
                         <Text variant={variant ? "body.bold" : "body.bold.mobile"} suppressHydrationWarning dangerouslySetInnerHTML={{
                             __html: htmlContent,
                         }} />
-                        {variant ? <Button variant={"festivale.register"} maxW={"342px"} minH={"100px"}>
+                        {variant ? <Button variant={"festivale.register"} maxW={"342px"} minH={"100px"} onClick={() => {
+                            window.open("https://moscowfitnessfest.ru", '_blank', 'noopener,noreferrer');
+                        }}>
                             <Text sx={{
                                 fontSize: "24px",
                                 color: "white",
@@ -40,7 +42,9 @@ const Festivale = () => {
                     <Image maxH={variant ? "540px" : "480px"} src={variant ? "/images/festivale/1.png" : "/images/festivale/1-mobile.png"} />
                     {variant ? <></> :
                         <Stack w="full" alignItems={"center"}>
-                            <Button variant={"festivale.register"} maxW={"256px"} minH={"64px"}>
+                            <Button variant={"festivale.register"} maxW={"256px"} minH={"64px"} onClick={() => {
+                                window.open("https://moscowfitnessfest.ru", '_blank', 'noopener,noreferrer');
+                            }}>
                                 <Text sx={{
                                     fontSize: "16px",
                                     color: "white",

@@ -7,8 +7,9 @@ const Street = () => {
 
     return (
         <>
-            <Heading text="МОЙ СПОРТИВНЫЙ РАЙОН" isMobile={!variant} />
-            <Container mb={"96px"} maxW="1439px">
+            <Container mb={"96px"} maxW="1440px">
+                <Heading text="МОЙ СПОРТИВНЫЙ РАЙОН" isMobile={!variant} />
+
                 {variant ? <Box mb="28px"
                     bgImage="/images/street/street.png"
                     bgPos={"center center"}
@@ -22,7 +23,9 @@ const Street = () => {
                             <Text variant={"body.bold"}>Бесплатные тренировки для жителей Москвы, которые любят спорт и хотят им регулярно заниматься.</Text>
                             <Text variant={"body.bold"}>Занятия ведут профессиональные тренеры МОСГОРСПОРТа.</Text>
                         </Stack>
-                        <Button variant={"register"} maxW={"340px"}>ПЕРЕЙТИ НА САЙТ</Button>
+                        <Button variant={"register"} onClick={() => {
+                            window.open("https://moysportrayon.moscow.sport", '_blank', 'noopener,noreferrer');
+                        }} maxW={"340px"}>ПЕРЕЙТИ НА САЙТ</Button>
                     </Stack>
                 </Box> :
                     <Stack w="full">
@@ -38,7 +41,9 @@ const Street = () => {
                         <Stack spacing={"32px"} alignItems="center" >
                             <Text variant={"body.bold.mobile"}>Бесплатные тренировки для жителей Москвы, которые любят спорт и хотят им регулярно заниматься.</Text>
                             <Text variant={"body.bold.mobile"}>Занятия ведут профессиональные тренеры МОСГОРСПОРТа.</Text>
-                            <Button variant={"register.mobile"} maxW={"256"} maxH={"64px"}>ПЕРЕЙТИ НА САЙТ</Button>
+                            <Button variant={"register.mobile"} onClick={() => {
+                                window.open("https://moysportrayon.moscow.sport", '_blank', 'noopener,noreferrer');
+                            }} maxW={"256"} maxH={"64px"}>ПЕРЕЙТИ НА САЙТ</Button>
                         </Stack>
                     </Stack>
                 }

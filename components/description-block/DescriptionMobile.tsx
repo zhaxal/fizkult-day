@@ -19,9 +19,9 @@ const DescriptionMobile = () => {
     <Box w="full" px={"10px"}>
       <VStack w="full" align={"center"}>
         <Box>
-          <HStack justifyContent={"center"}>
+          <Stack bgColor={"#F2F6FA"} alignItems={"center"} maxW={"208px"}>
             <Text variant="date" sx={{ fontSize: "16px", lineHeight: "150%", letterSpacing: "0.1em", fontFamily: "Gotham Pro Bold", fontWeight: 700 }}>12 АВГУСТА</Text>
-          </HStack>
+          </Stack>
 
           <HStack w="100%" my="37px" px={"20px"}>
             <Image sx={{ width: "33%" }} onClick={() => window.open("https://www.mos.ru/moskomsport/")} cursor={"pointer"} src="/images/departmentMobile.svg" alt="department" />

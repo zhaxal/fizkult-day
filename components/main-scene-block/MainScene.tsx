@@ -16,7 +16,7 @@ const MainScene = () => {
 
   return (
     <>
-      <Container mb={variant ? "48px" : "16px"} maxW="1439px" px={0}>
+      <Container mb={variant ? "48px" : "16px"} maxW="1440px" px={0}>
         {variant ? (
           <Box
             mb="28px"

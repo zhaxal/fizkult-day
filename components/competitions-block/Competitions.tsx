@@ -51,80 +51,83 @@ const Competitions = () => {
 
   return (
     <>
-      <Heading text="школьный спорт" isMobile={!variant} />
-      <Container mb={mb} maxW="1110px" position="relative">
-        <Swiper
-          style={{ overflow: "visible" }}
-          modules={[Navigation]}
-          navigation={variant ? {
-            prevEl: ".prev-button",
-            nextEl: ".next-button",
-          } : false}
-          slidesPerView={variant ? 1 : "auto"}
-          spaceBetween={spaceBetween}
-          resistance={false}
-          onActiveIndexChange={(e: any) =>
-            handleChangeIndex(e.activeIndex, e.progress)
-          }
-          onReachBeginning={() => setShowLeftArrow(false)}
-          onReachEnd={() => setShowRightArrow(false)}
-        >
-          {schoolEvents ? (
-            schoolEvents.map((events, i) => {
-              const id = events._id.toString();
+      <Container mb={mb} maxW="1440px" px={0} >
+        <Heading text="школьный спорт" isMobile={!variant} />
+        <Box mx={variant ? "140px" : "0px"} position="relative">
+          <Swiper
+            style={{ overflow: "visible" }}
+            modules={[Navigation]}
+            navigation={variant ? {
+              prevEl: ".prev-button",
+              nextEl: ".next-button",
+            } : false}
+            slidesPerView={variant ? 1 : "auto"}
+            spaceBetween={spaceBetween}
+            resistance={false}
+            onActiveIndexChange={(e: any) =>
+              handleChangeIndex(e.activeIndex, e.progress)
+            }
+            onReachBeginning={() => setShowLeftArrow(false)}
+            onReachEnd={() => setShowRightArrow(false)}
+          >
+            {schoolEvents ? (
+              schoolEvents.map((events, i) => {
+                const id = events._id.toString();
 
-              return (
-                <SwiperSlide style={{ width: width }} key={i}>
-                  {variant ? (
-                    <CompetitionCard
-                      eventId={id}
-                      type="schoolEvent"
-                      date={events.date}
-                      title={events.title}
-                      description={events.description}
-                      image={events.image}
-                    />
-                  ) : (
-                    <CompetitionMobileCard
-                      eventId={id}
-                      type="schoolEvent"
-                      date={events.date}
-                      title={events.title}
-                      description={events.description}
-                      image={events.image}
-                    />
-                  )}
-                </SwiperSlide>
-              );
-            })
-          ) : (
-            <Spinner />
-          )}
-        </Swiper>
-        <Image
-          className={"next-button"}
-          src={"/images/slider/right.png"}
-          sx={{
-            position: "absolute",
-            right: "-30px",
-            top: "45%",
-            maxHeight: "140px",
-            zIndex: 3,
-            display: variant ? "block" : "none",
-          }}
-        />
-        <Image
-          className={"prev-button"}
-          src={"/images/slider/left.png"}
-          sx={{
-            position: "absolute",
-            left: "-20px",
-            top: "45%",
-            maxHeight: "140px",
-            zIndex: 3,
-            display: variant ? "block" : "none",
-          }}
-        />
+                return (
+                  <SwiperSlide style={{ width: width }} key={i}>
+                    {variant ? (
+                      <CompetitionCard
+                        eventId={id}
+                        type="schoolEvent"
+                        date={events.date}
+                        title={events.title}
+                        description={events.description}
+                        image={events.image}
+                      />
+                    ) : (
+                      <CompetitionMobileCard
+                        eventId={id}
+                        type="schoolEvent"
+                        date={events.date}
+                        title={events.title}
+                        description={events.description}
+                        image={events.image}
+                      />
+                    )}
+                  </SwiperSlide>
+                );
+              })
+            ) : (
+              <Spinner />
+            )}
+          </Swiper>
+          <Image
+            className={"next-button"}
+            src={"/images/slider/right.png"}
+            sx={{
+              position: "absolute",
+              right: "-30px",
+              top: "45%",
+              maxHeight: "140px",
+              zIndex: 3,
+              display: variant ? "block" : "none",
+            }}
+          />
+          <Image
+            className={"prev-button"}
+            src={"/images/slider/left.png"}
+            sx={{
+              position: "absolute",
+              left: "-20px",
+              top: "45%",
+              maxHeight: "140px",
+              zIndex: 3,
+              display: variant ? "block" : "none",
+            }}
+          />
+        </Box>
+
       </Container>
     </>
   );

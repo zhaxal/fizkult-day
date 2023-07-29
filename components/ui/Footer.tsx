@@ -16,11 +16,11 @@ const Footer = () => {
 
   return (
     <>
-      <Heading text="где нас найти?" isMobile={!variant} />
-
-      <Container mb="25px" maxW="1110px" px={variant ? "16px" : "0px"}>
+      <Container mb="25px" maxW="1440px" px={variant ? "16px" : "0px"}>
+        <Heading text="где нас найти?" isMobile={!variant} />
         <Stack
           spacing={variant ? "190px" : "32px"}
+          mx={variant ? "140px" : "0px"}
           direction={variant ? "row" : "column-reverse"}
         >
           {variant ? (
@@ -37,7 +37,7 @@ const Footer = () => {
 
               <Box>
                 <Text variant="body.bold" color="#202020">Место проведения</Text>
-                <Text variant="body" color="#202020">ОК “ЛУЖНИКИ”</Text>
+                <Text variant="body" color="#202020">ОК «ЛУЖНИКИ»</Text>
                 <Text variant="body" color="#202020">Южный спортивный центр</Text>
               </Box>
             </Stack>
@@ -112,10 +112,12 @@ const Footer = () => {
           <Image height="50px" src="/images/vospitatel.svg" alt="vospitatel" />
           <Image height="50px" src="/images/muf-logo.svg" alt="muf-logo" />
         </Stack>) : (
-          <Stack spacing="16px" height="90px" alignItems="center" direction="row">
-            <Image height="38px" src="/images/department.svg" alt="department" />
-            <Image height="38px" src="/images/mossport.svg" alt="mossport" />
-            <Image height="38px" src="/images/100years.svg" alt="100years" />
+          <Stack spacing="16px" overflowX={"auto"} height="90px" alignItems="center" direction="row">
+            <Image height="28px" src="/images/department.svg" alt="department" />
+            <Image height="28px" src="/images/mossport.svg" alt="mossport" />
+            <Image height="28px" src="/images/100years.svg" alt="100years" />
+            <Image height="28px" src="/images/vospitatel.svg" alt="vospitatel" />
+            <Image height="28px" src="/images/muf-logo.svg" alt="muf-logo" />
           </Stack>
         )}
 
