@@ -92,7 +92,7 @@ const Competitions = () => {
                         date={events.date}
                         title={events.title}
                         description={events.description}
-                        image={events.image}
+                        image={events.imageMobile}
                       />
                     )}
                   </SwiperSlide>
