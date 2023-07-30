@@ -18,7 +18,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           <meta property="og:title" content="День физкультурника 2023" />
           <meta
             property="og:description"
-            content="Настоящий праздник спорта состоится 12 августа на Южный спортивный центр ОК «Лужники»"
+            content="Настоящий праздник спорта состоится 12 августа на территории Южного спортивного центра ОК «Лужники»"
           />
           <meta property="og:url" content="https://деньфизкультурника2022.рф" />
           <meta property="og:type" content="website" />
