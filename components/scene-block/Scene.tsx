@@ -1,0 +1,278 @@
+import {
+  Container,
+  Stack,
+  useBreakpointValue,
+  Text,
+  Box,
+  Button,
+  Image,
+} from "@chakra-ui/react";
+
+import { FC } from "react";
+import Heading from "@components/ui/Heading";
+import { newlineText } from "@utils/newline";
+import { Swiper, SwiperSlide } from "swiper/react";
+
+import "swiper/css";
+import "swiper/css/pagination";
+
+import { Pagination } from "swiper";
+
+interface TablePanelProps {
+  time: string;
+  title: string;
+}
+
+const TablePanel: FC<TablePanelProps> = ({ time, title }) => {
+  return (
+    <>
+      <Stack
+        sx={{
+          background: "linear-gradient(17deg, #0087BE 0%, #0087BE 100%)",
+          boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)",
+        }}
+        py="10px"
+        alignItems="center"
+        px="16px"
+        direction="row"
+        spacing="24px"
+      >
+        <Text
+          sx={{
+            minWidth: "200px",
+            fontFamily: "Gotham Pro Regular",
+            textAlign: "center",
+            color: "#FFFFFF",
+            fontSize: "24px",
+            fontWeight: "400",
+            lineHeight: "normal",
+          }}
+        >
+          {time}
+        </Text>
+        <Text
+          sx={{
+            fontFamily: "Gotham Pro Regular",
+            color: "#FFFFFF",
+            fontSize: "24px",
+            fontWeight: "400",
+            lineHeight: "120%",
+          }}
+        >
+          {title}
+        </Text>
+      </Stack>
+    </>
+  );
+};
+
+const schedule = [
+  {
+    time: "11:00 - 10:02",
+    title: "Приветствие ведущих",
+  },
+  {
+    time: "11:02 - 11:25",
+    title: "Парад команд",
+  },
+  {
+    time: "11:25 - 11:30",
+    title: "Шоу-номер открытия",
+  },
+  {
+    time: "11:30 - 11:40",
+    title: "Приветствие официальных лиц",
+  },
+  {
+    time: "11:40 - 11:45",
+    title: "Гимн Российской Федерации",
+  },
+  {
+    time: "11:45 - 11:55",
+    title:
+      'Церемония награждения победителей и призеров городского смотра-конкурса "Московский двор - спортивный двор',
+  },
+  {
+    time: "11:55 - 12:00",
+    title: "Завершение Церемонии открытия",
+  },
+  {
+    time: "12:00 - 12:20",
+    title: "Тренировка с Аделиной Сотниковой",
+  },
+  {
+    time: "12:20 - 14:40",
+    title: "Moscow Fitness Cup",
+  },
+  {
+    time: "14:45 - 14:55",
+    title: "Выступление Лизы Матрешки",
+  },
+  {
+    time: "14:55 - 15:30",
+    title: "Мастер-класс от Джаз Дэнс",
+  },
+  {
+    time: "15:30 - 15:40",
+    title: "Выступление Idon Care",
+  },
+  {
+    time: "15:40 - 16:10",
+    title: "МСР / Мосгорспорт",
+  },
+  {
+    time: "16:10 - 18:10",
+    title: "Moscow Fitness Cup",
+  },
+  {
+    time: "18:10 - 18:20",
+    title: "Выступление Павла Пикалова",
+  },
+];
+
+const images = [
+  "/images/scene/моспродюссер.png",
+  "/images/scene/ЛизаМатрёшка.jpg",
+  "/images/scene/IdonCare.jpg",
+  "/images/scene/ПавелПикалов.jpg",
+];
+
+const Scene: FC = () => {
+  const variant = useBreakpointValue({ md: true });
+
+  return (
+    <Container maxW="1440px" px={0}>
+      <Heading text="ГЛАВНАЯ СЦЕНА" isMobile={!variant} />
+
+      <Stack mb="32px" alignItems="center" direction="column" spacing="32px">
+        <Text variant={variant ? "heading.blue" : "heading.blue.mobile"}>
+          ПРОГРАММА
+        </Text>
+
+        <Stack width="100%" maxW="900px" spacing="8px" direction="column">
+          {schedule.map((item, index) => (
+            <TablePanel
+              key={index}
+              time={item.time}
+              title={item.title}
+            ></TablePanel>
+          ))}
+        </Stack>
+      </Stack>
+
+      <Stack
+        mb="32px"
+        direction={variant ? "row" : "column"}
+        mx={variant ? "140px" : "0px"}
+        spacing="30px"
+      >
+        <Image
+          sx={{
+            borderRadius: 32,
+          }}
+          maxH={variant ? "540px" : "480px"}
+          src={"/images/scene/adelina.png"}
+        />
+        <Stack direction={"column"} spacing={"40px"}>
+          <Text variant="date">12 АВГУСТА</Text>
+
+          <Text variant={variant ? "heading.blue" : "heading.blue.mobile"}>
+            тренировка
+          </Text>
+          <Text variant={variant ? "heading.blue" : "heading.blue.mobile"}>
+            аделиной сотниковой
+          </Text>
+          <Box>
+            {/* i need indent on ul */}
+            <Text
+              as="ul"
+              variant={variant ? "body.bold" : "body.bold.mobile"}
+              sx={{
+                listStylePosition: "inside",
+                paddingLeft: "20px",
+              }}
+            >
+              <li>
+                Первая в российской истории олимпийская чемпионка (2014) в
+                женском одиночном катании в индивидуальном зачёте.
+              </li>
+              <li>Двукратный серебряный призёр чемпионатов Европы.</li>
+              <li>
+                Чемпионка мира среди юниоров, четырёхкратная чемпионка России
+              </li>
+              <li>Cеребряный медалист первых юношеских Олимпийских игр.</li>
+              <li>Заслуженный мастер спорта России</li>
+            </Text>
+          </Box>
+        </Stack>
+      </Stack>
+
+      <Stack
+        mb="80px"
+        direction={variant ? "row" : "column"}
+        mx={variant ? "140px" : "0px"}
+        spacing="30px"
+      >
+        <Stack direction={"column"} spacing={"40px"}>
+          <Text variant="date">12 АВГУСТА</Text>
+          <Text variant={variant ? "heading.blue" : "heading.blue.mobile"}>
+            ВЫСТУПЛЕНИЯ АРТИСТОВ
+          </Text>
+          <Text variant={variant ? "heading.blue" : "heading.blue.mobile"}>
+            ПРОЕКТов #моспродюсер
+          </Text>
+          <Box>
+            {/* i need indent on ul */}
+            <Text as="p" variant={variant ? "body.bold" : "body.bold.mobile"}>
+              Проекты #Моспродюсер – это социальный лифт, где равные возможности
+              представить свой талант, найти новую аудиторию, улучшить качество
+              материала предоставляются всем независимо от того, новичок ты или
+              уже заработал себе имя.
+            </Text>
+            <Text as="p" variant={variant ? "body.bold" : "body.bold.mobile"}>
+              Для вас на сцене выступят:
+            </Text>
+            <Text
+              as="ol"
+              variant={variant ? "body.bold" : "body.bold.mobile"}
+              sx={{
+                listStylePosition: "inside",
+                paddingLeft: "10px",
+              }}
+            >
+              <li>Лиза Матрёшка</li>
+              <li>Idon Care</li>
+              <li>Павел Пикалов</li>
+            </Text>
+          </Box>
+        </Stack>
+        <Box sx={{ width: variant ? "540px" : "480px" }}>
+          <Swiper
+            spaceBetween={30}
+            pagination={{
+              clickable: true,
+            }}
+            modules={[Pagination]}
+          >
+            {images.map((image, index) => (
+              <SwiperSlide
+                key={index}
+                style={{ height: variant ? "540px" : "480px" }}
+              >
+                <Image
+                  sx={{
+                    borderRadius: 32,
+                  }}
+                  h={variant ? "540px" : "480px"}
+                  src={image}
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </Box>
+      </Stack>
+    </Container>
+  );
+};
+
+export default Scene;

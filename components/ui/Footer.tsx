@@ -26,8 +26,14 @@ const Footer = () => {
           {variant ? (
             <Stack spacing="30px" px={"0px"}>
               <Box>
-                <Text variant="body.bold" color="#202020">Эл. почта</Text>
-                <Text variant="body" textDecoration={"underline"} color="#202020">
+                <Text variant="body.bold" color="#202020">
+                  Эл. почта
+                </Text>
+                <Text
+                  variant="body"
+                  textDecoration={"underline"}
+                  color="#202020"
+                >
                   <a href="mailto:fizkultday2023@yandex.ru">
                     {" "}
                     fizkultday2023@yandex.ru
@@ -36,9 +42,15 @@ const Footer = () => {
               </Box>
 
               <Box>
-                <Text variant="body.bold" color="#202020">Место проведения</Text>
-                <Text variant="body" color="#202020">ОК «ЛУЖНИКИ»</Text>
-                <Text variant="body" color="#202020">Южный спортивный центр</Text>
+                <Text variant="body.bold" color="#202020">
+                  Место проведения
+                </Text>
+                <Text variant="body" color="#202020">
+                  ОК «ЛУЖНИКИ»
+                </Text>
+                <Text variant="body" color="#202020">
+                  Южный спортивный центр
+                </Text>
               </Box>
             </Stack>
           ) : (
@@ -97,30 +109,62 @@ const Footer = () => {
                 );`,
               }}
             /> */}
-            <iframe src="https://yandex.com/map-widget/v1/?um=constructor%3A0804b52d870f994df504743dbd8c6e1d18b268214cb12433a3e8763689d95b1e&amp;source=constructor" width="100%" height="100%" frameBorder="0"></iframe>
-
+            <iframe
+              src="https://yandex.com/map-widget/v1/?um=constructor%3A0804b52d870f994df504743dbd8c6e1d18b268214cb12433a3e8763689d95b1e&amp;source=constructor"
+              width="100%"
+              height="100%"
+              frameBorder="0"
+            ></iframe>
           </Box>
         </Stack>
       </Container>
       <Divider height="2px" orientation="horizontal" />
 
       <Container maxW="1110px">
-        {variant ? (<Stack spacing="40px" height="90px" alignItems="center" direction="row">
-          <Image height="50px" src="/images/department.svg" alt="department" />
-          <Image height="50px" src="/images/mossport.svg" alt="mossport" />
-          <Image height="50px" src="/images/100years.svg" alt="100years" />
-          <Image height="50px" src="/images/vospitatel.svg" alt="vospitatel" />
-          <Image height="50px" src="/images/muf-logo.svg" alt="muf-logo" />
-        </Stack>) : (
-          <Stack spacing="16px" overflowX={"auto"} height="90px" alignItems="center" direction="row">
-            <Image height="28px" src="/images/department.svg" alt="department" />
+        {variant ? (
+          <Stack
+            spacing="40px"
+            height="90px"
+            alignItems="center"
+            direction="row"
+          >
+            <Image
+              height="50px"
+              src="/images/department.svg"
+              alt="department"
+            />
+            <Image height="50px" src="/images/mossport.svg" alt="mossport" />
+            <Image height="50px" src="/images/100years.svg" alt="100years" />
+            <Image
+              height="50px"
+              src="/images/vospitatel.svg"
+              alt="vospitatel"
+            />
+            <Image height="50px" src="/images/muf-logo.svg" alt="muf-logo" />
+          </Stack>
+        ) : (
+          <Stack
+            spacing="16px"
+            overflowX={"auto"}
+            height="90px"
+            alignItems="center"
+            direction="row"
+          >
+            <Image
+              height="28px"
+              src="/images/department.svg"
+              alt="department"
+            />
             <Image height="28px" src="/images/mossport.svg" alt="mossport" />
             <Image height="28px" src="/images/100years.svg" alt="100years" />
-            <Image height="28px" src="/images/vospitatel.svg" alt="vospitatel" />
+            <Image
+              height="28px"
+              src="/images/vospitatel.svg"
+              alt="vospitatel"
+            />
             <Image height="28px" src="/images/muf-logo.svg" alt="muf-logo" />
           </Stack>
         )}
-
       </Container>
     </>
   );

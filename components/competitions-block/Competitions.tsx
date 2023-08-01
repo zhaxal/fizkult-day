@@ -51,7 +51,7 @@ const Competitions = () => {
 
   return (
     <>
-      <Container mb={mb} maxW="1440px" px={0} >
+      <Container minH='300px' mb={mb} maxW="1440px" px={0} >
         <Heading text="школьный спорт" isMobile={!variant} />
         <Box mx={variant ? "140px" : "0px"} position="relative">
           <Swiper

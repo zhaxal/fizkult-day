@@ -11,7 +11,7 @@ import {
 import FitnessButton from "./FitnessButton";
 import Schedule from "./schedule-component/Schedule";
 
-const MainScene = () => {
+const SceneCover = () => {
   const variant = useBreakpointValue({ md: true });
 
   return (
@@ -141,4 +141,4 @@ const MainScene = () => {
   );
 };
 
-export default MainScene;
+export default SceneCover;

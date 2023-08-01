@@ -10,7 +10,7 @@ import {
 } from "@chakra-ui/react";
 import MainRegisterForm from "@components/forms/MainRegisterForm";
 
-import FitnessButton from "../main-scene-block/FitnessButton";
+import FitnessButton from "../scene-cover-block/FitnessButton";
 
 const DescriptionMobile = () => {
   const variant = useBreakpointValue({ md: true });

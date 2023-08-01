@@ -1,5 +1,3 @@
-
-
 import {
   useBreakpointValue,
   Box,
@@ -10,7 +8,7 @@ import {
 import Competitions from "@components/competitions-block/Competitions";
 import Cover from "@components/cover-block/Cover";
 import Description from "@components/description-block/Description";
-import MainScene from "@components/main-scene-block/MainScene";
+import SceneCover from "@components/scene-cover-block/SceneCover";
 import Partners from "@components/partners-block/Partners";
 import Performances from "@components/perfomances-block/Performances";
 import Sections from "@components/sections-block/Sections";
@@ -30,6 +28,7 @@ import Gallery from "@components/gallery-block/Gallery";
 import { SchoolEvent } from "@mongo/models/events/schoolevent";
 import Festivale from "@components/festivale-block/Festivale";
 import Street from "@components/street-block/Street";
+import Scene from "@components/scene-block/Scene";
 
 const Home: NextPage = () => {
   const variant = useBreakpointValue({ md: true });
@@ -39,7 +38,6 @@ const Home: NextPage = () => {
     fetcher
   );
 
-
   return (
     <PageProvider schoolEvents={schoolEvents}>
       <Box
@@ -48,9 +46,10 @@ const Home: NextPage = () => {
         <Cover />
         {variant ? <Description /> : <DescriptionMobile />}
         <Divider />
-        <MainScene />
+        <SceneCover />
         <Festivale />
         <Competitions />
+        <Scene />
         <Street />
         <Partners />
         <Footer />

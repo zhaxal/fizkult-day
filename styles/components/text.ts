@@ -10,14 +10,14 @@ export const Text: CSSObject = {
       fontFamily: "Mossport",
     },
     ["heading.blue"]: {
-      lineHeight: "60px",
+      lineHeight: "30%",
       fontSize: "64px",
       color: "#00A3D3",
       textTransform: "uppercase",
       fontFamily: "Mossport",
     },
     ["heading.blue.mobile"]: {
-      lineHeight: "30px",
+      lineHeight: "30%",
       fontSize: "32px",
       color: "#00A3D3",
       textTransform: "uppercase",
