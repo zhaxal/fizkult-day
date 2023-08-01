@@ -16,7 +16,7 @@ const MainScene = () => {
 
   return (
     <>
-      <Container mb={variant ? "48px" : "16px"} maxW="1439px" px={0}>
+      <Container mb={variant ? "48px" : "16px"} maxW="1440px" px={0}>
         {variant ? (
           <Box
             mb="28px"
@@ -52,7 +52,7 @@ const MainScene = () => {
                   fontSize={"128px"}
                   color="white"
                 >
-                  13 августа
+                  12 августа
                 </Text>
                 <Text
                   textTransform="uppercase"
@@ -74,7 +74,7 @@ const MainScene = () => {
             bgPos={"center center"}
             bgSize={"cover"}
             object-fit="fill"
-            maxW="100%"            
+            maxW="100%"
             pos="relative"
 
           >
@@ -108,7 +108,7 @@ const MainScene = () => {
                   fontSize={"48px"}
                   color="white"
                 >
-                  13 августа
+                  12 августа
                 </Text>
                 <Text
                   textTransform="uppercase"
@@ -122,24 +122,6 @@ const MainScene = () => {
             </Box>
           </Box>
         )}
-        {variant ? (
-          <Stack alignItems="center" justifyContent="center">
-            <Text mb="38px" variant="heading.small">
-              расписание главной сцены
-            </Text>
-          </Stack>
-        ) : (
-          <Stack alignItems="center" justifyContent="center">
-            <Text mb="16px" variant="heading.small.mobile" lineHeight={"60px"}>
-              расписание главной сцены
-            </Text>
-          </Stack>
-        )}
-
-        <Container maxW="1110px">
-          <Schedule />
-        </Container>
-
         {/* <Center
           w="full"
           h="full"

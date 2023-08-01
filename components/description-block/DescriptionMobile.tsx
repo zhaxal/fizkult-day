@@ -19,15 +19,22 @@ const DescriptionMobile = () => {
     <Box w="full" px={"10px"}>
       <VStack w="full" align={"center"}>
         <Box>
-          <Box w="117px" h="37px">
-            <Text variant="date">13 АВГУСТА</Text>
-          </Box>
-          <HStack maxW="320px" my="37px" spacing="44px">
-            <Image maxW="40%" src="/images/departmentMobile.svg" alt="department" />
-            <Image maxW="40%" src="/images/mossportMobile.svg" alt="mossport" />
+          <Stack bgColor={"#F2F6FA"} alignItems={"center"} maxW={"208px"}>
+            <Text variant="date" sx={{ fontSize: "16px", lineHeight: "150%", letterSpacing: "0.1em", fontFamily: "Gotham Pro Bold", fontWeight: 700 }}>12 АВГУСТА</Text>
+          </Stack>
+
+          <HStack w="100%" my="37px" px={"20px"}>
+            <Image sx={{ width: "33%" }} onClick={() => window.open("https://www.mos.ru/moskomsport/")} cursor={"pointer"} src="/images/departmentMobile.svg" alt="department" />
+            <Image sx={{ width: "33%" }} onClick={() => window.open("https://moscow.sport")} cursor={"pointer"} src="/images/mossportMobile.svg" alt="mossport" />
+            <Image sx={{ width: "33%" }} onClick={() => window.open("https://100.moscow.sport")} cursor={"pointer"} src="/images/100years.svg" alt="100years" />
           </HStack>
 
-          <Stack mb="40px" alignItems="flex-start" spacing="40px">
+          <HStack w="100%" my="37px" px={"20px"}>
+            <Image sx={{ width: "33%" }} onClick={() => window.open("")} cursor={"pointer"} src="/images/vospitatel.svg" alt="vospitatel" />
+            <Image sx={{ width: "33%" }} onClick={() => window.open("")} cursor={"pointer"} src="/images/muf-logo.svg" alt="muf" />
+          </HStack>
+
+          <Stack mb="108px" alignItems="center" spacing="40px">
             <Text
               sx={{
                 fontFamily: "Gotham Pro Regular",
@@ -41,14 +48,13 @@ const DescriptionMobile = () => {
                 whiteSpace: "pre-line",
               }}
             >
-              {`12 августа 2023 года состоится традиционный праздник любителей спорта.
-                Наша команда готовит много интересного в этом году!
-                Оставь свою почту и мы отправим тебе приглашение в числе первых! `}
+              {`Праздник для всех, кто 
+              любит спорт`}
             </Text>
 
-            <Box px="17px" sx={{ width: "100%" }}>
+            {/* <Box px="17px" sx={{ width: "100%" }}>
               <MainRegisterForm />
-            </Box>
+            </Box> */}
 
           </Stack>
 

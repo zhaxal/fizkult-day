@@ -27,75 +27,71 @@ import { Competition } from "@mongo/models/events/competition";
 import { Performance } from "@mongo/models/events/performance";
 import { Section } from "@mongo/models/events/section";
 import Gallery from "@components/gallery-block/Gallery";
+import { SchoolEvent } from "@mongo/models/events/schoolevent";
+import Festivale from "@components/festivale-block/Festivale";
+import Street from "@components/street-block/Street";
 
 const Home: NextPage = () => {
   const variant = useBreakpointValue({ md: true });
-  const { data: schedules } = useSWR<WithId<Schedule>[]>(
-    `/api/events?type=schedule`,
+
+  const { data: schoolEvents } = useSWR<WithId<SchoolEvent>[]>(
+    `/api/events?type=schoolEvent`,
     fetcher
   );
 
-  const { data: competitions } = useSWR<WithId<Competition>[]>(
-    `/api/events?type=competition`,
-    fetcher
-  );
-
-  const { data: performances } = useSWR<WithId<Performance>[]>(
-    `/api/events?type=performance`,
-    fetcher
-  );
-
-  const { data: sections } = useSWR<WithId<Section>[]>(
-    `/api/events?type=section`,
-    fetcher
-  );
 
   return (
-    <PageProvider
-      sections={sections}
-      performances={performances}
-      competitions={competitions}
-      schedules={schedules}
-    >
+    <PageProvider schoolEvents={schoolEvents}>
       <Box
         sx={{ display: "flex", flexDirection: "column", overflow: "hidden" }}
       >
         <Cover />
-
         {variant ? <Description /> : <DescriptionMobile />}
-        {/* <Divider />
+        <Divider />
         <MainScene />
+        <Festivale />
         <Competitions />
-        <Performances />
-        <Sections />
-        <Gallery />
+        <Street />
         <Partners />
-        <Footer /> */}
-        <Image
+        <Footer />
+        {/* <Image
           sx={{ height: "90px" }}
           src={variant ? "/images/Bottom.png" : "/images/BottomMobile.png"}
-        />
-        <Container maxW="1110px">
+        /> */}
+        {/* <Container maxW="1110px">
           <Stack
-            spacing="40px"
+            spacing="16px"
             height="100px"
             alignItems="center"
             direction="row"
           >
             <Image
               height="50px"
-              sx={{ maxW: variant ? "100%" : "35%" }}
+              sx={{ maxW: variant ? "100%" : "30%" }}
               src="/images/department.svg"
+              onClick={() => window.open("https://www.mos.ru/moskomsport/")} 
+              cursor={"pointer"}
               alt="department"
             />
             <Image
               height="50px"
-              sx={{ maxW: variant ? "100%" : "40%" }}
+              sx={{ maxW: variant ? "100%" : "30%" }}
               src="/images/mossport.svg"
+              onClick={() => window.open("https://moscow.sport")} 
+              cursor={"pointer"}
               alt="mossport"
             />
+            <Image
+              height="50px"
+              sx={{ maxW: variant ? "100%" : "30%" }}
+              src="/images/100years.svg"
+              onClick={() => window.open("https://100.moscow.sport")} 
+              cursor={"pointer"}
+              alt="100years"
+            />
+
           </Stack>
-        </Container>
+        </Container> */}
 
         {/* <Alert status="warning">
         <AlertIcon />

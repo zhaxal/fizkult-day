@@ -13,7 +13,6 @@ export const useRecord = () => {
     handleAxios(axios.post(`/api/records`, record));
   };
 
-
   const getRecordByData = async (code: string) => {
     const res = await axios.get<WithId<Record>>(`/api/records/validation`, {
       params: { code },
@@ -35,8 +34,6 @@ export const useRecord = () => {
       axios.patch(`/api/records/validation`, null, { params: { recordId } })
     );
   };
-
-  
 
   return {
     addRecord,

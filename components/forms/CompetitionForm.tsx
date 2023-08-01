@@ -114,7 +114,7 @@ const CompetitionForm = ({ eventId, event }: EventForm) => {
             <Field name="formLink">
               {({ field, form }: FieldProps) => (
                 <FormControl>
-                  <Checkbox {...field} onChange={() => { setToggleLink(!toggleLink), props.setFieldValue("formLink", "")}}>
+                  <Checkbox {...field} onChange={() => { setToggleLink(!toggleLink), props.setFieldValue("formLink", "") }}>
                     Регистрация на месте
                   </Checkbox>
                   <FormErrorMessage>{form.errors.formLink}</FormErrorMessage>

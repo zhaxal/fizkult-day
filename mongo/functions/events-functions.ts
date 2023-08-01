@@ -2,6 +2,7 @@ import { BackendFunction } from "@mongo/models/backend-function";
 import { Competition } from "@mongo/models/events/competition";
 import { Performance } from "@mongo/models/events/performance";
 import { Schedule } from "@mongo/models/events/schedule";
+import { SchoolEvent } from "@mongo/models/events/schoolevent";
 import { Section } from "@mongo/models/events/section";
 import { FitnessRecord } from "@mongo/models/fitness-record";
 import { Record } from "@mongo/models/record";
@@ -11,13 +12,14 @@ import {
   perfomanceCol,
   recordsCol,
   scheduleCol,
+  schoolEventCol,
   sectionCol,
 } from "@mongo/mongo";
 import { ObjectId, WithId } from "mongodb";
 
-export type EventTypes = "schedule" | "performance" | "competition" | "section";
+export type EventTypes = "schedule" | "performance" | "competition" | "section" | "schoolEvent";
 
-export type Event = Schedule | Performance | Competition | Section;
+export type Event = Schedule | Performance | Competition | Section | SchoolEvent;
 
 export const getEvents = async (
   type: EventTypes
@@ -48,6 +50,18 @@ export const getEvents = async (
 
       case "section": {
         const cursor = sectionCol.find().sort({ date: 1 });
+        const events = await cursor.toArray();
+        result = events;
+        break;
+      }
+      case "section": {
+        const cursor = sectionCol.find().sort({ date: 1 });
+        const events = await cursor.toArray();
+        result = events;
+        break;
+      }
+      case "schoolEvent": {
+        const cursor = schoolEventCol.find().sort({ date: 1 });
         const events = await cursor.toArray();
         result = events;
         break;
@@ -85,6 +99,10 @@ export const addEvent = async (
         event.date = new Date(event.date);
         await sectionCol.insertOne(event);
         break;
+
+      case "schoolEvent":
+        await schoolEventCol.insertOne(event);
+        break;
     }
 
     const result = "Создан ивент";
@@ -119,6 +137,11 @@ export const deleteEvent = async (
       }
       case "section": {
         await sectionCol.deleteOne(filter);
+        break;
+      }
+
+      case "schoolEvent": {
+        await schoolEventCol.deleteOne(filter);
         break;
       }
     }
@@ -159,6 +182,11 @@ export const updateEvent = async (
         event.date = new Date(event.date);
         await sectionCol.updateOne(filter, { $set: event });
         break;
+
+      case "schoolEvent":
+        await schoolEventCol.updateOne(filter, { $set: event });
+        break;
+
     }
 
     const result = "Обновлен ивент";
