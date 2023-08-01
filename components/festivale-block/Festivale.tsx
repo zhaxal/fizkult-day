@@ -27,8 +27,8 @@ const Festivale = () => {
                         <Text variant={variant ? "body.bold" : "body.bold.mobile"} suppressHydrationWarning dangerouslySetInnerHTML={{
                             __html: htmlContent,
                         }} />
-                        {/* {variant ? <Button variant={"festivale.register"} maxW={"342px"} minH={"100px"} onClick={() => {
-                            window.open("https://moscowfitnessfest.ru", '_blank', 'noopener,noreferrer');
+                        {variant ? <Button variant={"festivale.register"} maxW={"342px"} minH={"100px"} onClick={() => {
+                            window.open("https://mastera-sporta.ru/", '_blank', 'noopener,noreferrer');
                         }}>
                             <Text sx={{
                                 fontSize: "24px",
@@ -37,13 +37,13 @@ const Festivale = () => {
                             }}>
                                 ПЕРЕЙТИ НА САЙТ
                             </Text>
-                        </Button> : <></>} */}
+                        </Button> : <></>}
                     </Stack>
                     <Image maxH={variant ? "540px" : "480px"} src={variant ? "/images/festivale/1.png" : "/images/festivale/1-mobile.png"} />
-                    {/* {variant ? <></> :
+                    {variant ? <></> :
                         <Stack w="full" alignItems={"center"}>
                             <Button variant={"festivale.register"} maxW={"256px"} minH={"64px"} onClick={() => {
-                                window.open("https://moscowfitnessfest.ru", '_blank', 'noopener,noreferrer');
+                                window.open("https://mastera-sporta.ru/", '_blank', 'noopener,noreferrer');
                             }}>
                                 <Text sx={{
                                     fontSize: "16px",
@@ -54,7 +54,7 @@ const Festivale = () => {
                                 </Text>
                             </Button>
                         </Stack>
-                    } */}
+                    }
                 </Stack>
             </Container>
         </>
