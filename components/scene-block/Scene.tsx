@@ -21,9 +21,10 @@ import { Pagination } from "swiper";
 interface TablePanelProps {
   time: string;
   title: string;
+  variant?: boolean;
 }
 
-const TablePanel: FC<TablePanelProps> = ({ time, title }) => {
+const TablePanel: FC<TablePanelProps> = ({ time, title, variant }) => {
   return (
     <>
       <Stack
@@ -35,15 +36,15 @@ const TablePanel: FC<TablePanelProps> = ({ time, title }) => {
         alignItems="center"
         px="16px"
         direction="row"
-        spacing="24px"
+        spacing={variant ? "24px" : "16px"}
       >
         <Text
           sx={{
-            minWidth: "200px",
+            minWidth: variant ? "200px" : "128px",
             fontFamily: "Gotham Pro Regular",
             textAlign: "center",
             color: "#FFFFFF",
-            fontSize: "24px",
+            fontSize: variant ? "24px" : "16px",
             fontWeight: "400",
             lineHeight: "normal",
           }}
@@ -54,7 +55,7 @@ const TablePanel: FC<TablePanelProps> = ({ time, title }) => {
           sx={{
             fontFamily: "Gotham Pro Regular",
             color: "#FFFFFF",
-            fontSize: "24px",
+            fontSize: variant ? "24px" : "16px",
             fontWeight: "400",
             lineHeight: "120%",
           }}
@@ -141,10 +142,10 @@ const Scene: FC = () => {
   const variant = useBreakpointValue({ md: true });
 
   return (
-    <Container maxW="1440px" px={0}>
+    <Container maxW="1440px" px={variant ? 0 : "10px"}>
       <Heading text="ГЛАВНАЯ СЦЕНА" isMobile={!variant} />
 
-      <Stack mb="32px" alignItems="center" direction="column" spacing="32px">
+      <Stack mb="32px" pt={"24px"} alignItems="center" direction="column" spacing="32px">
         <Text variant={variant ? "heading.blue" : "heading.blue.mobile"}>
           ПРОГРАММА
         </Text>
@@ -155,6 +156,7 @@ const Scene: FC = () => {
               key={index}
               time={item.time}
               title={item.title}
+              variant={variant}
             ></TablePanel>
           ))}
         </Stack>
@@ -246,7 +248,7 @@ const Scene: FC = () => {
             </Text>
           </Box>
         </Stack>
-        <Box sx={{ width: variant ? "540px" : "480px" }}>
+        <Box sx={{ width: variant ? "540px" : "100%" }}>
           <Swiper
             spaceBetween={30}
             pagination={{
@@ -263,7 +265,7 @@ const Scene: FC = () => {
                   sx={{
                     borderRadius: 32,
                   }}
-                  h={variant ? "540px" : "480px"}
+                  h={variant ? "540px" : "90%"}
                   src={image}
                 />
               </SwiperSlide>
