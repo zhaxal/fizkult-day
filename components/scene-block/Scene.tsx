@@ -134,6 +134,7 @@ const Scene = ({ schedules }: Props) => {
           }}
           maxH={variant ? "540px" : "480px"}
           src={"/images/scene/adelina.png"}
+          alt={"adelina"}
         />
         <Stack direction={"column"} spacing={"40px"}>
           <Text variant="date">12 АВГУСТА</Text>
@@ -227,6 +228,7 @@ const Scene = ({ schedules }: Props) => {
                   }}
                   h={variant ? "540px" : "90%"}
                   src={image}
+                  alt={image + "-" + index}
                 />
               </SwiperSlide>
             ))}

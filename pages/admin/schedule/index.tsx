@@ -75,6 +75,7 @@ const Schedule: NextPage = () => {
                     <Stack width="100%" spacing="8px" direction="column">
                         {schedule?.map((item, index) => (
                             <Stack
+                                key={index}
                                 sx={{
                                     background: "linear-gradient(17deg, #0087BE 0%, #0087BE 100%)",
                                     boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)",

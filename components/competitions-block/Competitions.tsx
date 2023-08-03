@@ -105,6 +105,7 @@ const Competitions = () => {
           <Image
             className={"next-button"}
             src={"/images/slider/right.png"}
+            alt={"right"}
             sx={{
               position: "absolute",
               right: "-30px",
@@ -117,6 +118,7 @@ const Competitions = () => {
           <Image
             className={"prev-button"}
             src={"/images/slider/left.png"}
+            alt={"left"}
             sx={{
               position: "absolute",
               left: "-20px",

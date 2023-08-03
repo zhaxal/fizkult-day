@@ -5,6 +5,7 @@ import theme from "../styles/theme";
 import { AdminProvider } from "@contexts/admin-context";
 import Head from "next/head";
 import Script from "next/script";
+import Image from "next/image";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -49,7 +50,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         />
         <noscript>
           <div>
-            <img
+            <Image
               src="https://mc.yandex.ru/watch/94503335"
               style={{
                 position: "absolute",
@@ -78,7 +79,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           </div>
           <span itemProp="email">info@fizkult.moscow.sport</span>
           <div itemScope itemType="http://schema.org/ImageObject">
-            <img src="/images/df1.jpg" itemProp="contentUrl" />
+            <Image src="/images/df1.jpg" itemProp="contentUrl" />
           </div>
         </Box>
         <Component {...pageProps} />

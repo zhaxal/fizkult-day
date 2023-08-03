@@ -107,6 +107,7 @@ const Festivale = () => {
           </Stack>
           <Image
             maxH={variant ? "540px" : "480px"}
+            alt={"1"}
             src={
               variant
                 ? "/images/festivale/1.png"

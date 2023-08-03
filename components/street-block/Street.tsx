@@ -34,7 +34,7 @@ const Street = () => {
             direction="column"
           >
             <Stack spacing={"32px"}>
-              <Image src={"/images/street/streetLogo.png"} maxW={220} />
+              <Image src={"/images/street/streetLogo.png"} alt={"streetLogo"} maxW={220} />
               <Text variant={"body.bold"}>
                 Бесплатные тренировки для жителей Москвы, которые любят спорт и
                 хотят им регулярно заниматься.
