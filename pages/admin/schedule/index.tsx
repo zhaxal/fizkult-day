@@ -4,13 +4,12 @@ import ProtectedRoute from "@components/ui/ProtectedRoute";
 import { useAdmin } from "@contexts/admin-context";
 import { useRouter } from "next/router";
 import { Button, Container, FormControl, FormLabel, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalHeader, ModalOverlay, Stack, Text, useBreakpointValue, useDisclosure } from '@chakra-ui/react';
-import { WithId } from 'mongodb';
+import { ObjectId, WithId } from 'mongodb';
 import { Schedule } from '@mongo/models/events/schedule';
 import { fetcher } from '@utils/fetcher';
 import useSWR from 'swr';
 import TablePanel from '@components/ui/TablePanel';
 import { Form, Formik, useFormik } from 'formik';
-import * as Yup from "yup";
 import { useFormButton } from '@contexts/form-button-context';
 import { useEventValuesHandler } from '@hooks/handlers';
 
@@ -19,15 +18,16 @@ const Schedule: NextPage = () => {
     const router = useRouter();
     const variant = useBreakpointValue({ md: true });
     const { isOpen, onOpen, onClose } = useDisclosure();
-    const { mode } = useFormButton();
     const { handleEventValues } = useEventValuesHandler();
+    const [mode, setMode] = useState<"add" | "edit">("add")
 
     const { data: schedule } = useSWR<WithId<Schedule>[]>(
         `/api/events?type=schedule`,
         fetcher
     );
 
-    const [initialValues, setInitialValues] = useState<Schedule | WithId<Schedule>>({
+    const [initialValues, setInitialValues] = useState<WithId<Schedule>>({
+        _id: "",
         type: "schedule",
         desc: "",
         title: "",
@@ -38,6 +38,7 @@ const Schedule: NextPage = () => {
 
     const handleEditModal = (schedule: WithId<Schedule>) => {
         setInitialValues(schedule)
+        setMode("edit")
         onOpen();
     }
 
@@ -56,7 +57,18 @@ const Schedule: NextPage = () => {
             <Container maxW="1110px" py={5}>
                 <Stack spacing={5}>
                     <Text variant="body.bold">Управление расписанием</Text>
-                    <Button onClick={onOpen}>
+                    <Button onClick={() => {
+                        setMode("add")
+                        setInitialValues({
+                            _id: "",
+                            type: "schedule",
+                            desc: "",
+                            title: "",
+                            startDate: "",
+                            endDate: ""
+                        })
+                        onOpen()
+                    }}>
                         Создать элемент в расписаний
                     </Button>
 
@@ -113,8 +125,7 @@ const Schedule: NextPage = () => {
                                 <Formik
                                     initialValues={initialValues}
                                     onSubmit={(values, actions) => {
-                                        if (!mode) throw new Error("Mode is undefined");
-                                        // handleEventValues(mode, "schedule", values._id, values);
+                                        handleEventValues(mode, "schedule", values._id.toString(), values);
                                         actions.setSubmitting(false);
                                         onClose();
                                     }}>

@@ -17,9 +17,19 @@ import {
 } from "@mongo/mongo";
 import { ObjectId, WithId } from "mongodb";
 
-export type EventTypes = "schedule" | "performance" | "competition" | "section" | "schoolEvent";
+export type EventTypes =
+  | "schedule"
+  | "performance"
+  | "competition"
+  | "section"
+  | "schoolEvent";
 
-export type Event = Schedule | Performance | Competition | Section | SchoolEvent;
+export type Event =
+  | Schedule
+  | Performance
+  | Competition
+  | Section
+  | SchoolEvent;
 
 export const getEvents = async (
   type: EventTypes
@@ -184,7 +194,6 @@ export const updateEvent = async (
       case "schoolEvent":
         await schoolEventCol.updateOne(filter, { $set: event });
         break;
-
     }
 
     const result = "Обновлен ивент";
