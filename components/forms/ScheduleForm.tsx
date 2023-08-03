@@ -28,11 +28,14 @@ const ScheduleForm = ({ eventId, event }: EventForm) => {
     event && event.type === type
       ? event
       : {
-          type,
-          time: new Date(),
-          title: "",
-          desc: "",
-        };
+        type,
+        // time: new Date(),
+        title: "",
+        startDate: "",
+        endDate: "",
+        _id: "",
+        desc: "",
+      };
 
   return (
     <>

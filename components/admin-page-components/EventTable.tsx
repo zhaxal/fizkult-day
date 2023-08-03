@@ -78,7 +78,7 @@ const EventTable = ({ type }: EventTableProps) => {
                     <EditEventButton
                       eventId={id}
                       type={event.type}
-                      event={eventData}
+                      event={event}
                     />
                     <Button onClick={handleDelete(id)} colorScheme="red">
                       Удалить
