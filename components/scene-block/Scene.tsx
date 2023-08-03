@@ -17,119 +17,79 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 import { Pagination } from "swiper";
+import { WithId } from "mongodb";
+import { Schedule } from "@mongo/models/events/schedule";
+import TablePanel from "@components/ui/TablePanel";
 
-interface TablePanelProps {
-  time: string;
-  title: string;
-  variant?: boolean;
+interface Props {
+  schedules?: WithId<Schedule>[];
 }
 
-const TablePanel: FC<TablePanelProps> = ({ time, title, variant }) => {
-  return (
-    <>
-      <Stack
-        sx={{
-          background: "linear-gradient(17deg, #0087BE 0%, #0087BE 100%)",
-          boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)",
-        }}
-        py="10px"
-        alignItems="center"
-        px="16px"
-        direction="row"
-        spacing={variant ? "24px" : "16px"}
-      >
-        <Text
-          sx={{
-            minWidth: variant ? "200px" : "128px",
-            fontFamily: "Gotham Pro Regular",
-            textAlign: "center",
-            color: "#FFFFFF",
-            fontSize: variant ? "24px" : "16px",
-            fontWeight: "400",
-            lineHeight: "normal",
-          }}
-        >
-          {time}
-        </Text>
-        <Text
-          sx={{
-            fontFamily: "Gotham Pro Regular",
-            color: "#FFFFFF",
-            fontSize: variant ? "24px" : "16px",
-            fontWeight: "400",
-            lineHeight: "120%",
-          }}
-        >
-          {title}
-        </Text>
-      </Stack>
-    </>
-  );
-};
 
-const schedule = [
-  {
-    time: "11:00 - 10:02",
-    title: "Приветствие ведущих",
-  },
-  {
-    time: "11:02 - 11:25",
-    title: "Парад команд",
-  },
-  {
-    time: "11:25 - 11:30",
-    title: "Шоу-номер открытия",
-  },
-  {
-    time: "11:30 - 11:40",
-    title: "Приветствие официальных лиц",
-  },
-  {
-    time: "11:40 - 11:45",
-    title: "Гимн Российской Федерации",
-  },
-  {
-    time: "11:45 - 11:55",
-    title:
-      'Церемония награждения победителей и призеров городского смотра-конкурса "Московский двор - спортивный двор',
-  },
-  {
-    time: "11:55 - 12:00",
-    title: "Завершение Церемонии открытия",
-  },
-  {
-    time: "12:00 - 12:20",
-    title: "Тренировка с Аделиной Сотниковой",
-  },
-  {
-    time: "12:20 - 14:40",
-    title: "Moscow Fitness Cup",
-  },
-  {
-    time: "14:45 - 14:55",
-    title: "Выступление Лизы Матрешки",
-  },
-  {
-    time: "14:55 - 15:30",
-    title: "Мастер-класс от Джаз Дэнс",
-  },
-  {
-    time: "15:30 - 15:40",
-    title: "Выступление Idon Care",
-  },
-  {
-    time: "15:40 - 16:10",
-    title: "МСР / Мосгорспорт",
-  },
-  {
-    time: "16:10 - 18:10",
-    title: "Moscow Fitness Cup",
-  },
-  {
-    time: "18:10 - 18:20",
-    title: "Выступление Павла Пикалова",
-  },
-];
+
+// const schedule = [
+//   {
+//     time: "11:00 - 10:02",
+//     title: "Приветствие ведущих",
+//   },
+//   {
+//     time: "11:02 - 11:25",
+//     title: "Парад команд",
+//   },
+//   {
+//     time: "11:25 - 11:30",
+//     title: "Шоу-номер открытия",
+//   },
+//   {
+//     time: "11:30 - 11:40",
+//     title: "Приветствие официальных лиц",
+//   },
+//   {
+//     time: "11:40 - 11:45",
+//     title: "Гимн Российской Федерации",
+//   },
+//   {
+//     time: "11:45 - 11:55",
+//     title:
+//       'Церемония награждения победителей и призеров городского смотра-конкурса "Московский двор - спортивный двор',
+//   },
+//   {
+//     time: "11:55 - 12:00",
+//     title: "Завершение Церемонии открытия",
+//   },
+//   {
+//     time: "12:00 - 12:20",
+//     title: "Тренировка с Аделиной Сотниковой",
+//   },
+//   {
+//     time: "12:20 - 14:40",
+//     title: "Moscow Fitness Cup",
+//   },
+//   {
+//     time: "14:45 - 14:55",
+//     title: "Выступление Лизы Матрешки",
+//   },
+//   {
+//     time: "14:55 - 15:30",
+//     title: "Мастер-класс от Джаз Дэнс",
+//   },
+//   {
+//     time: "15:30 - 15:40",
+//     title: "Выступление Idon Care",
+//   },
+//   {
+//     time: "15:40 - 16:10",
+//     title: "МСР / Мосгорспорт",
+//   },
+//   {
+//     time: "16:10 - 18:10",
+//     title: "Moscow Fitness Cup",
+//   },
+//   {
+//     time: "18:10 - 18:20",
+//     title: "Выступление Павла Пикалова",
+//   },
+// ];
 
 const images = [
   "/images/scene/моспродюссер.png",
@@ -138,7 +98,7 @@ const images = [
   "/images/scene/ПавелПикалов.jpg",
 ];
 
-const Scene: FC = () => {
+const Scene = ({ schedules }: Props) => {
   const variant = useBreakpointValue({ md: true });
 
   return (
@@ -151,10 +111,10 @@ const Scene: FC = () => {
         </Text>
 
         <Stack width="100%" maxW="900px" spacing="8px" direction="column">
-          {schedule.map((item, index) => (
+          {schedules?.map((item, index) => (
             <TablePanel
               key={index}
-              time={item.time}
+              time={item.startDate + " - " + item.endDate}
               title={item.title}
               variant={variant}
             ></TablePanel>

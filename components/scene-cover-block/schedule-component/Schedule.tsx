@@ -39,14 +39,16 @@ const Schedule = () => {
               {variant ? (
                 <ScheduleCard
                   type="schedule"
-                  time={schedule.time}
+                  startDate={schedule.startDate}
+                  endDate={schedule.endDate}
                   title={schedule.title}
                   desc={schedule.desc}
                 />
               ) : (
                 <ScheduleCardMobile
                   type="schedule"
-                  time={schedule.time}
+                  startDate={schedule.startDate}
+                  endDate={schedule.endDate}
                   title={schedule.title}
                   desc={schedule.desc}
                 />

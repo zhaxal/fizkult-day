@@ -2,7 +2,7 @@ import { Box, Stack, Text } from "@chakra-ui/react";
 import { Schedule } from "@mongo/models/events/schedule";
 import { moment } from "@utils/moment";
 
-const ScheduleCardMobile = ({ time, title, desc }: Schedule) => {
+const ScheduleCardMobile = ({ startDate, endDate, title, desc }: Schedule) => {
   return (
     <Box borderRadius="32px" bg="#00AEEF" height={"320px"}>
       <Stack
@@ -25,7 +25,7 @@ const ScheduleCardMobile = ({ time, title, desc }: Schedule) => {
             lineHeight: "152%"
           }}
         >
-          {moment(time).tz("Europe/Moscow").format("LT")}
+          {moment(startDate).tz("Europe/Moscow").format("LT")}
         </Text>
       </Stack>
 

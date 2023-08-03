@@ -29,7 +29,7 @@ export const getEvents = async (
 
     switch (type) {
       case "schedule": {
-        const cursor = scheduleCol.find().sort({ time: 1 });
+        const cursor = scheduleCol.find();
         const events = await cursor.toArray();
         result = events;
         break;
@@ -81,7 +81,6 @@ export const addEvent = async (
   try {
     switch (event.type) {
       case "schedule":
-        event.time = new Date(event.time);
         await scheduleCol.insertOne(event);
         break;
 
@@ -164,7 +163,6 @@ export const updateEvent = async (
 
     switch (event.type) {
       case "schedule":
-        event.time = new Date(event.time);
         await scheduleCol.updateOne(filter, { $set: event });
         break;
 

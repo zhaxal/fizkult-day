@@ -8,10 +8,12 @@ import { FitnessRecord } from "./models/fitness-record";
 import { Form } from "./models/form";
 import { Record } from "./models/record";
 
-const uri = process.env.MONGO_URL || "mongodb://0.0.0.0:27017";
+// const uri = process.env.MONGO_URL || "mongodb://0.0.0.0:27017";
+const uri = "mongodb://0.0.0.0:27017";
 const client = new MongoClient(uri);
 client.connect();
-const db = client.db(process.env.DB_NAME || "fd");
+// const db = client.db(process.env.DB_NAME || "fd");
+const db = client.db("fd");
 
 export const recordsCol = db.collection<Record>("records");
 export const fitnessRecordsCol = db.collection<FitnessRecord>("records");

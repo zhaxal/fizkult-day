@@ -38,6 +38,10 @@ const Home: NextPage = () => {
     fetcher
   );
 
+  const { data: schedule } = useSWR<WithId<Schedule>[]>(
+    `/api/events?type=schedule`,
+    fetcher
+  );
   return (
     <PageProvider schoolEvents={schoolEvents}>
       <Box
@@ -49,7 +53,7 @@ const Home: NextPage = () => {
         <SceneCover />
         <Festivale />
         <Competitions />
-        <Scene />
+        <Scene schedules={schedule} />
         <Street />
         <Partners />
         <Footer />
