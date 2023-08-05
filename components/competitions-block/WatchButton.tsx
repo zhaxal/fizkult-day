@@ -13,7 +13,7 @@ import RegistrationForm from "@components/forms/RegistrationForm";
 import { FormButtonProvider } from "@contexts/form-button-context";
 
 interface WatchButtonProps {
-  eventId: string;
+  eventId?: string;
 }
 
 const WatchButton = ({ eventId }: WatchButtonProps) => {
@@ -21,8 +21,8 @@ const WatchButton = ({ eventId }: WatchButtonProps) => {
 
   return (
     <FormButtonProvider onClose={onClose}>
-      <Button onClick={onOpen} variant="competition.watch" disabled>
-        БУДУ ЗРИТЕЛЕМ
+      <Button onClick={onOpen} minH={"97px"} variant="section.register">
+        РЕГИСТРАЦИЯ
       </Button>
 
       <Modal size="md" isOpen={isOpen} onClose={onClose}>
@@ -31,7 +31,7 @@ const WatchButton = ({ eventId }: WatchButtonProps) => {
           <ModalHeader>Форма для записи</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <RegistrationForm eventId={eventId} />
+            <RegistrationForm />
           </ModalBody>
           <ModalFooter />
         </ModalContent>

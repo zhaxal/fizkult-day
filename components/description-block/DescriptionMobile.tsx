@@ -8,11 +8,16 @@ import {
   useBreakpointValue,
   VStack,
 } from "@chakra-ui/react";
+import WatchButton from "@components/competitions-block/WatchButton";
 import MainRegisterForm from "@components/forms/MainRegisterForm";
 
 import FitnessButton from "../scene-cover-block/FitnessButton";
 
-const DescriptionMobile = () => {
+interface Props {
+  available?: boolean
+}
+
+const DescriptionMobile = ({ available }: Props) => {
   const variant = useBreakpointValue({ md: true });
 
   return (
@@ -55,6 +60,7 @@ const DescriptionMobile = () => {
             {/* <Box px="17px" sx={{ width: "100%" }}>
               <MainRegisterForm />
             </Box> */}
+            {available && <WatchButton />}
 
           </Stack>
 

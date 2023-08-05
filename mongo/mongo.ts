@@ -7,6 +7,7 @@ import { Section } from "./models/events/section";
 import { FitnessRecord } from "./models/fitness-record";
 import { Form } from "./models/form";
 import { Record } from "./models/record";
+import { Setting } from "./models/setting";
 
 // const uri = process.env.MONGO_URL || "mongodb://0.0.0.0:27017";
 const uri = "mongodb://0.0.0.0:27017";
@@ -22,6 +23,7 @@ export const perfomanceCol = db.collection<Performance>("perfomances");
 export const scheduleCol = db.collection<Schedule>("schedules");
 export const sectionCol = db.collection<Section>("sections");
 export const schoolEventCol = db.collection<SchoolEvent>("schoolEvent");
+export const settingsCol = db.collection<Setting>("setting");
 
 export const formsCol = db.collection<Form>("forms");
 

@@ -15,18 +15,14 @@ interface FieldProps {
   form: FormikProps<FormValues>;
 }
 
-interface RegistrationFormProps {
-  eventId: string;
-}
 
-const RegistrationForm = ({ eventId }: RegistrationFormProps) => {
+const RegistrationForm = () => {
   const { onClose } = useFormButton();
   const { addRecord } = useRecord();
 
   const initialValues: FormValues = {
     name: "",
     email: "",
-    eventId,
     arrived: false,
     date: new Date(),
     type: "normal"

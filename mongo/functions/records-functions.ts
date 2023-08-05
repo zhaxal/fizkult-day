@@ -22,15 +22,11 @@ export const getRecords = async (): Promise<
   }
 };
 
-
-
-
 export const addRecord = async (
   record: Record | FitnessRecord
 ): Promise<BackendFunction<string>> => {
   const cursor = recordsCol.find({
     email: record.email,
-    eventId: record.eventId,
   });
   if ((await cursor.toArray()).length !== 0) {
     let err = new Error("Этот email уже использован");
@@ -127,5 +123,3 @@ export const validateRecord = async (
     return [null, err];
   }
 };
-
-

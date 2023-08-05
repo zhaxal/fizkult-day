@@ -48,47 +48,47 @@ export const Button: CSSObject = {
         opacity: 1,
       },
     },
-  ["competition.watch"]: {
-  width: "255px",
-    backgroundColor: "#FFFFFF",
+    ["competition.watch"]: {
+      width: "255px",
+      backgroundColor: "#FFFFFF",
       borderRadius: "8px",
-        padding: "34px 47px",
-          height: "100%",
-            color: "#E93734",
-              fontSize: "18px",
-                fontFamily: "Gotham Pro Regular",
-                  _hover: {
-    opacity: 0.8,
+      padding: "34px 47px",
+      height: "100%",
+      color: "#E93734",
+      fontSize: "18px",
+      fontFamily: "Gotham Pro Regular",
+      _hover: {
+        opacity: 0.8,
       },
-  _active: {
-    opacity: 1,
+      _active: {
+        opacity: 1,
       },
-},
+    },
 
-["section.register"]: {
-  backgroundColor: "#FFB600",
-    borderRadius: "8px",
+    ["section.register"]: {
+      backgroundColor: "#FFB600",
+      borderRadius: "8px",
       padding: "30px 50px",
-        fontSize: "18px",
-          fontFamily: "Gotham Pro Regular",
-            _hover: {
-    opacity: 0.8,
+      fontSize: "24px",
+      fontFamily: "Gotham Pro Regular",
+      _hover: {
+        opacity: 0.8,
       },
-  _active: {
-    opacity: 1,
+      _active: {
+        opacity: 1,
       },
-},
+    },
 
-["festivale.register"]: {
-  backgroundColor: "#0087BE",
-    borderRadius: "8px",
+    ["festivale.register"]: {
+      backgroundColor: "#0087BE",
+      borderRadius: "8px",
       padding: "30px 50px",
-        _hover: {
-    opacity: 0.8,
+      _hover: {
+        opacity: 0.8,
       },
-  _active: {
-    opacity: 1,
+      _active: {
+        opacity: 1,
       },
-},
+    },
   },
 };

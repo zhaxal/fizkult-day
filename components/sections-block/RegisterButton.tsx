@@ -39,7 +39,7 @@ const RegisterButton = ({ eventId }: RegisterButtonProps) => {
           <ModalHeader>Форма для записи</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <RegistrationForm eventId={eventId} />
+            <RegistrationForm />
           </ModalBody>
           <ModalFooter />
         </ModalContent>

@@ -7,13 +7,17 @@ import {
   Text,
   useBreakpointValue,
 } from "@chakra-ui/react";
+import WatchButton from "@components/competitions-block/WatchButton";
 import MainRegisterForm from "@components/forms/MainRegisterForm";
 
 import FitnessButton from "../scene-cover-block/FitnessButton";
 
-const Description = () => {
-  const variant = useBreakpointValue({ md: true });
+interface Props {
+  available?: boolean
+}
 
+const Description = ({ available }: Props) => {
+  const variant = useBreakpointValue({ md: true });
 
   return (
     <Container maxW="1110px">
@@ -47,12 +51,10 @@ const Description = () => {
               всех, кто любит
               спорт`}
             </Text>
-            {/* <Box px="117.5px" pt={"16px"}>
-              <FitnessButton btnText="ПОЛУЧИТЬ ПОДАРОК" minW="309px" isDesc={true} />
+            {available && <WatchButton />}
+            {/* <Box px="49px" sx={{ width: "100%" }}>
+              <MainRegisterForm />
             </Box> */}
-            <Box px="49px" sx={{ width: "100%" }}>
-              {/* <MainRegisterForm /> */}
-            </Box>
           </Stack>
         </Box>
 

@@ -29,6 +29,7 @@ import { SchoolEvent } from "@mongo/models/events/schoolevent";
 import Festivale from "@components/festivale-block/Festivale";
 import Street from "@components/street-block/Street";
 import Scene from "@components/scene-block/Scene";
+import { Setting } from "@mongo/models/setting";
 
 const Home: NextPage = () => {
   const variant = useBreakpointValue({ md: true });
@@ -42,13 +43,19 @@ const Home: NextPage = () => {
     `/api/events?type=schedule`,
     fetcher
   );
+
+  const { data: available } = useSWR<WithId<Setting>>(
+    `/api/setting`,
+    fetcher
+  );
+
   return (
     <PageProvider schoolEvents={schoolEvents}>
       <Box
         sx={{ display: "flex", flexDirection: "column", overflow: "hidden" }}
       >
         <Cover />
-        {variant ? <Description /> : <DescriptionMobile />}
+        {variant ? <Description available={available?.available} /> : <DescriptionMobile available={available?.available} />}
         <Divider />
         <SceneCover />
         <Festivale />
