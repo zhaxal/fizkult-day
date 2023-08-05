@@ -220,13 +220,13 @@ const Scene = ({ schedules }: Props) => {
             {images.map((image, index) => (
               <SwiperSlide
                 key={index}
-                style={{ height: variant ? "540px" : "480px" }}
+                style={{ height: variant ? "540px" : "394px" }}
               >
                 <Image
                   sx={{
                     borderRadius: 32,
                   }}
-                  h={variant ? "540px" : "90%"}
+                  boxSize={variant ? "540px" : "394px"}
                   src={image}
                   alt={image + "-" + index}
                 />
