@@ -50,13 +50,13 @@ function MyApp({ Component, pageProps }: AppProps) {
         />
         <noscript>
           <div>
-            <Image
+            <img
               src="https://mc.yandex.ru/watch/94503335"
+              alt="Description"
               style={{
                 position: "absolute",
                 left: "-9999px",
               }}
-              alt=""
             />
           </div>
         </noscript>
@@ -79,7 +79,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           </div>
           <span itemProp="email">info@fizkult.moscow.sport</span>
           <div itemScope itemType="http://schema.org/ImageObject">
-            <Image src="/images/df1.jpg" itemProp="contentUrl" />
+            <Image src="/images/df1.jpg" itemProp="contentUrl" layout="fill" />
           </div>
         </Box>
         <Component {...pageProps} />

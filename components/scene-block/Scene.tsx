@@ -218,18 +218,27 @@ const Scene = ({ schedules }: Props) => {
             modules={[Pagination]}
           >
             {images.map((image, index) => (
-              <SwiperSlide
-                key={index}
-                style={{ height: variant ? "540px" : "394px" }}
-              >
-                <Image
+              <SwiperSlide key={index}>
+                <Box
                   sx={{
                     borderRadius: 32,
+                    width: variant ? '540px' : '100%',
+                    height: 0,
+                    paddingBottom: '100%', // Sets the height equal to the width
+                    position: 'relative', // Needed for the correct positioning of the Image
                   }}
-                  boxSize={variant ? "540px" : "394px"}
-                  src={image}
-                  alt={image + "-" + index}
-                />
+                >
+                  <Image
+                    sx={{
+                      borderRadius: 32,
+                      position: 'absolute', // Absolute positioning inside the Box
+                      width: '100%', // Full width of the container
+                      height: '100%', // Full height of the container
+                    }}
+                    src={image}
+                    alt={image + '-' + index}
+                  />
+                </Box>
               </SwiperSlide>
             ))}
           </Swiper>
