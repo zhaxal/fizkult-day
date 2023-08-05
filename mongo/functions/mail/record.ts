@@ -738,8 +738,8 @@ export const recordHTML = (code: number) => {
                                                 font-size: 46px;
                                                 line-height: 46px;
                                               "
-                                              href="https://xn--2022-43dxhqibvblye1c7aqcn1og.xn--p1ai/"
-                                              >День физкультурника 2022</a
+                                              href="https://xn--2023-43dxhqibvblye1c7aqcn1og.xn--p1ai/"
+                                              >День физкультурника 2023</a
                                             ><br /></strong
                                           >подтверждена!
                                         </p>
@@ -770,9 +770,8 @@ export const recordHTML = (code: number) => {
                                             font-size: 16px;
                                           "
                                         >
-                                        12 августа с 10 до 20 часов праздник ждет
-                                          тебя на Фестивальной площади СК
-                                          "Лужники"<br /><a
+                                        12 августа с 11:00 до 18:30 праздник любителей спорта ждет 
+                                        тебя на территории Южного спортивного центра ОК "Лужники"<br /><a
                                             target="_blank"
                                             style="
                                               -webkit-text-size-adjust: none;
@@ -782,7 +781,7 @@ export const recordHTML = (code: number) => {
                                               color: #5c68e2;
                                               font-size: 16px;
                                             "
-                                            href="https://yandex.ru/maps/-/CCUR4-dlsA"
+                                            href="https://yandex.kz/maps/-/CXtzjaS"
                                             >Посмотреть в Яндекс.картах</a
                                           >
                                         </p>
@@ -1053,7 +1052,7 @@ export const recordHTML = (code: number) => {
                                       >
                                         <img
                                           class="adapt-img"
-                                          src="https://jftydm.stripocdn.email/content/guids/CABINET_ad658460eb1983b7f9de5b1c6d3d6b32/images/fizkultday.jpg"
+                                          src="https://gdncnh.stripocdn.email/content/guids/CABINET_a4bfe7bafceeede424c35805b3d38e00d3191c8c2045ca677fa6e814f3b22fe2/images/cover.png"
                                           alt
                                           style="
                                             display: block;
