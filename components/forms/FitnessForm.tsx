@@ -24,7 +24,6 @@ const FitnessForm = () => {
   const initialValues: FormValues = {
     name: "",
     email: "",
-    eventId: "fitness",
     arrived: false,
     date: new Date(),
     type: "fitness",
