@@ -2,6 +2,7 @@ import axios from "axios";
 import { WithId } from "mongodb";
 import { Setting } from "@mongo/models/setting";
 import { useAxiosHandler } from "./handlers";
+import { mutate } from "swr";
 
 interface SettingProps {
   id: string;
@@ -13,7 +14,9 @@ export const useSettings = () => {
   //   const { updateSnackbar } = useSnackbar();
 
   const updateSetting = (setting: SettingProps) => {
-    handleAxios(axios.put(`/api/setting`, setting));
+    handleAxios(axios.put(`/api/setting`, setting)).then(() => {
+      mutate(`/api/setting`);
+    });
   };
 
   return {
