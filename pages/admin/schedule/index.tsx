@@ -1,19 +1,15 @@
 import { NextPage } from 'next'
-import { ChangeEvent, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import ProtectedRoute from "@components/ui/ProtectedRoute";
 import { useAdmin } from "@contexts/admin-context";
 import { useRouter } from "next/router";
-import { Button, Container, FormControl, FormLabel, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalHeader, ModalOverlay, Stack, Text, useBreakpointValue, useDisclosure } from '@chakra-ui/react';
-import { WithId } from 'mongodb';
+import { Button, Container, FormControl, FormLabel, Input, Modal, ModalBody, ModalContent, ModalHeader, ModalOverlay, Stack, Text, useBreakpointValue, useDisclosure } from '@chakra-ui/react';
+import { WithId, ObjectId } from 'mongodb';
 import { Schedule } from '@mongo/models/events/schedule';
 import { fetcher } from '@utils/fetcher';
 import useSWR from 'swr';
-import TablePanel from '@components/ui/TablePanel';
-import { Form, Formik, useFormik } from 'formik';
-import { useFormButton } from '@contexts/form-button-context';
+import { Form, Formik } from 'formik';
 import { useEventValuesHandler } from '@hooks/handlers';
-// @ts-ignore
-import { ObjectId } from 'bson';
 
 const Schedule: NextPage = () => {
     const { role } = useAdmin();
@@ -21,15 +17,15 @@ const Schedule: NextPage = () => {
     const variant = useBreakpointValue({ md: true });
     const { isOpen, onOpen, onClose } = useDisclosure();
     const { handleEventValues } = useEventValuesHandler();
-    const [mode, setMode] = useState<"add" | "edit">("add")
+    const [mode, setMode] = useState<"add" | "edit">("add");
+    const [id, setId] = useState<string>("");
 
     const { data: schedule } = useSWR<WithId<Schedule>[]>(
         `/api/events?type=schedule`,
         fetcher
     );
 
-    const [initialValues, setInitialValues] = useState<WithId<Schedule>>({
-        _id: new ObjectId().toString(),
+    const [initialValues, setInitialValues] = useState<Schedule>({
         type: "schedule",
         desc: "",
         title: "",
@@ -38,9 +34,10 @@ const Schedule: NextPage = () => {
     });
 
 
-    const handleEditModal = (schedule: WithId<Schedule>) => {
-        setInitialValues(schedule)
-        setMode("edit")
+    const handleEditModal = (schedule: Schedule, id: string) => {
+        setInitialValues(schedule);
+        setMode("edit");
+        setId(id);
         onOpen();
     }
 
@@ -62,7 +59,6 @@ const Schedule: NextPage = () => {
                     <Button onClick={() => {
                         setMode("add")
                         setInitialValues({
-                            _id: new ObjectId().toString(),
                             type: "schedule",
                             desc: "",
                             title: "",
@@ -75,49 +71,54 @@ const Schedule: NextPage = () => {
                     </Button>
 
                     <Stack width="100%" spacing="8px" direction="column">
-                        {schedule?.map((item, index) => (
-                            <Stack
-                                key={index}
-                                sx={{
-                                    background: "linear-gradient(17deg, #0087BE 0%, #0087BE 100%)",
-                                    boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)",
-                                }}
-                                py="10px"
-                                alignItems="center"
-                                justifyContent={"space-between"}
-                                px="16px"
-                                width={"100%"}
-                                direction="row"
-                                spacing={variant ? "24px" : "16px"}
-                            >
-                                <Text
+                        {schedule?.map((item, index) => {
+
+                            const { _id, ...eventData } = item;
+
+                            return (
+                                <Stack
+                                    key={index}
                                     sx={{
-                                        minWidth: variant ? "200px" : "128px",
-                                        fontFamily: "Gotham Pro Regular",
-                                        textAlign: "center",
-                                        color: "#FFFFFF",
-                                        fontSize: variant ? "24px" : "16px",
-                                        fontWeight: "400",
-                                        lineHeight: "normal",
+                                        background: "linear-gradient(17deg, #0087BE 0%, #0087BE 100%)",
+                                        boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)",
                                     }}
+                                    py="10px"
+                                    alignItems="center"
+                                    justifyContent={"space-between"}
+                                    px="16px"
+                                    width={"100%"}
+                                    direction="row"
+                                    spacing={variant ? "24px" : "16px"}
                                 >
-                                    {item.startDate + " - " + item.endDate}
-                                </Text>
-                                <Text
-                                    sx={{
-                                        fontFamily: "Gotham Pro Regular",
-                                        color: "#FFFFFF",
-                                        fontSize: variant ? "24px" : "16px",
-                                        fontWeight: "400",
-                                        lineHeight: "120%",
-                                        maxW: "650px"
-                                    }}
-                                >
-                                    {item.title}
-                                </Text>
-                                <Button onClick={() => handleEditModal(item)}>Изменить</Button>
-                            </Stack>
-                        ))}
+                                    <Text
+                                        sx={{
+                                            minWidth: variant ? "200px" : "128px",
+                                            fontFamily: "Gotham Pro Regular",
+                                            textAlign: "center",
+                                            color: "#FFFFFF",
+                                            fontSize: variant ? "24px" : "16px",
+                                            fontWeight: "400",
+                                            lineHeight: "normal",
+                                        }}
+                                    >
+                                        {item.startDate + " - " + item.endDate}
+                                    </Text>
+                                    <Text
+                                        sx={{
+                                            fontFamily: "Gotham Pro Regular",
+                                            color: "#FFFFFF",
+                                            fontSize: variant ? "24px" : "16px",
+                                            fontWeight: "400",
+                                            lineHeight: "120%",
+                                            maxW: "650px"
+                                        }}
+                                    >
+                                        {item.title}
+                                    </Text>
+                                    <Button onClick={() => handleEditModal(item, _id.toString())}>Изменить</Button>
+                                </Stack>
+                            )
+                        })}
                     </Stack>
 
                     <Modal size="md" isOpen={isOpen} onClose={onClose}>
@@ -128,7 +129,7 @@ const Schedule: NextPage = () => {
                                 <Formik
                                     initialValues={initialValues}
                                     onSubmit={(values, actions) => {
-                                        handleEventValues(mode, "schedule", values._id.toString(), values);
+                                        handleEventValues(mode, "schedule", id, values);
                                         actions.setSubmitting(false);
                                         onClose();
                                     }}>
