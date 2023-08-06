@@ -1062,7 +1062,7 @@ export const recordHTML = (code: number) => {
                                             -ms-interpolation-mode: bicubic;
                                           "
                                           width="600"
-                                          height="695"
+                                          height="295"
                                         />
                                       </td>
                                     </tr>
