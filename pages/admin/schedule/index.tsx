@@ -12,6 +12,7 @@ import TablePanel from '@components/ui/TablePanel';
 import { Form, Formik, useFormik } from 'formik';
 import { useFormButton } from '@contexts/form-button-context';
 import { useEventValuesHandler } from '@hooks/handlers';
+// @ts-ignore
 import { ObjectId } from 'bson';
 
 const Schedule: NextPage = () => {
