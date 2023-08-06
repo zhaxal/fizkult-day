@@ -570,7 +570,7 @@ export const recordHTML = (code: number) => {
                                       >
                                         <a
                                           target="_blank"
-                                          href="https://fizkult.moscow.sport"
+                                          href="https://moscow.sport"
                                           style="
                                             -webkit-text-size-adjust: none;
                                             -ms-text-size-adjust: none;
@@ -580,7 +580,7 @@ export const recordHTML = (code: number) => {
                                             font-size: 14px;
                                           "
                                           ><img
-                                            src="https://moscow.sport/img/logo.svg"
+                                            src="http://moscow.sport/local/frontend/dist/img/logo.svg"
                                             alt="Logo"
                                             style="
                                               display: block;

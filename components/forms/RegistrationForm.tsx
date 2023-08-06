@@ -42,8 +42,8 @@ const RegistrationForm = () => {
             <Field name="name">
               {({ field, form }: FieldProps) => (
                 <FormControl isRequired>
-                  <FormLabel>Имя</FormLabel>
-                  <Input {...field} placeholder="Имя" />
+                  <FormLabel>Имя и Фамилия</FormLabel>
+                  <Input {...field} placeholder="Фамилия Имя" />
                   <FormErrorMessage>{form.errors.name}</FormErrorMessage>
                 </FormControl>
               )}

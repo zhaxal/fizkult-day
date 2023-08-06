@@ -27,6 +27,7 @@ import {
 } from "@chakra-ui/react";
 import FindRecordButton from "@components/admin-page-components/FindRecordButton";
 import SecretForm from "@components/forms/SecretForm";
+import ProtectedRoute from "@components/ui/ProtectedRoute";
 import { useAdmin } from "@contexts/admin-context";
 import { useRecord } from "@hooks/record";
 import { useSettings } from "@hooks/settings";
@@ -49,7 +50,6 @@ const Admin: NextPage = () => {
   const { data: available } = useSWR<WithId<Setting>>(`/api/setting`, fetcher);
 
   const [countByDate, setCountByDate] = useState<Map<string, number>>(new Map());
-  const router = useRouter();
 
   useEffect(() => {
     if (status === "unauthenticated") {
@@ -80,9 +80,9 @@ const Admin: NextPage = () => {
   }, [data]);
 
 
-  const handleRedirect = (path: string) => {
-    return () => router.push(path);
-  };
+  // const handleRedirect = (path: string) => {
+  //   return () => router.push(path);
+  // };
 
   return (
     <>
@@ -91,14 +91,6 @@ const Admin: NextPage = () => {
 
         <SimpleGrid minChildWidth="120px" spacing="40px">
           {(role === "staff" || role === "admin") && <FindRecordButton />}
-          {/* {(role === "staff" || role === "admin") &&
-            <Button
-              onClick={handleRedirect("/admin/schedule")}
-              variant="register"
-            >
-              Расписание
-            </Button>
-          } */}
 
           {/* {role === "admin" && (
             <Button
@@ -113,79 +105,81 @@ const Admin: NextPage = () => {
             Выйти
           </Button>
         </SimpleGrid>
+        {(role === "admin") &&
 
-        <Tabs>
-          <TabList>
-            <Tab>Заявки</Tab>
-            <Tab>Статистика</Tab>
-            <Tab>Настройка</Tab>
-          </TabList>
+          <Tabs>
+            <TabList>
+              <Tab>Заявки</Tab>
+              <Tab>Статистика</Tab>
+              <Tab>Настройка</Tab>
+            </TabList>
 
-          <TabPanels>
-            <TabPanel>
-              <TableContainer>
-                <Table variant='striped' colorScheme='teal'>
-                  <Thead>
-                    <Tr>
-                      <Th>Имя</Th>
-                      <Th>Почта</Th>
-                      <Th>Дата подачи</Th>
-                      <Th>Присутствует</Th>
-                    </Tr>
-                  </Thead>
-                  <Tbody>
-                    {data?.map((record, i) => (
-                      <Tr key={i}>
-                        <Td>{record.name}</Td>
-                        <Td>{record.email}</Td>
-                        <Td>{moment(record.date).tz("Europe/Moscow").format("lll")}</Td>
-                        <Td>{record.arrived ? "✅" : "✖"}</Td>
+            <TabPanels>
+              <TabPanel>
+                <TableContainer>
+                  <Table variant='striped' colorScheme='teal'>
+                    <Thead>
+                      <Tr>
+                        <Th>Имя</Th>
+                        <Th>Почта</Th>
+                        <Th>Дата подачи</Th>
+                        <Th>Присутствует</Th>
                       </Tr>
-                    ))}
-                  </Tbody>
-                </Table>
-              </TableContainer>
-            </TabPanel>
-            <TabPanel>
-              <TableContainer>
-                <Table variant='striped' colorScheme='teal'>
-                  <Thead>
-                    <Tr>
-                      <Th>Дата</Th>
-                      <Th>Записалось за день</Th>
-                      <Th>Всего</Th>
-                    </Tr>
-                  </Thead>
-                  <Tbody>
-                    {Array.from(countByDate).map(([key, value], i) =>
-                    (
-                      <Tr
-                        key={i}
-                      >
-                        <Td>{key}</Td>
-                        <Td>
-                          {value}
-                        </Td>
-                        <Td>{data?.length}</Td>
+                    </Thead>
+                    <Tbody>
+                      {data?.map((record, i) => (
+                        <Tr key={i}>
+                          <Td>{record.name}</Td>
+                          <Td>{record.email}</Td>
+                          <Td>{moment(record.date).tz("Europe/Moscow").format("lll")}</Td>
+                          <Td>{record.arrived ? "✅" : "✖"}</Td>
+                        </Tr>
+                      ))}
+                    </Tbody>
+                  </Table>
+                </TableContainer>
+              </TabPanel>
+              <TabPanel>
+                <TableContainer>
+                  <Table variant='striped' colorScheme='teal'>
+                    <Thead>
+                      <Tr>
+                        <Th>Дата</Th>
+                        <Th>Записалось за день</Th>
+                        <Th>Всего</Th>
                       </Tr>
-                    )
-                    )}
-                  </Tbody>
-                </Table>
-              </TableContainer>
-            </TabPanel>
-            <TabPanel>
-              <Stack direction={"row"}>
-                <Text variant='body'>{"Доступ к регистраций пользователей"}</Text>
-                <Checkbox isChecked={available?.available} onChange={(e) => {
-                  updateSetting({ id: String(available?._id), available: e.target.checked })
-                }} />
-                <Text variant='body'>{available?.available ? 'ДА' : 'НЕТ'}</Text>
-              </Stack>
+                    </Thead>
+                    <Tbody>
+                      {Array.from(countByDate).map(([key, value], i) =>
+                      (
+                        <Tr
+                          key={i}
+                        >
+                          <Td>{key}</Td>
+                          <Td>
+                            {value}
+                          </Td>
+                          <Td>{data?.length}</Td>
+                        </Tr>
+                      )
+                      )}
+                    </Tbody>
+                  </Table>
+                </TableContainer>
+              </TabPanel>
+              <TabPanel>
+                <Stack direction={"row"}>
+                  <Text variant='body'>{"Доступ к регистраций пользователей"}</Text>
+                  <Checkbox isChecked={available?.available} onChange={(e) => {
+                    updateSetting({ id: String(available?._id), available: e.target.checked })
+                  }} />
+                  <Text variant='body'>{available?.available ? 'ДА' : 'НЕТ'}</Text>
+                </Stack>
 
-            </TabPanel>
-          </TabPanels>
-        </Tabs>
+              </TabPanel>
+            </TabPanels>
+          </Tabs>
+        }
       </Container>
       <Modal
         closeOnEsc={false}
