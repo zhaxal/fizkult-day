@@ -91,14 +91,14 @@ const Admin: NextPage = () => {
 
         <SimpleGrid minChildWidth="120px" spacing="40px">
           {(role === "staff" || role === "admin") && <FindRecordButton />}
-          {(role === "staff" || role === "admin") &&
+          {/* {(role === "staff" || role === "admin") &&
             <Button
               onClick={handleRedirect("/admin/schedule")}
               variant="register"
             >
               Расписание
             </Button>
-          }
+          } */}
 
           {/* {role === "admin" && (
             <Button
