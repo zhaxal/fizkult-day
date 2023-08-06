@@ -4,7 +4,7 @@ import ProtectedRoute from "@components/ui/ProtectedRoute";
 import { useAdmin } from "@contexts/admin-context";
 import { useRouter } from "next/router";
 import { Button, Container, FormControl, FormLabel, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalHeader, ModalOverlay, Stack, Text, useBreakpointValue, useDisclosure } from '@chakra-ui/react';
-import { ObjectId, WithId } from 'mongodb';
+import { WithId } from 'mongodb';
 import { Schedule } from '@mongo/models/events/schedule';
 import { fetcher } from '@utils/fetcher';
 import useSWR from 'swr';
@@ -12,6 +12,7 @@ import TablePanel from '@components/ui/TablePanel';
 import { Form, Formik, useFormik } from 'formik';
 import { useFormButton } from '@contexts/form-button-context';
 import { useEventValuesHandler } from '@hooks/handlers';
+import { ObjectId } from 'bson';
 
 const Schedule: NextPage = () => {
     const { role } = useAdmin();
@@ -27,7 +28,7 @@ const Schedule: NextPage = () => {
     );
 
     const [initialValues, setInitialValues] = useState<WithId<Schedule>>({
-        _id: "",
+        _id: new ObjectId().toString(),
         type: "schedule",
         desc: "",
         title: "",
@@ -60,7 +61,7 @@ const Schedule: NextPage = () => {
                     <Button onClick={() => {
                         setMode("add")
                         setInitialValues({
-                            _id: "",
+                            _id: new ObjectId().toString(),
                             type: "schedule",
                             desc: "",
                             title: "",

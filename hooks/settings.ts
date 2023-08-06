@@ -1,8 +1,6 @@
 import axios from "axios";
-import { WithId } from "mongodb";
-import { Setting } from "@mongo/models/setting";
 import { useAxiosHandler } from "./handlers";
-import { mutate } from "swr";
+import { useSWRConfig } from "swr";
 
 interface SettingProps {
   id: string;
@@ -11,6 +9,8 @@ interface SettingProps {
 
 export const useSettings = () => {
   const { handleAxios } = useAxiosHandler();
+  const { mutate } = useSWRConfig();
+
   //   const { updateSnackbar } = useSnackbar();
 
   const updateSetting = (setting: SettingProps) => {
