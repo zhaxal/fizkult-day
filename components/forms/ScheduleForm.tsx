@@ -33,7 +33,6 @@ const ScheduleForm = ({ eventId, event }: EventForm) => {
         title: "",
         startDate: "",
         endDate: "",
-        _id: "",
         desc: "",
       };
 
