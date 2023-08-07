@@ -244,6 +244,141 @@ const Scene = ({ schedules }: Props) => {
           </Swiper>
         </Box>
       </Stack>
+
+      <Stack
+        mb="32px"
+        direction={variant ? "row" : "column"}
+        mx={variant ? "140px" : "0px"}
+        spacing="30px"
+        w={"100%"}
+      >
+        {variant &&
+          <Stack direction={"column"} justifyContent="center" alignItems={"center"} maxW={"540px"} spacing={"30px"}>
+            <Image
+              sx={{
+                borderRadius: 32,
+              }}
+              src={"/images/scene/dancegirl.png"}
+              alt={"dancegirl"}
+            />
+            <Button
+              variant={"festivale.register"}
+              maxW={"288px"}
+              minH={"97px"}
+              onClick={() => {
+                window.open(
+                  "https://mosgorsport.timepad.ru/event/2528777/",
+                  "_blank",
+                  "noopener,noreferrer"
+                );
+              }}
+            >
+              <Text
+                sx={{
+                  fontSize: "24px",
+                  color: "white",
+                  fontFamily: "Gotham Pro Light",
+                }}
+              >
+                РЕГИСТРАЦИЯ
+              </Text>
+            </Button>
+          </Stack>
+        }
+
+
+        <Stack direction={"column"} maxW={variant ? "540px" : "480px"} spacing={"40px"}>
+          <Text variant="date">12 АВГУСТА</Text>
+          {variant ? (<>          <Text variant={variant ? "heading.blue" : "heading.blue.mobile"}>
+            Танцевальная тренировка
+          </Text>
+            <Text variant={variant ? "heading.blue" : "heading.blue.mobile"}>
+              от проекта
+            </Text>
+            <Text variant={variant ? "heading.blue" : "heading.blue.mobile"}>
+              «Мой спортивный район»
+            </Text></>) : (
+            <>
+              <Text variant={"heading.blue.mobile"} sx={{ lineHeight: "30px" }}>
+                Танцевальная тренировка от проекта «Мой спортивный район»
+              </Text>
+            </>
+          )}
+
+
+          <Box>
+            <Text
+              variant={variant ? "body.bold" : "body.bold.mobile"}
+            >
+              Энергичная танцевальная тренировка с элементами флешмоба объединит сразу три направления: зумбу, дэнс-микс и фитрок
+            </Text>
+            <Text
+              variant={variant ? "body.bold" : "body.bold.mobile"}
+            >
+              Занятие начнется на Главной сцене в 15.40
+            </Text>
+            <Text
+              variant={variant ? "body.bold" : "body.bold.mobile"}
+            >
+              Тренировка подойдет для всех желающих независимо от уровня подготовки
+            </Text>
+            <Text
+              variant={variant ? "body.bold" : "body.bold.mobile"}
+            >
+              Проведут занятие одни из самых популярных тренеров проекта:
+            </Text>
+            <Text
+              as="ul"
+              variant={variant ? "body.bold" : "body.bold.mobile"}
+              sx={{
+                listStylePosition: "inside",
+                paddingLeft: "20px",
+              }}
+            >
+              <li>
+                Елена Кучма  — сертифицированный фитнес-инструктор, лицензированный инструктор LDFA (Latin Dance Fitness Alliance), многократный участник Всероссийского Танцевального Фитнес-Фестиваля, победитель конкурса DDX Dance Battle.
+              </li>
+              <li>Ника Устьянова —  инструктор Zumba Fitness и Stretching с 2020 г., учится направлению Bachata Lady style.</li>
+              <li>Мария Рагулина — практикующий инструктор по зумбе и функциональной тренировке fitrock, призер DDX Dance battle 3.0 и победитель DDX Dance battle 4.0.
+              </li>
+            </Text>
+          </Box>
+        </Stack>
+
+        {variant ??
+          <Stack direction={"column"} justifyContent="center" alignItems={"center"} maxW={"540px"} spacing={"30px"}>
+            <Image
+              sx={{
+                borderRadius: 32,
+              }}
+              src={"/images/scene/dancegirl.png"}
+              alt={"dancegirl"}
+            />
+            <Button
+              variant={"festivale.register"}
+              maxW={"255px"}
+              minH={"64px"}
+              onClick={() => {
+                window.open(
+                  "https://mosgorsport.timepad.ru/event/2528777/",
+                  "_blank",
+                  "noopener,noreferrer"
+                );
+              }}
+            >
+              <Text
+                sx={{
+                  fontSize: "16px",
+                  color: "white",
+                  fontFamily: "Gotham Pro Light",
+                }}
+              >
+                РЕГИСТРАЦИЯ
+              </Text>
+            </Button>
+          </Stack>
+        }
+      </Stack>
     </Container>
   );
 };
