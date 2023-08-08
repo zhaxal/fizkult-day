@@ -84,15 +84,15 @@ const Partners = () => {
         >
           <Image src="/images/partners/muf.svg" alt="mossport" />
         </Stack>
-        {variant ? (
-          <Stack
-            alignItems="center"
-            justifyContent="center"
-            bg="#F8F8F8"
-            py={variant ? "70px" : "44px"}
-            px={variant ? "15px" : "17px"}
-          />
-        ) : (<></>)}
+        <Stack
+          alignItems="center"
+          justifyContent="center"
+          bg="#F8F8F8"
+          py={variant ? "70px" : "44px"}
+          px={variant ? "15px" : "17px"}
+        >
+          <Image src="/images/partners/mosprod.svg" alt="mosprod" />
+        </Stack>
         {/* <Stack
           alignItems="center"
           justifyContent="center"
