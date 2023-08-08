@@ -139,11 +139,8 @@ const Scene = ({ schedules }: Props) => {
         <Stack direction={"column"} spacing={"40px"}>
           <Text variant="date">12 АВГУСТА</Text>
 
-          <Text variant={variant ? "heading.blue" : "heading.blue.mobile"}>
-            тренировка
-          </Text>
-          <Text variant={variant ? "heading.blue" : "heading.blue.mobile"}>
-            аделиной сотниковой
+          <Text variant={variant ? "heading.blue" : "heading.blue.mobile"} sx={{ lineHeight: "100%" }}>
+            тренировка аделиной сотниковой
           </Text>
           <Box>
             {/* i need indent on ul */}
@@ -178,12 +175,10 @@ const Scene = ({ schedules }: Props) => {
       >
         <Stack direction={"column"} spacing={"40px"}>
           <Text variant="date">12 АВГУСТА</Text>
-          <Text variant={variant ? "heading.blue" : "heading.blue.mobile"}>
-            ВЫСТУПЛЕНИЯ АРТИСТОВ
+          <Text variant={variant ? "heading.blue" : "heading.blue.mobile"} sx={{ lineHeight: "100%" }}>
+            ВЫСТУПЛЕНИЯ АРТИСТОВ ПРОЕКТов #моспродюсер
           </Text>
-          <Text variant={variant ? "heading.blue" : "heading.blue.mobile"}>
-            ПРОЕКТов #моспродюсер
-          </Text>
+
           <Box>
             {/* i need indent on ul */}
             <Text as="p" variant={variant ? "body.bold" : "body.bold.mobile"}>
@@ -377,6 +372,7 @@ const Scene = ({ schedules }: Props) => {
               </Text>
             </Button>
           </Stack>
+
         }
       </Stack>
     </Container>
