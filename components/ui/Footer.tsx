@@ -141,6 +141,8 @@ const Footer = () => {
               alt="vospitatel"
             />
             <Image height="50px" src="/images/muf-logo.svg" alt="muf-logo" />
+            <Image height="50px" src="/images/partners/mosprod.svg" alt="mosprod" />
+
           </Stack>
         ) : (
           <Stack
@@ -151,18 +153,20 @@ const Footer = () => {
             direction="row"
           >
             <Image
-              height="28px"
+              height="38px"
               src="/images/department.svg"
               alt="department"
             />
-            <Image height="28px" src="/images/mossport.svg" alt="mossport" />
-            <Image height="28px" src="/images/100years.svg" alt="100years" />
+            <Image height="38px" src="/images/mossport.svg" alt="mossport" />
+            <Image height="38px" src="/images/100years.svg" alt="100years" />
             <Image
-              height="28px"
+              height="38px"
               src="/images/vospitatel.svg"
               alt="vospitatel"
             />
-            <Image height="28px" src="/images/muf-logo.svg" alt="muf-logo" />
+            <Image height="38px" src="/images/muf-logo.svg" alt="muf-logo" />
+            <Image height="38px" src="/images/partners/mosprod.svg" alt="mosprod" />
+
           </Stack>
         )}
       </Container>

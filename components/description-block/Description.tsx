@@ -31,6 +31,8 @@ const Description = ({ available }: Props) => {
           <Stack mt="34px" spacing="20px" direction="row">
             <Image src="/images/vospitatel.svg" sx={{ maxWidth: "288px" }} onClick={() => window.open("https://www.mos.ru/moskomsport/")} cursor={"pointer"} alt="vospitatel" />
             <Image src="/images/muf-logo.svg" sx={{ maxWidth: "288px" }} onClick={() => window.open("https://moscow.sport")} cursor={"pointer"} alt="muf" />
+            <Image src="/images/partners/mosprod.svg" sx={{ maxWidth: "288px" }} onClick={() => window.open("https://moscow.sport")} cursor={"pointer"} alt="mosprod" />
+
           </Stack>
           <Stack mb="40px" alignItems="flex-start" spacing="40px" sx={{
             maxW: "544px",

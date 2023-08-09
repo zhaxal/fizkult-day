@@ -37,6 +37,7 @@ const DescriptionMobile = ({ available }: Props) => {
           <HStack w="100%" my="37px" px={"20px"}>
             <Image sx={{ width: "33%" }} onClick={() => window.open("")} cursor={"pointer"} src="/images/vospitatel.svg" alt="vospitatel" />
             <Image sx={{ width: "33%" }} onClick={() => window.open("")} cursor={"pointer"} src="/images/muf-logo.svg" alt="muf" />
+            <Image sx={{ width: "33%" }} onClick={() => window.open("")} cursor={"pointer"} src="/images/partners/mosprod.svg" alt="mosprod" />
           </HStack>
 
           <Stack mb="108px" alignItems="center" spacing="40px">
