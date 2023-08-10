@@ -30,6 +30,7 @@ import Festivale from "@components/festivale-block/Festivale";
 import Street from "@components/street-block/Street";
 import Scene from "@components/scene-block/Scene";
 import { Setting } from "@mongo/models/setting";
+import Activity from "@components/activity-block/Activity";
 
 const Home: NextPage = () => {
   const variant = useBreakpointValue({ md: true });
@@ -62,6 +63,7 @@ const Home: NextPage = () => {
         <Competitions />
         <Scene schedules={schedule} />
         <Street />
+        <Activity />
         <Partners />
         <Footer />
         {/* <Image
