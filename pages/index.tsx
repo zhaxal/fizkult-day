@@ -64,6 +64,7 @@ const Home: NextPage = () => {
         <Scene schedules={schedule} />
         <Street />
         <Activity />
+        <Gallery />
         <Partners />
         <Footer />
         {/* <Image
